@@ -669,7 +669,7 @@ section.container_carlist_no {
 }
 
 
-/* ==================个人中心============================================================ */
+/* ==================个人中心、积分中心============================================================ */
 
 section.center_man {
     div.center_top{
@@ -729,6 +729,61 @@ section.center_man {
                         width: 1px;/*no*/
                         background:@border_color;
                         right: 0;
+                        top:12px;
+                        position: absolute;
+                    }
+                }
+                a {
+                    display: inline-block;
+                    height: 100%;
+                    width: 100%;
+                    color: @syan_light;
+                    i{
+                        font-size: 10px;
+                        font-style: normal;
+                        img{
+                            width: 10px;
+                            height: auto;
+                            vertical-align: text-bottom;
+                        }
+                    }
+                    span {
+                        font-size: 14px;
+                    }
+                }
+            }
+            &:after {
+                content: '';
+                clear: both;
+                height: 0;
+                position: relative;
+                line-height: 0;
+                display: block;
+                font-size: 0;
+            }
+        }
+        ul.money_jifen{
+            width: 100%;
+            padding: 5px 10px 0;
+            box-sizing: border-box;
+            color: @syan_light;
+            li {
+                width: 49%;
+                float: left;
+                box-sizing: border-box;
+                padding: 10px 0;
+                text-align: center;
+                line-height: 26px;
+                font-size: 18px;
+                position: relative;
+                &:nth-child(2) {
+                    width: 49%;
+                    &:before{
+                        content: '';
+                        height: 50px;
+                        width: 1px;/*no*/
+                        background:@border_color;
+                        left: 0;
                         top:12px;
                         position: absolute;
                     }
@@ -847,6 +902,67 @@ section.center_man {
                 }
             }
         }
+    }
+    div.calendar{
+        width: 100%;
+        background: white;
+        margin-bottom: 10px;
+        .calendar_t{
+            width: 100%;
+            border:1px solid @border_color;/*no*/
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+        }
+        .calendar_b{
+            width: 100%;
+            ul{
+                width: 100%;
+                li{
+                    width: 14.2%;
+                    float: left;
+                    text-align: center;
+                    height: 36px;
+                    line-height: 36px;
+                    &.nowday{
+                        color: @orange;
+                    }
+                    &.qian{
+                        color: @orange;
+                        position: relative;
+                        z-index: 2;
+                        &:after{
+                            content: '';
+                            display: block;
+                            margin: 0 auto;
+                            width: 30px;
+                            height: 30px;
+                            border-radius: 100%;
+                            background: @orange_bg;
+                            position: relative;
+                            z-index: 1;
+                            top:-33px;
+                        }
+                    }
+                }
+                &:after {
+                    content: '';
+                    clear: both;
+                    height: 0;
+                    position: relative;
+                    line-height: 0;
+                    display: block;
+                    font-size: 0;
+                }
+            }
+        }
+    }
+    a.title_a{
+        width: 100%;
+        display: block;
+        text-align: center;
+        text-decoration: underline;
+        line-height: 36px;
     }
 }
 
