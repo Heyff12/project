@@ -1,15 +1,15 @@
-@grey: #A7A9AE;
-@black: #606470;
+@grey: #b8b8b8;
+@black: #4d4d4d;
 @input_color: #2F323A;
 @red_old: #ff0001;
-@red: #de2519;
+@red: #fe4a48;
 @orange_old: #FE9B20;
-@orange: #FF8100;
+@orange: #ffae21;
 @yellow: #ffff00;
 @border_color: #e5e5e5;
 @background_color: #F7F7F7;
 @orangebg_color_old: #ff9424;
-@orangebg_color: #FF8100;
+@orangebg_color: #ffae21;
 @shadow_color: #C2C2C2;
 @tostbg_color: #2F323A;
 @border_radius: 3px;
@@ -18,10 +18,15 @@
 @font_size: 15px;
 @images: '../img';
 @green:#50af0c;
-@bg_grey:#f4f4f4;
+@bg_grey:#f1f1f1;
 @word_white:#fcead4;
 @new_head_red:#f20000;
 @word_black:#878787;
+@bg_color:#f2f2f2;
+@syan:#354459;
+@syan_light:#f1f5fb;
+@blue:#1783db;
+@orange_bg:#ff7f00;
 body,
 p,
 ul,
@@ -214,7 +219,6 @@ body {
     color: @black;
     /* 增加该属性，可以增加弹性 */
     -webkit-overflow-scrolling: touch;
-    padding-bottom: 10px;
 }
 
 body.bg_white {
@@ -308,9 +312,9 @@ a.orange:hover {
 
 header {
     width: 100%;
-    background: @new_head_red;
+    background: @syan;
     box-sizing: border-box;
-    padding: 5px 0px 0;
+    padding: 0;
     line-height: 50px;
     height: 50px;
     font-size: 18px;
@@ -342,7 +346,7 @@ header {
         height: 50px;
         line-height: 50px;
         cursor: pointer;
-        top: 5px;
+        top: 0;
         span{
             font-size: 0.4rem;
         }
@@ -352,7 +356,7 @@ header {
             font-size: 14px;            
             &.back {
                 background: url('@{images}/icon_back.png') center left no-repeat;
-                background-size: 8px auto;
+                background-size: 12px auto;
             }
         }
         &.a_right {
@@ -380,6 +384,10 @@ header {
                 background: none;
                 font-size: 13px;
                 text-align: right;
+            }         
+            &.cart {
+                background: url('@{images}/icon_cart.png') center right no-repeat;
+                background-size: 22px auto;
             }
         }
     }

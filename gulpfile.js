@@ -53,13 +53,13 @@ var file_road = {
     imgSrc: './' + now_project + '/src/img/**/*',
     imgDst: './' + now_project + '/static/img',
 
-    jsLocal_es6_no: ['./' + now_project + '/src/js/plug/**/*.js', './' + now_project + '/src/js/require.2.1.11.min.js', './' + now_project + '/src/js/require-config.js'],
+    jsLocal_es6_no: ['./' + now_project + '/src/js/{plug,common}/**/*.js', './' + now_project + '/src/js/require.2.1.11.min.js', './' + now_project + '/src/js/require-config.js'],
     jsLocal_es6: ['./' + now_project + '/src/js/**/*.js', '!./' + now_project + '/src/js/require.2.1.11.min.js', '!./' + now_project + '/src/js/require-config.js', '!./' + now_project + '/src/js/plug/**/*.js'],
     jsDst: './' + now_project + '/static/js',
 
     htmlSrc: './' + now_project + '/html/**/*.html',
 
-    w_cleanall: './' + now_project + '/static/{js,css}/**/*',
+    w_cleanall: './' + now_project + '/static/{js,css,img}/**/*',
 
     w_cssSrc: now_project + '/src/less/**/*.less',
     w_imgSrc: now_project + '/src/img/**/*',
@@ -121,11 +121,11 @@ gulp.task('jshint', function() {
 //js--转es6
 gulp.task('js_local_es6', function() {
     gulp.src(file_road.jsLocal_es6)
-        .pipe(jshint({
-            "undef": true,
-            "unused": false
-        }))
-        .pipe(jshint.reporter(stylish)) //代码检测
+        // .pipe(jshint({
+        //     "undef": true,
+        //     "unused": false
+        // }))
+        // .pipe(jshint.reporter(stylish)) //代码检测
         .pipe(babel({
             presets: ['es2015'],
             // modules: "amd" // 默认是 common，也可以改成 umd
@@ -136,7 +136,7 @@ gulp.task('js_local_es6', function() {
 //js--非转es6
 gulp.task('jsLocal_es6_no', function() {
     gulp.src(file_road.jsLocal_es6_no)
-        .pipe(jshint.reporter('default')) //代码检测
+        // .pipe(jshint.reporter('default')) //代码检测
         .pipe(gulp.dest(file_road.jsDst)) //本地目录--未压缩
         .pipe(browserSync.stream())
 });

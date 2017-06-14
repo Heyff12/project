@@ -4,7 +4,9 @@
   "description": "rechargeB详情",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "dev": "gulp del && gulp dev",
+    "build": "gulp del && gulp static"
   },
   "author": "heyff",
   "license": "ISC",
