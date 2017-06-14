@@ -924,24 +924,21 @@ section.center_man {
                     text-align: center;
                     height: 36px;
                     line-height: 36px;
+                    span{
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 100%;
+                        display: inline-block;
+                        text-align: center;
+                        line-height: 30px;
+                    }
                     &.nowday{
                         color: @orange;
                     }
-                    &.qian{
-                        color: @orange;
-                        position: relative;
-                        z-index: 2;
-                        &:after{
-                            content: '';
-                            display: block;
-                            margin: 0 auto;
-                            width: 30px;
-                            height: 30px;
-                            border-radius: 100%;
+                    &.qian{                        
+                        span{
                             background: @orange_bg;
-                            position: relative;
-                            z-index: 1;
-                            top:-33px;
+                            color: white;
                         }
                     }
                 }
@@ -954,6 +951,16 @@ section.center_man {
                     display: block;
                     font-size: 0;
                 }
+            }
+        }
+    }
+    .sel_button{
+        width: 100%;
+        padding: 0 40px;
+        box-sizing: border-box;
+        span{
+            &.hide{
+                display: none;
             }
         }
     }

@@ -1843,27 +1843,22 @@ section.center_man div.calendar .calendar_b ul li {
   line-height: 0.96rem;
 }
 
+section.center_man div.calendar .calendar_b ul li span {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 100%;
+  display: inline-block;
+  text-align: center;
+  line-height: 0.8rem;
+}
+
 section.center_man div.calendar .calendar_b ul li.nowday {
   color: #ffae21;
 }
 
-section.center_man div.calendar .calendar_b ul li.qian {
-  color: #ffae21;
-  position: relative;
-  z-index: 2;
-}
-
-section.center_man div.calendar .calendar_b ul li.qian:after {
-  content: '';
-  display: block;
-  margin: 0 auto;
-  width: 0.8rem;
-  height: 0.8rem;
-  border-radius: 100%;
+section.center_man div.calendar .calendar_b ul li.qian span {
   background: #ff7f00;
-  position: relative;
-  z-index: 1;
-  top: -0.88rem;
+  color: white;
 }
 
 section.center_man div.calendar .calendar_b ul:after {
@@ -1874,6 +1869,17 @@ section.center_man div.calendar .calendar_b ul:after {
   line-height: 0;
   display: block;
   font-size: 0;
+}
+
+section.center_man .sel_button {
+  width: 100%;
+  padding: 0 1.066667rem;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+section.center_man .sel_button span.hide {
+  display: none;
 }
 
 section.center_man a.title_a {
