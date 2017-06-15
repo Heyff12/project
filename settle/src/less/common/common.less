@@ -455,7 +455,7 @@ header {
         cursor: pointer;
         font-weight: normal;
         display: inline-block;
-        background: @red;
+        background: @orange_bg;
         border-radius: @border_radius;
         transtion: all 1s;
         color: white;
@@ -560,6 +560,40 @@ header {
         &:nth-child(1) {
             border-right: @border_width solid @border_color;
         }
+    }
+}
+.both_button_fen{
+    width: 100%; 
+    margin: 20px auto;   
+    li {
+        width: 50%;
+        float: left;
+        height: 50px;
+        text-align: center;
+        font-size: 16px;
+        span{
+            width: 110px;
+            height: 46px;
+            line-height: 46px;
+            text-align: center;
+            display: inline-block;
+            border-radius: 5px;
+            color: white;
+            &.cancle{
+                background: #dbdbdb;
+            }
+            &.sure{
+                background: @orange_bg;
+            }
+        }
+    }
+    &:after{
+        content: '';
+        clear: both;
+        display: block;
+        height: 0;
+        line-height: 0;
+        font-size: 0;
     }
 }
 

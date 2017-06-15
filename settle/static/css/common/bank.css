@@ -834,3 +834,372 @@ div.toast_data_short {
   margin-top: -0.8rem;
   z-index: -12;
 }
+
+/* ==================通用============================================================ */
+
+body.bg_body {
+  background: #f1f1f1;
+}
+
+body.bg_body_red {
+  background: #f20000;
+}
+
+body.no_padding {
+  padding: 0;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #878787;
+}
+
+input:-moz-placeholder,
+input:-ms-input-placeholder {
+  color: #878787;
+}
+
+p.title_band {
+  width: 80%;
+  text-align: center;
+  font-size: 0.426667rem;
+  position: relative;
+  height: 0.64rem;
+  line-height: 0.64rem;
+  margin: 0.266667rem auto 0.426667rem;
+  background: none;
+}
+
+p.title_band span {
+  display: inline-block;
+}
+
+p.title_band span.line {
+  width: 60%;
+  height: 0.026667rem;
+  background: #b8b8b8;
+  left: 20%;
+  top: 0.32rem;
+  position: absolute;
+  z-index: 1;
+}
+
+p.title_band span.word {
+  background: white;
+  height: 0.64rem;
+  padding: 0 0.213333rem;
+  position: relative;
+  z-index: 2;
+}
+
+p.title_band span.word.bg_grey {
+  background: #f2f2f2;
+}
+
+p.title_band span.word img {
+  display: inline-block;
+  width: 0.586667rem;
+  height: auto;
+  padding: 0 0.133333rem;
+  position: relative;
+}
+
+p.title_band span.word img.pro {
+  top: 0.026667rem;
+}
+
+p.title_band span.word img.detail {
+  top: 0.08rem;
+}
+
+span.button {
+  width: 100%;
+  padding: 0 0.266667rem;
+  height: 1.066667rem;
+  line-height: 1.066667rem;
+  text-align: center;
+  color: white;
+  background: #fe4a48;
+  border-radius: 0.16rem;
+  display: inline-block;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 0.48rem;
+  letter-spacing: 0.08rem;
+}
+
+span.button.small {
+  height: 1.066667rem;
+  line-height: 1.066667rem;
+}
+
+span.button.blue_bg {
+  background: #1783db;
+}
+
+span.button.red_bg {
+  background: #fe4a48;
+}
+
+span.button.orange_bg {
+  background: #ff7f00;
+}
+
+.fixed_button {
+  width: 100%;
+  padding: 0 0.4rem;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: fixed;
+  bottom: 0.4rem;
+}
+
+.fixed_button.normal {
+  position: static;
+}
+
+span.count {
+  width: 2.666667rem;
+  display: inline-block;
+  padding: 0 0.08rem 0 0.133333rem;
+  position: relative;
+  top: 0.106667rem;
+}
+
+span.count i {
+  display: inline-block;
+  width: 0.853333rem;
+  height: 0.853333rem;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  line-height: 0.853333rem;
+  text-align: center;
+  font-style: normal;
+  font-size: 0.533333rem;
+  border: 1px solid #e5e5e5;
+}
+
+span.count i:nth-child(2) {
+  border-left: 0;
+  border-right: 0;
+}
+
+span.count.small {
+  width: 2.133333rem;
+}
+
+span.count.small i {
+  height: 0.693333rem;
+  width: 0.693333rem;
+  line-height: 0.693333rem;
+}
+
+p.add_more {
+  width: 100%;
+  height: 1.333333rem;
+  line-height: 1.333333rem;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  background: white;
+}
+
+p.add_more.bg_grey {
+  background: #f1f1f1;
+  position: static;
+}
+
+span.radio_css {
+  display: inline-block;
+  width: 0.586667rem;
+  height: 0.586667rem;
+  overflow: hidden;
+}
+
+span.radio_css img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+span.radio_css img.hide {
+  display: none;
+}
+
+.form_line {
+  width: 100%;
+  background: white;
+}
+
+.form_line.bottom_10 {
+  margin-bottom: 0.266667rem;
+}
+
+.form_line dl {
+  height: 1.333333rem;
+  width: 100%;
+  padding: 0 0.4rem;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  line-height: 1.333333rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.form_line dl dt {
+  width: 20%;
+  float: left;
+}
+
+.form_line dl dd {
+  width: 78%;
+  float: right;
+}
+
+.form_line dl dd input {
+  width: 100%;
+  height: 1.333333rem;
+  line-height: 1.333333rem;
+  border: none;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: none;
+  padding: 0 0.133333rem;
+  font-size: 0.373333rem;
+}
+
+.form_line dl.nodt_right dd {
+  width: 100%;
+  position: relative;
+}
+
+.form_line dl.nodt_right dd span.kong {
+  width: 60%;
+  float: right;
+  height: 0.96rem;
+  text-align: center;
+  border-radius: 0.133333rem;
+  background: #f1f1f1;
+  line-height: 0.96rem;
+  display: inline-block;
+  position: relative;
+  top: 0.186667rem;
+}
+
+.form_line dl.nodt_right dd p.getcode {
+  width: 30%;
+  position: absolute;
+  left: 0;
+  top: 0.186667rem;
+}
+
+.form_line dl.nodt dd {
+  width: 100%;
+  position: relative;
+}
+
+.form_line dl.nodt dd input {
+  width: 60%;
+  float: left;
+}
+
+.form_line dl.nodt dd p.getcode {
+  width: 30%;
+  position: absolute;
+  right: 0;
+  top: 0.186667rem;
+}
+
+.form_line dl.red_border {
+  border-bottom: 1px solid #fe4a48;
+}
+
+.form_line dl.dt_long dt {
+  width: 30%;
+}
+
+.form_line dl.dt_long dd {
+  width: 68%;
+}
+
+.form_line dl.dt_long dd input {
+  text-align: right;
+}
+
+.form_line dl.select dd input {
+  background: url('../img/icon_right.png') right center no-repeat;
+  background-size: 0.266667rem auto;
+  padding-right: 0.4rem;
+}
+
+.form_line dl.dt_alone {
+  padding: 0.266667rem 0.4rem;
+  height: 2.133333rem;
+  line-height: 0.8rem;
+}
+
+.form_line dl.dt_alone dt {
+  clear: both;
+  width: 100%;
+  height: 0.8rem;
+  line-height: 0.8rem;
+}
+
+.form_line dl.dt_alone dd {
+  clear: both;
+  width: 100%;
+  height: 0.8rem;
+}
+
+.form_line dl.dt_alone dd input {
+  width: 100%;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  border: none;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: none;
+  padding: 0 0.133333rem;
+  font-size: 0.373333rem;
+}
+
+.form_line dl:after {
+  content: '';
+  clear: both;
+  height: 0;
+  position: relative;
+  line-height: 0;
+  display: block;
+  font-size: 0;
+}
+
+p.form_note {
+  width: 100%;
+  padding: 0.266667rem 0.4rem;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: #f1f1f1;
+  line-height: 0.533333rem;
+  font-size: 0.346667rem;
+  color: #b8b8b8;
+}
+
+p.getcode {
+  width: 100%;
+  display: inline-block;
+  border-radius: 0.133333rem;
+  background: #ff7f00;
+  color: white;
+  text-align: center;
+  height: 0.96rem;
+  line-height: 0.96rem;
+  float: right;
+}
+
+p.getcode span.get_entycode {
+  width: 100%;
+}
+
+p.getcode span.show_entycode {
+  display: none;
+  width: 100%;
+}
