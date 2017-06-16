@@ -1106,16 +1106,17 @@ section.share {
             line-height: 30px;
             dt {
                 width: 280px;
+                height: 140px;
                 margin: 0 auto;
-                background: url('@{images}/flower.png') top center no-repeat;
-                background-size: 100% auto;
+                background: url('@{images}/sharebg.png') top center no-repeat;
+                background-size: auto 140px;
                 span {
-                    width: 90px;
-                    height: 90px;
+                    width: 85px;
+                    height: 85px;
                     border-radius: 100%;
                     display: inline-block;
                     overflow: hidden;
-                    margin-top: 20px;
+                    margin-top: 22px;
                     img {
                         width: 100%;
                         height: auto;
@@ -1123,7 +1124,7 @@ section.share {
                 }
             }
             dd {
-                margin-top: 20px;
+                margin-top: 8px;
             }
         }
     }
@@ -1151,7 +1152,7 @@ section.share {
     .ewm_out {
         width: 230px;
         height: 230px;
-        margin: 30px auto;
+        margin: 30px auto 10px;
         img {
             width: 100%;
             height: auto;
@@ -1171,17 +1172,22 @@ section.share {
 /* ==================用户须知============================================================ */
 
 section.rule {
+    width: 100%;
+    height: 100%;
+    background:url('@{images}/rulebg.png') top center no-repeat @syan;
+    background-size: 100% auto;
+    padding-bottom: 0px;
     ul.rules {
         width: 100%;
-        line-height: 22px;
-        padding: 30px 20px 0;
+        line-height: 24px;
+        padding: 40px 20px 40px;
         box-sizing: border-box;
-        font-size: 12px;
+        font-size: 14px;
         min-height: 450px;
         li {
             width: 100%;
-            margin: 0 auto 10px;
-            color: @word_black;
+            margin: 0 auto 12px;
+            color: white;
             dl {
                 width: 100%;
                 dt {
@@ -1354,116 +1360,6 @@ section.tojoin {
                 span {
                     font-size: 12px;
                 }
-            }
-        }
-    }
-    .bank_div {
-        width: 100%;
-        border-bottom: 1px solid @border_color;
-        /*no*/
-        padding: 0 15px;
-        box-sizing: border-box;
-        ul {
-            width: 100%;
-            &.p {
-                padding: 10px 0;
-                li {
-                    width: 100%;
-                    height: 30px;
-                    line-height: 30px;
-                }
-            }
-            &.select {
-                padding: 10px 0;
-                li {
-                    width: 48%;
-                    margin: 10px 0;
-                    margin-right: 4%;
-                    text-align: center;
-                    background: white;
-                    box-sizing: border-box;
-                    float: left;
-                    height: 70px;
-                    line-height: 70px;
-                    font-size: 18px;
-                    border: 1px solid @border_color;
-                    /*no*/
-                    border-radius: 8px;
-                    color: black;
-                    &:nth-child(even) {
-                        margin-right: 0;
-                    }
-                    &.tab {
-                        border-color: @orange_bg;
-                        background: @orange_bg;
-                        color: white;
-                    }
-                }
-            }
-            &:after {
-                content: '';
-                clear: both;
-                height: 0;
-                position: relative;
-                line-height: 0;
-                display: block;
-                font-size: 0;
-            }
-        }
-        input.text {
-            width: 100%;
-            border: 1px solid @border_color;
-            /*no*/
-            border-radius: 3px;
-            background: none;
-            height: 36px;
-            line-height: 36px;
-            font-size: 16px;
-            display: block;
-            padding: 0 6px;
-            box-sizing: border-box;
-            margin-bottom: 10px;
-        }
-        dl.radio {
-            width: 100%;
-            height: 60px;
-            position: relative;
-            dt {
-                width: 42px;
-                height: 42px;
-                position: absolute;
-                left: 0;
-                top: 8px;
-                img {
-                    width: 100%;
-                    height: auto;
-                }
-            }
-            dd {
-                width: 100%;
-                padding: 7px 0 0 52px;
-                box-sizing: border-box;
-                line-height: 24px;
-                position: relative;
-                span {
-                    &.grey {
-                        font-size: 13px;
-                    }
-                    &.sel {
-                        position: absolute;
-                        top: 19px;
-                        right: 0;
-                    }
-                }
-            }
-            &:after {
-                content: '';
-                clear: both;
-                height: 0;
-                position: relative;
-                line-height: 0;
-                display: block;
-                font-size: 0;
             }
         }
     }

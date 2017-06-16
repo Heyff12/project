@@ -1067,6 +1067,18 @@ span.radio_css img.hide {
   font-size: 0.373333rem;
 }
 
+.form_line dl dd textarea {
+  width: 100%;
+  height: 1.333333rem;
+  line-height: 0.666667rem;
+  border: none;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: none;
+  padding: 0 0.133333rem;
+  font-size: 0.373333rem;
+}
+
 .form_line dl.nodt_right dd {
   width: 100%;
   position: relative;
