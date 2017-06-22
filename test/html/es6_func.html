@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>es6新性能</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <script>
+    window.PointerEvent = void 0
+    </script>
+    <script type="text/javascript" src="../static/js/plug/flexible.debug.js"></script>
+    <link rel="stylesheet" href="../static/css/home.css">
+</head>
+
+<body class="bg_body">
+    <div id="wap">
+        <header>
+            <h2>es6新性能-函数的扩展</h2>
+            <a class="title_a a_left back"></a>
+        </header>
+        <section class="bind descripe">
+            <dl>
+                <dt class="green">1、函数参数的默认值</dt>
+                <dd>ES6 允许为函数的参数设置默认值，即直接写在参数定义的后面。</dd>
+                <dd>参数变量是默认声明的，所以不能用let或const再次声明。</dd>
+                <dd>使用参数默认值时，函数不能有同名参数。</dd>
+                <dd>参数默认值不是传值的，而是每次都重新计算默认值表达式的值。也就是说，参数默认值是惰性求值的。</dd>
+                <dd>如果非尾部的参数设置默认值，实际上这个参数是没法省略的。</dd>
+                <dd>指定了默认值以后，函数的length属性，将返回没有指定默认值的参数个数。也就是说，指定了默认值后，length属性将失真。</dd>
+                <dd>一旦设置了参数的默认值，函数进行声明初始化时，参数会形成一个单独的作用域（context）。等到初始化结束，这个作用域就会消失。</dd>
+                <dd>这表明参数的默认值不是在定义时执行，而是在运行时执行。如果参数已经赋值，默认值中的函数就不会运行。</dd>
+                <dd>可以将参数默认值设为undefined，表明这个参数是可以省略的。</dd>
+                <dt class="green">2、rest 参数 </dt>
+                <dd>ES6 引入 rest 参数（形式为...变量名），用于获取函数的多余参数，这样就不需要使用arguments对象了。rest 参数搭配的变量是一个数组，该变量将多余的参数放入数组中。</dd>
+                <dd>注意，rest 参数之后不能再有其他参数（即只能是最后一个参数），否则会报错。</dd>
+                <dd>函数的length属性，不包括 rest 参数。</dd>               
+                <dt class="green">3、扩展运算符</dt>
+                <dd>扩展运算符（spread）是三个点（...）。它好比 rest 参数的逆运算，将一个数组转为用逗号分隔的参数序列。</dd>
+                <dd>由于扩展运算符可以展开数组，所以不再需要apply方法，将数组转为函数的参数了。</dd>
+                <dd>如果将扩展运算符用于数组赋值，只能放在参数的最后一位，否则会报错。</dd>
+                <dd>任何Iterator接口的对象，都可以用扩展运算符转为真正的数组。</dd>
+                <dt class="green">4、数组实例的find()和findIndex()</dt>
+                <dd>数组实例的find方法，用于找出第一个符合条件的数组成员。它的参数是一个回调函数，所有数组成员依次执行该回调函数，直到找出第一个返回值为true的成员，然后返回该成员。如果没有符合条件的成员，则返回undefined。</dd>
+                <dd>find方法的回调函数可以接受三个参数，依次为当前的值、当前的位置和原数组。</dd>
+                <dd>数组实例的findIndex方法的用法与find方法非常类似，返回第一个符合条件的数组成员的位置，如果所有成员都不符合条件，则返回-1。</dd>
+                <dt class="green">5、数组实例的fill()</dt>
+                <dd>fill方法使用给定值，填充一个数组。</dd>
+                <dd>fill方法还可以接受第二个和第三个参数，用于指定填充的起始位置和结束位置</dd>
+                <dt class="green">6、数组实例的entries()，keys()和values()</dt>
+                <dd>ES6提供三个新的方法——entries()，keys()和values()——用于遍历数组。</dd>
+                <dd>如果不使用for...of循环，可以手动调用遍历器对象的next方法，进行遍历。</dd>
+                <dt class="green">7、数组实例的 includes()</dt>
+                <dd>Array.prototype.includes方法返回一个布尔值，表示某个数组是否包含给定的值，与字符串的includes方法类似。ES2016 引入了该方法。</dd>
+                <dt>8、数组的空位</dt>
+                <dd>ES5 对空位的处理，已经很不一致了，大多数情况下会忽略空位。
+
+forEach(), filter(), every() 和some()都会跳过空位。
+map()会跳过空位，但会保留这个值
+join()和toString()会将空位视为undefined，而undefined和null会被处理成空字符串。</dd>
+                <dd>ES6 则是明确将空位转为undefined。</dd>
+                <dd>entries()、keys()、values()、find()和findIndex()会将空位处理成undefined。</dd>
+            </dl>
+        </section>
+    </div>
+    <!-- <script src="../static/js/require.2.1.11.min.js " type="text/javascript " data-main="../static/js/home/str.js" defer async="true "></script> -->
+    <script src="../static/js/home/func.js " type="text/javascript "defer async="true "></script>
+</body>
+
+</html>

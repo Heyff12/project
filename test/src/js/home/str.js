@@ -1,5 +1,5 @@
 //var $ = require('../plug/zepto.min.js');
-import {$} from '../plug/zepto.min.js';
+//import $ from '../plug/zepto.min.js';
 
 
 console.log("\u{20BB7}")
@@ -93,9 +93,22 @@ var name = "Bob",
     time = "today";
 console.log(`Hello ${name}, how are you ${time}?`)
 
-$('#list').html(`
+document.getElementById('list').innerHTML=`
 <ul>
-  <li>first</li>
+  <li>first--${name}</li>
   <li>second</li>
+  <li>first22--${time}</li>
+  <li>second44</li>
 </ul>
-`.trim());
+`.trim();
+
+
+// 写法一
+let str = 'return ' + '`Hello ${name}!`';
+let func = new Function('name', str);
+console.log(func('Jack')) // "Hello Jack!"
+
+// 写法二
+let str1 = '(name) => `Hello ${name}!`';
+let func1 = eval.call(null, str1);
+console.log(func1('Jack')) // "Hello Jack!"

@@ -25,11 +25,11 @@ require(['../require-config'], function() {
                         $('.js_page .js_li').eq(9).addClass('tab');
                     })
                 }
-                var now_num=$parent_ul.find('.tab').index();
-                if(now_num!==num){
+                var now_num = $parent_ul.find('.tab').index();
+                if (now_num !== num) {
                     //内容替换ajax---todo
                     console.log('new')
-                }  
+                }
             });
             $('.js_next').on('click', function() {
                 var $parent_ul = $(this).parents('.js_page')
@@ -46,11 +46,11 @@ require(['../require-config'], function() {
                         $('.js_page .js_li').eq(0).addClass('tab');
                     })
                 }
-                var now_num=$parent_ul.find('.tab').index();
-                if(now_num!==num){
+                var now_num = $parent_ul.find('.tab').index();
+                if (now_num !== num) {
                     //内容替换ajax---todo
                     console.log('new')
-                }                
+                }
             });
             // 省份列表
             var iosProvinces_ajax = [

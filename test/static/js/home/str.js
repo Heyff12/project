@@ -1,12 +1,13 @@
 'use strict';
 
-var _zeptoMin = require('../plug/zepto.min.js');
+//var $ = require('../plug/zepto.min.js');
+//import $ from '../plug/zepto.min.js';
+
 
 console.log('\uD842\uDFB7');
 // "𠮷"
 
 /////JavaScript 共有6种方法可以表示一个字符。------------------------
-//var $ = require('../plug/zepto.min.js');
 console.log('\z' === 'z'); // true
 //console.log('\172' === 'z') // true
 console.log('\x7A' === 'z'); // true
@@ -115,4 +116,14 @@ var name = "Bob",
     time = "today";
 console.log('Hello ' + name + ', how are you ' + time + '?');
 
-(0, _zeptoMin.$)('#list').html('\n<ul>\n  <li>first</li>\n  <li>second</li>\n</ul>\n'.trim());
+document.getElementById('list').innerHTML = ('\n<ul>\n  <li>first--' + name + '</li>\n  <li>second</li>\n  <li>first22--' + time + '</li>\n  <li>second44</li>\n</ul>\n').trim();
+
+// 写法一
+var str = 'return ' + '`Hello ${name}!`';
+var func = new Function('name', str);
+console.log(func('Jack')); // "Hello Jack!"
+
+// 写法二
+var str1 = '(name) => `Hello ${name}!`';
+var func1 = eval.call(null, str1);
+console.log(func1('Jack')); // "Hello Jack!"
