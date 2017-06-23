@@ -132,48 +132,72 @@ console.log(arr1.concat(arr2, arr3));
 console.log([...arr1, ...arr2, ...arr3])
 // [ 'a', 'b', 'c', 'd', 'e' ]
 
+let map = new Map([
+  [1, 'one'],
+  [2, 'two'],
+  [3, 'three'],
+]);
 
-//4、Array.from()-------------------------------------------------------
+let arr12 = [...map.keys()]; // [1, 2, 3]
+console.log(arr12);
+//6、箭头函数------------------------------------------------------
 
+function Timer() {
+  this.s1 = 0;
+  this.s2 = 0;
+  // 箭头函数
+  setInterval(() => this.s1++, 1000);
+  // 普通函数
+  setInterval(function () {
+    this.s2++;
+  }, 1000);
+}
 
+var timer = new Timer();
 
-
-
-
-
-//5、Array.from()-------------------------------------------------------
-
-
-
-
-
-
-
-//6、Array.from()-------------------------------------------------------
-
-
-
-
-
-
-
-//7、Array.from()-------------------------------------------------------
-
-
-
-
-
-
-
-//8、Array.from()-------------------------------------------------------
+setTimeout(() => console.log('s1: ', timer.s1), 3100);
+setTimeout(() => console.log('s2: ', timer.s2), 3100);
+// s1: 3
+// s2: 0
 
 
 
 
 
 
+//8、尾调用优化-------------------------------------------------------
 
-//9、Array.from()-------------------------------------------------------
+function factorial(n, total) {
+  if (n === 1) return total;
+  return factorial(n - 1, n * total);
+}
+
+var zong=factorial(5, 1) // 120
+console.log(zong);
+
+//尾递归优化过的 Fibonacci 数列实现如下。
+function Fibonacci2 (n , ac1 = 1 , ac2 = 1) {
+  if( n <= 1 ) {return ac2};
+
+  return Fibonacci2 (n - 1, ac2, ac1 + ac2);
+}
+
+// Fibonacci2(100) // 573147844013817200000
+// Fibonacci2(1000) // 7.0330367711422765e+208
+// Fibonacci2(10000) // Infinity
+var fib=Fibonacci2(100)
+console.log(fib);
+
+
+
+
+
+
+
+
+
+
+
 
 
 

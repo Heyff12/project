@@ -6,22 +6,16 @@ var a = 1,
 var head = 1,
     tail = [2, 3, 4];
 
-console.log(head); // 1
-console.log(tail); // [2, 3, 4]
-
+console.log(head);
+console.log(tail);
 var _ref = ['a'],
     x = _ref[0],
     y = _ref[1],
     z = _ref.slice(2);
 
-console.log(x); // "a"
-console.log(y); // undefined
-console.log(z); // []
-
-
-// let [x, y, z] = new Set(['a', 'b', 'c']);
-// console.log(x) // "a"
-
+console.log(x);
+console.log(y);
+console.log(z);
 
 var obj = {};
 var arr = [];
@@ -31,5 +25,5 @@ obj.prop = _foo$bar.foo;
 arr[0] = _foo$bar.bar;
 
 
-console.log(obj); // {prop:123}
-console.log(arr); // [true]
+console.log(obj);
+console.log(arr);

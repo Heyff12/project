@@ -1,7 +1,4 @@
 {
-  "presets": [
-	  "latest",
-	  "react",
-	  "es2015",
-  ],
+  "presets": ["env", "es2015", "stage-2"],
+  "comments": false
 }

@@ -2,15 +2,16 @@
 
 var _console, _console2;
 
-//1、函数参数的默认值-------------------------------------------------------
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 function log(x, y) {
   y = y || 'World';
   console.log(x, y);
 }
 
-log('Hello'); // Hello World
-log('Hello', 'China'); // Hello China
-log('Hello', ''); // Hello World
+log('Hello');
+log('Hello', 'China');
+log('Hello', '');
 
 function log1(x) {
   var y = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'World';
@@ -18,21 +19,9 @@ function log1(x) {
   console.log(x, y);
 }
 
-log1('Hello'); // Hello World
-log1('Hello', 'China'); // Hello China
-log1('Hello', ''); // Hello
-
-// function foo({x, y = 5}) {
-//   console.log(x, y);
-// }
-
-// foo({}) // undefined, 5
-// foo({x: 1}) // 1, 5
-// foo({x: 1, y: 2}) // 1, 2
-// foo() // TypeError: Cannot read property 'x' of undefined
-
-
-// 写法一
+log1('Hello');
+log1('Hello', 'China');
+log1('Hello', '');
 function m1() {
   var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
       _ref$x = _ref.x,
@@ -43,7 +32,6 @@ function m1() {
   return [x, y];
 }
 
-// 写法二
 function m2() {
   var _ref2 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { x: 0, y: 0 },
       x = _ref2.x,
@@ -51,26 +39,18 @@ function m2() {
 
   return [x, y];
 }
-// 函数没有参数的情况
-m1(); // [0, 0]
-m2(); // [0, 0]
 
-// x和y都有值的情况
-m1({ x: 3, y: 8 }); // [3, 8]
-m2({ x: 3, y: 8 }); // [3, 8]
+m1();
+m2();
+m1({ x: 3, y: 8 });
+m2({ x: 3, y: 8 });
+m1({ x: 3 });
+m2({ x: 3 });
+m1({});
+m2({});
 
-// x有值，y无值的情况
-m1({ x: 3 }); // [3, 0]
-m2({ x: 3 }); // [3, undefined]
-
-// x和y都无值的情况
-m1({}); // [0, 0];
-m2({}); // [undefined, undefined]
-
-m1({ z: 3 }); // [0, 0]
-m2({ z: 3 }); // [undefined, undefined]
-
-//2、rest 参数-------------------------------------------------------
+m1({ z: 3 });
+m2({ z: 3 });
 
 function add() {
   var sum = 0;
@@ -107,15 +87,7 @@ function add() {
   return sum;
 }
 
-console.log(add(2, 5, 3)); // 10
-
-
-// arguments变量的写法
-// function sortNumbers() {
-//   return Array.prototype.slice.call(arguments).sort();
-// }
-
-// rest参数的写法
+console.log(add(2, 5, 3));
 var sortNumbers = function sortNumbers() {
   for (var _len2 = arguments.length, numbers = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
     numbers[_key2] = arguments[_key2];
@@ -139,35 +111,25 @@ var a = [];
 push(a, 1, 2, 3);
 console.log(a);
 
-//3、扩展运算符-------------------------------------------------------
 (_console = console).log.apply(_console, [1, 2, 3]);
-// 1 2 3
+
 
 (_console2 = console).log.apply(_console2, [1].concat([2, 3, 4], [5]));
-// 1 2 3 4 5
 
-
-// ES5的写法
-function f(x, y, z) {
-  // ...
-}
+function f(x, y, z) {}
 var args = [0, 1, 2];
 f.apply(null, args);
 
-// ES6的写法
-function f1(x, y, z) {
-  // ...
-}
+function f1(x, y, z) {}
 var args1 = [0, 1, 2];
 f.apply(undefined, args1);
 
-// ES5的写法
 var aaa = Math.max.apply(null, [14, 3, 77]);
 console.log(aaa);
-// ES6的写法
+
 var aaa1 = Math.max.apply(Math, [14, 3, 77]);
 console.log(aaa1);
-// 等同于
+
 var aaa2 = Math.max(14, 3, 77);
 console.log(aaa2);
 
@@ -175,28 +137,60 @@ var arr1 = ['a', 'b'];
 var arr2 = ['c'];
 var arr3 = ['d', 'e'];
 
-// ES5的合并数组
 console.log(arr1.concat(arr2, arr3));
-// [ 'a', 'b', 'c', 'd', 'e' ]
 
-// ES6的合并数组
 console.log([].concat(arr1, arr2, arr3));
-// [ 'a', 'b', 'c', 'd', 'e' ]
 
 
-//4、Array.from()-------------------------------------------------------
+var map = new Map([[1, 'one'], [2, 'two'], [3, 'three']]);
+
+var arr12 = [].concat(_toConsumableArray(map.keys()));
+console.log(arr12);
 
 
-//5、Array.from()-------------------------------------------------------
+function Timer() {
+  var _this = this;
+
+  this.s1 = 0;
+  this.s2 = 0;
+
+  setInterval(function () {
+    return _this.s1++;
+  }, 1000);
+
+  setInterval(function () {
+    this.s2++;
+  }, 1000);
+}
+
+var timer = new Timer();
+
+setTimeout(function () {
+  return console.log('s1: ', timer.s1);
+}, 3100);
+setTimeout(function () {
+  return console.log('s2: ', timer.s2);
+}, 3100);
 
 
-//6、Array.from()-------------------------------------------------------
+function factorial(n, total) {
+  if (n === 1) return total;
+  return factorial(n - 1, n * total);
+}
 
+var zong = factorial(5, 1);
+console.log(zong);
 
-//7、Array.from()-------------------------------------------------------
+function Fibonacci2(n) {
+  var ac1 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+  var ac2 = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
 
+  if (n <= 1) {
+    return ac2;
+  };
 
-//8、Array.from()-------------------------------------------------------
+  return Fibonacci2(n - 1, ac2, ac1 + ac2);
+}
 
-
-//9、Array.from()-------------------------------------------------------
+var fib = Fibonacci2(100);
+console.log(fib);
