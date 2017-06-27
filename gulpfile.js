@@ -36,6 +36,7 @@ var gulp = require('gulp'), //基础库
 
     browserSync = require('browser-sync').create(), //页面实时刷新
     babel = require("gulp-babel"), //编译es6
+    webpack = require('gulp-webpack'),
 
     rev = require('gulp-rev'), //- 对文件名加MD5后缀--本例未使用
     revCollector = require('gulp-rev-collector'), //- 路径html替换--本例未使用
@@ -56,6 +57,7 @@ var file_road = {
     jsLocal_es6_no: ['./' + now_project + '/src/js/{plug,common}/**/*.js', './' + now_project + '/src/js/require.2.1.11.min.js', './' + now_project + '/src/js/require-config.js'],
     jsLocal_es6: ['./' + now_project + '/src/js/**/*.js', '!./' + now_project + '/src/js/require.2.1.11.min.js', '!./' + now_project + '/src/js/require-config.js', '!./' + now_project + '/src/js/plug/**/*.js'],
     jsDst: './' + now_project + '/static/js',
+    jsDst_es6: './' + now_project + '/static/js/home',
 
     htmlSrc: './' + now_project + '/html/**/*.html',
 
@@ -126,11 +128,12 @@ gulp.task('js_local_es6', function() {
         //     "unused": false
         // }))
         // .pipe(jshint.reporter(stylish)) //代码检测
-        .pipe(babel({
-            presets: ['es2015'],
-            // modules: "amd" // 默认是 common，也可以改成 umd
-        }))
-        .pipe(gulp.dest(file_road.jsDst)) //本地目录--未压缩
+        // .pipe(babel({
+        //     presets: ['es2015'],
+        //     // modules: "amd" // 默认是 common，也可以改成 umd
+        // }))
+        .pipe(webpack(require('./webpack.conf.js')))
+        .pipe(gulp.dest(file_road.jsDst_es6)) //本地目录--未压缩
         .pipe(browserSync.stream())
 });
 //js--非转es6

@@ -44,41 +44,110 @@
 /* 0 */
 /***/ (function(module, exports) {
 
-	//4、Object.is()------------------------------------------
-	console.log(Object.is('foo', 'foo'))
-	// true
-	console.log(Object.is({}, {}))
-	// false
-
-
-
-	//5、Object.assign()------------------------------------------
-
-	var target = { a: 1 };
-
-	var source1 = { b: 2 };
-	var source2 = { c: 3 };
-
-	Object.assign(target, source1, source2);
-	console.log(target) // {a:1, b:2, c:3}
-
-
-	//9、Object.keys()，Object.values()，Object.entries()------------------------------------------
-
-	let {keys, values, entries} = Object;
-	let obj = { a: 1, b: 2, c: 3 };
-
-	for (let key of keys(obj)) {
-	  console.log(key); // 'a', 'b', 'c'
+	function* helloWorldGenerator() {
+	  yield 'hello';
+	  yield 'world';
+	  return 'ending';
 	}
 
-	for (let value of values(obj)) {
-	  console.log(value); // 1, 2, 3
+	var hw = helloWorldGenerator();
+	console.log(hw.next());
+	// { value: 'hello', done: false }
+
+	console.log(hw.next());
+	// { value: 'world', done: false }
+
+	console.log(hw.next());
+	// { value: 'ending', done: true }
+
+	console.log(hw.next());
+	// { value: undefined, done: true }
+
+
+
+
+	var arr = [1, [[2, 3], 4], [5, 6]];
+
+	var flat = function* (a) {
+	  var length = a.length;
+	  for (var i = 0; i < length; i++) {
+	    var item = a[i];
+	    if (typeof item !== 'number') {
+	      yield* flat(item);
+	    } else {
+	      yield item;
+	    }
+	  }
+	};
+
+	for (var f of flat(arr)) {
+	  console.log(f);
+	}
+	// 1, 2, 3, 4, 5, 6
+
+
+
+	var myIterable = {};
+	myIterable[Symbol.iterator] = function* () {
+	  yield 1;
+	  yield 2;
+	  yield 3;
+	};
+
+	console.log([...myIterable]) // [1, 2, 3]
+
+
+	function* fest() {
+	  for(var i = 0; true; i++) {
+	    var reset = yield i;
+	    if(reset) { i = -1; }
+	  }
 	}
 
-	for (let [key, value] of entries(obj)) {
-	  console.log([key, value]); // ['a', 1], ['b', 2], ['c', 3]
-	}
+	var g = fest();
+
+	console.log(g.next()) // { value: 0, done: false }
+	console.log(g.next()) // { value: 1, done: false }
+	console.log(g.next()) // { value: 2, done: false }
+	console.log(g.next()) // { value: 3, done: false }
+	console.log(g.next(true)) // { value: 0, done: false }
+	console.log(g.next()) // { value: 1, done: false }
+	console.log(g.next()) // { value: 2, done: false }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
