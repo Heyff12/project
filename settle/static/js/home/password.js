@@ -3,19 +3,18 @@
 require(['../require-config'], function () {
     require(["zepto"], function ($) {
         $(function () {
-            //获取验证码
             $('.js_get_entycode').on('click', function () {
                 $('.js_get_entycode').hide();
                 $('.js_show_entycode').show();
                 timedCount();
             });
-            //倒计时不可点击
+
             $('.js_show_entycode').on('click', function () {
                 $('.alert_con').show();
                 $('.alert_con .alert_con_br').html("一分钟后再次获取！");
                 $('.zheceng').show();
             });
-            //点击提交
+
             $('.js_submit').on('click', function () {
                 code_test('.js_code');
                 pass_test('.js_pass');
@@ -30,11 +29,9 @@ require(['../require-config'], function () {
                 var red_num = $('.red_border').length;
                 if (red_num > 0) {
                     return false;
-                } else {
-                    //提交密码
-                }
+                } else {}
             });
-            //验证密码
+
             function pass_test(id) {
                 var val = $(id).val();
                 var val_exp = /^[0-9a-zA-Z]{6,22}$/;
@@ -44,7 +41,7 @@ require(['../require-config'], function () {
                     $(id).parents('dl').removeClass('red_border');
                 }
             }
-            //验证验证码
+
             function code_test(id) {
                 var val = $(id).val();
                 var val_exp = /^[0-9]{6}$/;
@@ -54,7 +51,7 @@ require(['../require-config'], function () {
                     $(id).parents('dl').removeClass('red_border');
                 }
             }
-            //关闭弹框
+
             $('.js_alert_con_close').on('click', function () {
                 $('.alert_con').hide();
                 $('.alert_con .alert_con_br').html();
@@ -63,7 +60,7 @@ require(['../require-config'], function () {
         });
     });
 });
-//倒计时60s
+
 function timedCount() {
     var time0 = $('.js_show_entycode i').text();
     $('.js_show_entycode i').text(time0 - 1);

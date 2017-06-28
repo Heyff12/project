@@ -3,7 +3,6 @@
 require(['../require-config'], function () {
     require(["zepto"], function ($) {
         $(function () {
-            //点击切换
             $('.js_fenlei').on('click', 'li', function () {
                 var li_index = $(this).index();
                 $(this).addClass('tab').siblings('li').removeClass('tab');

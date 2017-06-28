@@ -3,12 +3,11 @@
 require(['../require-config'], function () {
     require(["zepto"], function ($) {
         $(function () {
-            //点击切换
             $('.js_select').on('click', 'li', function () {
                 var li_index = $(this).index();
                 $(this).addClass('tab').siblings('li').removeClass('tab');
             });
-            //点击是否选中
+
             $('.js_radio').on('click', function () {
                 var sel = $(this).attr('data-click');
                 if (sel == 1) {
@@ -21,7 +20,7 @@ require(['../require-config'], function () {
                     $('.js_dd_yes').removeClass('hide');
                 }
             });
-            //点击是否选中-------加盟变更
+
             $('.js_join_list').on('click', function () {
                 var sel = $(this).attr('data-click');
                 if (sel == 1) {

@@ -1,6 +1,52 @@
 require(['../require-config'], function() {
     require(["zepto", "iosselect"], function($, iosselect) {
         $(function() {
+            get_prize();
+            //价格
+            $('.js_all_list').on('blur', '.js_num', function() {
+                //var price = $(this).parents('ul').find('.js_price').text() - 0;
+                //验证数字
+                var num_val = $(this).parents('ul').find('.js_num').val();
+                var num_reg = num_val.toString().replace(/\D/g, '') - 0;
+                $(this).parents('ul').find('.js_num').val(num_reg);
+                get_prize();
+            });
+            //积分
+            $('.js_keyong').on('blur', function() {
+                //验证数字
+                var num_val = $(this).val().toString().replace(/\D/g, '') - 0;
+                $(this).val(num_val);
+                get_prize();
+            });
+            $('.js_fuxiao').on('blur', function() {
+                //验证数字
+                var num_val = $(this).val().toString().replace(/\D/g, '') - 0;
+                $(this).val(num_val);
+                get_prize();
+            });
+            $('.js_left').on('blur', function() {
+                //验证数字
+                var num_val = $(this).val().toString().replace(/\D/g, '') - 0;
+                $(this).val(num_val);
+                get_prize();
+            });
+            //获取总价格----------------------------------------------------------------------
+            function get_prize() {
+                var list_lenth = $('.js_join_list').length;
+                var all_price = 0;
+                var keyong = $('.js_keyong').val().toString().replace(/\D/g, '') - 0;
+                var fuxiao = $('.js_fuxiao').val().toString().replace(/\D/g, '') - 0;
+                var left = $('.js_left').val().toString().replace(/\D/g, '') - 0;
+                var min_all = keyong + fuxiao + left;
+                for (var i = 0; i < list_lenth; i++) {
+                    var now_price = $('.js_join_list').eq(i).find('.js_price').text() - 0;
+                    var now_num = $('.js_join_list').eq(i).find('.js_num').val() - 0;
+                    var now_all = now_price * now_num;
+                    all_price = (all_price - 0 + (now_all - 0)).toFixed(0);
+                }
+                $('.js_all_money').text(all_price);
+                $('.js_end_money').text(all_price - min_all);
+            }
             //总页数--获取
             var all_page = 26;
             //分页

@@ -80,11 +80,6 @@ textarea {
 
 /* word-wrap for opera, resize for webkit */
 
-menu {
-  margin: 0;
-  padding: 0;
-}
-
 body {
   -webkit-user-select: none;
   -webkit-text-size-adjust: none;

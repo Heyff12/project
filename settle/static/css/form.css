@@ -80,11 +80,6 @@ textarea {
 
 /* word-wrap for opera, resize for webkit */
 
-menu {
-  margin: 0;
-  padding: 0;
-}
-
 body {
   -webkit-user-select: none;
   -webkit-text-size-adjust: none;
@@ -1508,8 +1503,9 @@ section.tojoin ul.join_t.join_list li:nth-child(2) {
   border: 0;
 }
 
-section.tojoin ul.join_t.join_list li span {
+section.tojoin ul.join_t.join_list li i {
   font-size: 0.32rem;
+  font-style: normal;
 }
 
 section.tojoin ul.join_t.join_list li input {
