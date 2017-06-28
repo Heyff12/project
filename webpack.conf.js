@@ -27,6 +27,9 @@ module.exports = {
             include: path.resolve(__dirname, './test/src/js'), //打包的范围
             query: {
                 presets: ['latest']
+                // presets: ["es2015", "stage-2"],
+                // plugins: ["transform-runtime"],
+                // comments: false
             }
         }]
     },

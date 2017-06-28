@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>es6新性能</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <script>
+    window.PointerEvent = void 0
+    </script>
+    <script type="text/javascript" src="../static/js/plug/flexible.debug.js"></script>
+    <link rel="stylesheet" href="../static/css/home.css">
+</head>
+
+<body class="bg_body">
+    <div id="wap">
+        <header>
+            <h2>Module 的语法</h2>
+            <a class="title_a a_left back"></a>
+        </header>
+        <section class="bind descripe">
+            <dl id="dl_clear">
+                <dt class="green">1、概述</dt>
+                <dd>ES6 模块的设计思想，是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。</dd>
+                <dd>ES6 模块不是对象，而是通过export命令显式指定输出的代码，再通过import命令输入。</dd>
+                <dd>由于 ES6 模块是编译时加载，使得静态分析成为可能。有了它，就能进一步拓宽 JavaScript 的语法，比如引入宏（macro）和类型检验（type system）这些只能靠静态分析实现的功能。</dd>
+                <dd>不再需要UMD模块格式了，将来服务器和浏览器都会支持 ES6 模块格式。</dd>
+                <dd>将来浏览器的新 API 就能用模块格式提供，不再必须做成全局变量或者navigator对象的属性。</dd>
+                <dd>不再需要对象作为命名空间（比如Math对象），未来这些功能可以通过模块提供。</dd>
+                <dt class="green">2、严格模式</dt>
+                <dd>ES6 的模块自动采用严格模式，不管你有没有在模块头部加上"use strict";。</dd>
+                <dd>变量必须声明后再使用</dd>
+                <dd>函数的参数不能有同名属性，否则报错</dd>
+                <dd>不能使用with语句</dd>
+                <dd>不能对只读属性赋值，否则报错</dd>
+                <dd>不能使用前缀0表示八进制数，否则报错</dd>
+                <dd>不能删除不可删除的属性，否则报错</dd>
+                <dd>不能删除变量delete prop，会报错，只能删除属性delete global[prop]</dd>
+                <dd>eval不会在它的外层作用域引入变量</dd>
+                <dd>eval和arguments不能被重新赋值</dd>
+                <dd>arguments不会自动反映函数参数的变化</dd>
+                <dd>不能使用arguments.callee</dd>
+                <dd>不能使用arguments.caller</dd>
+                <dd>禁止this指向全局对象</dd>
+                <dd>不能使用fn.caller和fn.arguments获取函数调用的堆栈</dd>
+                <dd>增加了保留字（比如protected、static和interface）</dd>
+                <dt class="green">3、export 命令</dt>
+                <dd>模块功能主要由两个命令构成：export和import。export命令用于规定模块的对外接口，import命令用于输入其他模块提供的功能。</dd>
+                <dd>export命令除了输出变量，还可以输出函数或类（class）。</dd>
+                <dd>通常情况下，export输出的变量就是本来的名字，但是可以使用as关键字重命名。</dd>
+                <dd>export命令可以出现在模块的任何位置，只要处于模块顶层就可以。</dd>
+                <dt class="green">4、import 命令</dt>
+                <dd>上面代码的import命令，用于加载profile.js文件，并从中输入变量。</dd>
+                <dd>import命令接受一对大括号，里面指定要从其他模块导入的变量名。大括号里面的变量名，必须与被导入模块（profile.js）对外接口的名称相同。</dd>
+                <dd>如果想为输入的变量重新取一个名字，import命令要使用as关键字，将输入的变量重命名。</dd>
+                <dd>import后面的from指定模块文件的位置，可以是相对路径，也可以是绝对路径，.js路径可以省略。</dd>
+                <dd>import命令具有提升效果，会提升到整个模块的头部，首先执行。</dd>
+                <dd>由于import是静态执行，所以不能使用表达式和变量，这些只有在运行时才能得到结果的语法结构。</dd>
+                <dd></dd>
+                <dd></dd>
+                <dt class="green">5、模块的整体加载</dt>
+                <dd>除了指定加载某个输出值，还可以使用整体加载，即用星号（*）指定一个对象，所有输出值都加载在这个对象上面。</dd>
+                <dd></dd>
+                <dd></dd>
+                <dd></dd>
+                <dt class="green">6、export default 命令</dt>
+                <dd>从前面的例子可以看出，使用import命令的时候，用户需要知道所要加载的变量名或函数名，否则无法加载。</dd>
+                <dd>export default命令，为模块指定默认输出。</dd>
+                <dd>其他模块加载该模块时，import命令可以为该匿名函数指定任意名字。</dd>
+                <dd></dd>
+                <dt class="green">7、export 与 import 的复合写法</dt>
+                <dd>如果在一个模块之中，先输入后输出同一个模块，import语句可以与export语句写在一起。</dd>
+                <dd></dd>
+                <dd></dd>
+                <dd></dd>
+                <dt class="green">8、模块的继承</dt>
+                <dd></dd>
+                <dd></dd>
+                <dd></dd>
+                <dd></dd>
+                <dt class="green">9、跨模块常量</dt>
+                <dd></dd>
+                <dd></dd>
+                <dd></dd>
+                <dd></dd>
+                <dt class="green">10、import()</dt>
+                <dd></dd>
+                <dd></dd>
+                <dd></dd>
+                <dd></dd>
+                <dd></dd>
+                <dd></dd>
+                <dd></dd>
+                <dd></dd>
+                <dt class="green">11、浏览器加载</dt>
+                <dd>标签打开defer或async属性，脚本就会异步加载。渲染引擎遇到这一行命令，就会开始下载外部脚本，但不会等它下载和执行，而是直接执行后面的命令。</dd>
+                <dd>defer与async的区别是：前者要等到整个页面正常渲染结束，才会执行；后者一旦下载完，渲染引擎就会中断渲染，执行这个脚本以后，再继续渲染。</dd>
+                <dd>一句话，defer是“渲染完再执行”，async是“下载完就执行”。</dd>
+                <dd>如果有多个defer脚本，会按照它们在页面出现的顺序加载，而多个async脚本是不能保证加载顺序的。</dd>
+                <dd>浏览器加载 ES6 模块，也使用'script'标签，但是要加入type="module"属性。</dd>
+                <dd>浏览器对于带有type="module"的'script'，都是异步加载，不会造成堵塞浏览器，即等到整个页面渲染完，再执行模块脚本，等同于打开了'script'>标签的defer属性。</dd>
+                <dd></dd>
+                <dd></dd>
+                <dt class="green">12、ES6 模块与 CommonJS 模块的差异</dt>
+                <dd>CommonJS 模块输出的是一个值的拷贝，ES6 模块输出的是值的引用。</dd>
+                <dd>CommonJS 模块是运行时加载，ES6 模块是编译时输出接口。</dd>
+                <dd></dd>
+                <dd></dd>
+                <dd></dd>
+                <dd></dd>
+                <dt class="green">13、import()</dt>
+                <dd></dd>
+                <dd></dd>
+                <dd></dd>
+                <dd></dd>
+                <dd></dd>
+                <dd></dd>
+                <dt class="green">14、import()</dt>
+                <dd></dd>
+                <dd></dd>
+                <dd></dd>
+                <dd></dd>
+                <dd></dd>
+                <dd></dd>
+                <dt class="green">15、import()</dt>
+                <dd></dd>
+                <dd></dd>
+                <dd></dd>
+                <dd></dd>
+                <dd></dd>
+                <dd></dd>
+            </dl>
+        </section>
+    </div>
+    <script src="../static/js/home/module.js " type="text/javascript "></script>
+    <script type="text/javascript">
+    </script>
+</body>
+
+</html>
