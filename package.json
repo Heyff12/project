@@ -72,6 +72,7 @@
     "jshint-stylish": "^2.2.1",
     "merge-stream": "^1.0.1",
     "mocha": "^3.4.2",
+    "mockjs": "^1.0.1-beta3",
     "path": "^0.12.7",
     "postcss-px2rem": "^0.3.0",
     "requirejs": "^2.3.2",

@@ -26,3 +26,5 @@ $('.js_add').on('click', function() {
     var new_li = '<li>666666666' + num + '</li>';
     $('.js_ul').append(new_li);
 });
+
+

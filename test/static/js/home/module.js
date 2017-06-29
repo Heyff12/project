@@ -40,11 +40,12 @@
 /******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
-	var pro = __webpack_require__(3);
+	var pro = __webpack_require__(5);
 	//import { firstName, lastName, year, area, circumference } from './profile';
 	// function setName(element) {
 	//     element.textContent = firstName + ' ' + lastName;
@@ -61,9 +62,8 @@
 
 
 /***/ }),
-/* 1 */,
-/* 2 */,
-/* 3 */
+
+/***/ 5:
 /***/ (function(module, exports) {
 
 	// export var firstName = 'Michael';
@@ -101,4 +101,5 @@
 
 
 /***/ })
-/******/ ]);
+
+/******/ });
