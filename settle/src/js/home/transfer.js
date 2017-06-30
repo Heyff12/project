@@ -11,16 +11,16 @@ require(['../require-config'], function() {
             });
             //倒计时不可点击
             $('.js_show_entycode').on('click', function() {
-                $('.alert_con').show();
-                $('.alert_con .alert_con_br').html("一分钟后再次获取！");
+                $('#alert_tip').show();
+                $('#alert_tip .alert_con_br').html("一分钟后再次获取！");
                 $('.zheceng').show();
             });
             //点击提交
             $('.js_submit').on('click',function(){
                 var tel=$('.js_tel').val();
                 var money=$('.js_money').val();
-                $('.alert_con').show();
-                $('.alert_con .alert_con_br').html('您确认将'+money+'元转入以下账户？<br/>'+tel);
+                $('#alert_alert').show();
+                $('#alert_alert .alert_con_br').html('您确认将'+money+'元转入以下账户？<br/>'+tel);
                 $('.zheceng').show();
             });
             //关闭弹框
@@ -28,6 +28,16 @@ require(['../require-config'], function() {
                 $('.alert_con').hide();
                 $('.alert_con .alert_con_br').html();
                 $('.zheceng').hide();
+            });
+            //点击转账确认按钮
+            $('.js_transfer').on('click',function(){
+                //验证校验码todo
+
+                //提交数据
+
+                //跳转页面
+                window.location.href='http://www.yaya12.com';
+
             });
         });
     });

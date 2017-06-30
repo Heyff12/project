@@ -12,16 +12,16 @@ require(['../require-config'], function () {
             });
 
             $('.js_show_entycode').on('click', function () {
-                $('.alert_con').show();
-                $('.alert_con .alert_con_br').html("一分钟后再次获取！");
+                $('#alert_tip').show();
+                $('#alert_tip .alert_con_br').html("一分钟后再次获取！");
                 $('.zheceng').show();
             });
 
             $('.js_submit').on('click', function () {
                 var tel = $('.js_tel').val();
                 var money = $('.js_money').val();
-                $('.alert_con').show();
-                $('.alert_con .alert_con_br').html('您确认将' + money + '元转入以下账户？<br/>' + tel);
+                $('#alert_alert').show();
+                $('#alert_alert .alert_con_br').html('您确认将' + money + '元转入以下账户？<br/>' + tel);
                 $('.zheceng').show();
             });
 
@@ -29,6 +29,10 @@ require(['../require-config'], function () {
                 $('.alert_con').hide();
                 $('.alert_con .alert_con_br').html();
                 $('.zheceng').hide();
+            });
+
+            $('.js_transfer').on('click', function () {
+                window.location.href = 'http://www.yaya12.com';
             });
         });
     });
