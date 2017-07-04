@@ -46,7 +46,7 @@ var gulp = require('gulp'), //基础库
     rename = require('gulp-rename'), //重命名--本例未使用
     concat = require('gulp-concat'), //合并文件--本例未使用
     clean = require('gulp-clean'); //清空文件夹--同del，本例取消clean--本例未使用
-var now_project = 'test'; //settle(结算)test(es6)
+var now_project = 'settle'; //settle(结算)test(es6)
 var file_road = {
     cssSrc: './' + now_project + '/src/less/**/*.less',
     cssDst: './' + now_project + '/static/css',
