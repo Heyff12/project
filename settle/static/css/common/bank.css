@@ -196,6 +196,7 @@ body.bg_white {
   max-width: 10rem;
   height: 100%;
   font-size: 0.4rem;
+  padding-bottom: 1.333333rem;
 }
 
 .fl {
