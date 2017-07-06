@@ -9,7 +9,9 @@
     <meta content="black" name="apple-mobile-web-app-status-bar-style">
     <meta content="telephone=no" name="format-detection">
     <meta content="email=no" name="format-detection">
-    <script>window.PointerEvent = void 0</script>
+    <script>
+    window.PointerEvent = void 0
+    </script>
     <script type="text/javascript" src="../static/js/plug/flexible.debug.js"></script>
     <link rel="stylesheet" href="../static/css/form.css">
 </head>
@@ -40,18 +42,26 @@
                         <input class="js_bank" data-bank="" type="text" name="" placeholder="请选择" readonly="readonly">
                     </dd>
                 </dl>
-                <dl class="dt_long select">
-                    <dt>开户行所在省</dt>
-                    <dd>
-                        <input class="js_province" data-bank="" type="text" name="" placeholder="请选择" readonly="readonly">
-                    </dd>
-                </dl>
-                <dl class="dt_long select">
-                    <dt>开户行所在市</dt>
-                    <dd>
-                        <input class="js_city" data-bank="" type="text" name="" placeholder="请选择" readonly="readonly">
-                    </dd>
-                </dl>
+                <div id="select_pc">
+                    <dl class="dt_long select">
+                        <dt>开户行所在省</dt>
+                        <dd>
+                            <input class="js_province" data-bank="110000" type="text" name="" placeholder="请选择" readonly="readonly" value="北京市">
+                        </dd>
+                    </dl>
+                    <dl class="dt_long select">
+                        <dt>开户行所在市</dt>
+                        <dd>
+                            <input class="js_city" data-bank="110100" type="text" name="" placeholder="请选择" readonly="readonly" value="北京市">
+                        </dd>
+                    </dl>
+                    <!-- <dl class="dt_long select">
+                        <dt>开户行所在区</dt>
+                        <dd>
+                            <input class="js_district" data-bank="" type="text" name="" placeholder="请选择" readonly="readonly" value="">
+                        </dd>
+                    </dl> -->
+                </div>
                 <dl class="dt_long select">
                     <dt>开户行网点</dt>
                     <dd>
@@ -67,7 +77,6 @@
     <div class="ios_select_container_pro"></div>
     <div class="ios_select_container_city"></div>
     <div class="ios_select_container_net"></div>
-    
     <script src="../static/js/require.2.1.11.min.js " type="text/javascript " data-main="../static/js/home/card.js" defer async="true "></script>
 </body>
 

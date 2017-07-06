@@ -6,6 +6,7 @@ require.config({
         "iosselect": "plug/iosselect/iosSelect",//ios select样式
         "common": "plug/common",//ios select样式
         "common1": "plug/common1",//ios select样式
+        "area": "plug/area",//ios select样式
     },
     shim: {　
         'zepto': {　　　　　　　　　　　　　　　　

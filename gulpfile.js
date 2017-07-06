@@ -46,7 +46,7 @@ var gulp = require('gulp'), //基础库
     rename = require('gulp-rename'), //重命名--本例未使用
     concat = require('gulp-concat'), //合并文件--本例未使用
     clean = require('gulp-clean'); //清空文件夹--同del，本例取消clean--本例未使用
-var now_project = 'test'; //settle(结算)
+var now_project = 'settle'; //settle(结算)test(es6)
 var file_road = {
     cssSrc: './' + now_project + '/src/less/**/*.less',
     cssDst: './' + now_project + '/static/css',
@@ -127,13 +127,13 @@ gulp.task('js_local_es6', function() {
         //     "undef": true,
         //     "unused": false
         // }))
-        // .pipe(jshint.reporter(stylish)) //代码检测
-        // .pipe(babel({
-        //     presets: ['es2015'],
-        //     // modules: "amd" // 默认是 common，也可以改成 umd
-        // }))
-        .pipe(webpack(require('./webpack.conf.js')))
-        .pipe(gulp.dest(file_road.jsDst_es6)) //本地目录--未压缩
+        .pipe(jshint.reporter(stylish)) //代码检测
+        .pipe(babel({
+            presets: ['es2015'],
+            // modules: "amd" // 默认是 common，也可以改成 umd
+        }))
+        //.pipe(webpack(require('./webpack.conf.js')))
+        .pipe(gulp.dest(file_road.jsDst)) //本地目录--未压缩
         .pipe(browserSync.stream())
 });
 //js--非转es6
@@ -216,3 +216,8 @@ gulp.task('default', ['dev']);
 //删除不可用
 
 //重要备注：less文件名和路径中当中不能包含‘less’；html文件名当中不能包含‘.’
+// {
+//   "presets": ["es2015", "stage-2"],
+//   "plugins": ["transform-runtime"],
+//   "comments": false
+// }

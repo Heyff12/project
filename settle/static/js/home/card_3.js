@@ -9,6 +9,8 @@ require(['../require-config'], function () {
 
             var iosCitys_ajax = area.iosCitys;
 
+            var iosCountys_ajax = area.iosCountys;
+
             var net_ajax = area.iosCitys;
 
             $('.js_bank').on('click', function () {
@@ -29,25 +31,31 @@ require(['../require-config'], function () {
                 });
             });
             var selectContactDom = $('#select_pc');
+
             var contactProvinceCodeDom = $('.js_province');
             var contactCityCodeDom = $('.js_city');
+            var contactCountyCodeDom = $('.js_district');
             selectContactDom.bind('click', function () {
                 var sccode = contactCityCodeDom.attr('data-bank');
                 var scname = contactCityCodeDom.val();
 
                 var oneLevelId = contactProvinceCodeDom.attr('data-bank');
                 var twoLevelId = contactCityCodeDom.attr('data-bank');
-                var iosSelect = new iosselect(2, [iosProvinces_ajax, iosCitys_ajax], {
-                    title: '请选择开户行所在省市',
+                var threeLevelId = contactCountyCodeDom.attr('data-bank');
+                var iosSelect = new iosselect(3, [iosProvinces_ajax, iosCitys_ajax, iosCountys_ajax], {
+                    title: '地址选择',
                     itemHeight: 35,
-                    relation: [1, 0, 0, 0],
+                    relation: [1, 1, 0, 0],
                     oneLevelId: oneLevelId,
                     twoLevelId: twoLevelId,
-                    callback: function callback(selectOneObj, selectTwoObj) {
+                    threeLevelId: threeLevelId,
+                    callback: function callback(selectOneObj, selectTwoObj, selectThreeObj) {
                         contactProvinceCodeDom.val(selectOneObj.value);
                         contactProvinceCodeDom.attr('data-bank', selectOneObj.id);
                         contactCityCodeDom.val(selectTwoObj.value);
                         contactCityCodeDom.attr('data-bank', selectTwoObj.id);
+                        contactCountyCodeDom.val(selectThreeObj.value);
+                        contactCountyCodeDom.attr('data-bank', selectThreeObj.id);
                     }
                 });
             });
