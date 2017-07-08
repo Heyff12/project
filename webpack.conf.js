@@ -26,10 +26,10 @@ module.exports = {
             exclude: path.resolve(__dirname, './node_modules'), //不需要babel编译的范围
             include: path.resolve(__dirname, './test/src/js'), //打包的范围
             query: {
-                presets: ['latest']
-                // presets: ["es2015", "stage-2"],
-                // plugins: ["transform-runtime"],
-                // comments: false
+                //presets: ['latest']
+                presets: ["es2015"],
+                plugins: ["transform-runtime"],
+                comments: false
             }
         }]
     },

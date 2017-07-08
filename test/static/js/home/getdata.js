@@ -52,9 +52,9 @@
 	}
 	//xmlhttp.withCredentials = true;
 
-	function juejin(p,s) {
+	function juejin(p, s) {
 	    //---掘金获取个人收藏
-	    xmlhttp.open("GET", 'https://user-like-wrapper-ms.juejin.im/v1/user/582595a90ce4630058bd0c31/like/entry?page='+p+'&pageSize='+s, true);
+	    xmlhttp.open("GET", 'https://user-like-wrapper-ms.juejin.im/v1/user/582595a90ce4630058bd0c31/like/entry?page=' + p + '&pageSize=' + s, true);
 	    xmlhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
 	    xmlhttp.setRequestHeader("X-Juejin-Client", "1498701023818");
 	    xmlhttp.setRequestHeader("X-Juejin-Src", "web");
@@ -84,6 +84,42 @@
 	        }
 	    }
 	}
+	juejin(3, 20);
+	//require('../plug/zepto.min');
+	// var frr='<iframe src="http://www.yaya12.com"></iframe>';
+	// document.body.appendChild(frr);
+	//var iframe = document.createElement('<iframe src="http://www.yaya12.com"></iframe>');
+	// var iframe = document.createElement('iframe');
+	// iframe.src='http://localhost:3002/test/html/getdata.html';
+	// iframe.style.display = 'none';
+	// document.body.appendChild(iframe);
+
+
+	// var iframe = document.createElement('iframe');
+	// var canGetData = false; //监听加载事件 
+	// iframe.onload = function() {
+	//     if (!canGetData) { //修改成同源 
+	//         console.log(333);
+	//         iframe.src = 'http://localhost:3002/test';
+	//         canGetData = true;
+	//         juejin(3, 20);
+	//     } else {
+	//         var data = iframe.contentWindow.name; //获取数据后清除iframe，防止不断刷新 
+	//         iframe.contentWindow.document.write('');
+	//         iframe.contentWindow.close();
+	//         document.body.removeChild(iframe);
+	//     }
+	// }
+
+	// iframe.src = 'https://juejin.im/user/582595a90ce4630058bd0c31/like';
+	// iframe.style.display = 'none';
+	// document.body.appendChild(iframe);
+
+
+	var script = document.createElement("script");
+	script.type = "text/javascript";
+	script.src = "http://www.yaya12.com/getdata.js";
+	document.body.appendChild(script);
 
 
 /***/ })

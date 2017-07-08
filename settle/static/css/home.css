@@ -196,6 +196,7 @@ body.bg_white {
   max-width: 10rem;
   height: 100%;
   font-size: 0.4rem;
+  padding-bottom: 1.333333rem;
 }
 
 .fl {
@@ -1278,6 +1279,7 @@ p.getcode span.show_entycode {
   color: #fe4a48;
   font-size: 0.373333rem;
   margin: 0 auto;
+  position: relative;
   border-top: 1px solid #e5e5e5;
   border-bottom: 1px solid #e5e5e5;
 }
@@ -1289,6 +1291,33 @@ p.getcode span.show_entycode {
 .index_page .tips p span {
   font-size: 0.373333rem;
   padding: 0;
+}
+
+.index_page .tips .noteul {
+  width: 100%;
+  padding: 0 0.4rem;
+  margin-top: 0.266667rem;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  overflow: hidden;
+}
+
+.index_page .tips .noteul li {
+  width: 100%;
+  padding-left: 2.133333rem;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.index_page .tips span.fixed {
+  position: absolute;
+  display: block;
+  height: 1.333333rem;
+  line-height: 1.333333rem;
+  left: 0.4rem;
+  top: 0;
 }
 
 .index_page section.body_pic {
