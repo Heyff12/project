@@ -1,0 +1,374 @@
+body,
+p,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+fieldset,
+legend,
+input,
+select,
+textarea,
+button,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+}
+
+ul,
+dl,
+ol {
+  list-style: none;
+}
+
+img,
+fieldset,
+input[type="submit"] {
+  border: 0 none;
+}
+
+img {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+em {
+  font-style: normal;
+}
+
+strong {
+  font-weight: normal;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+button,
+input[type="button"] {
+  cursor: pointer;
+  border: 0 none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+textarea {
+  word-wrap: break-word;
+  resize: none;
+}
+
+/* word-wrap for opera, resize for webkit */
+
+body {
+  -webkit-user-select: none;
+  -webkit-text-size-adjust: none;
+  font-family: "微软雅黑", "Microsoft Yahei", Arial, "Helvetica Neue", helvetica, sans-serif;
+}
+
+input[type="number"] {
+  -webkit-user-select: text;
+}
+
+a,
+button,
+input,
+img {
+  -webkit-touch-callout: none;
+}
+
+/* 1.ios 长按时不触发系统的菜单 2.禁止长按时下载图片 */
+
+input,
+select,
+textarea {
+  outline: none;
+}
+
+a,
+button,
+input,
+textarea,
+span {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+a,
+a:link,
+a:visited,
+a:hover {
+  text-decoration: none;
+  color: #4d4d4d;
+  cursor: pointer;
+}
+
+@media all and (-webkit-transform-3d) {
+  /* android4.0+ ios4+ 恢复按钮被点击时产生的效果 */
+
+  a,
+  button,
+  input,
+  textarea,
+  span {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+input,
+textarea {
+  /* 消除ios内阴影 */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  background-color: white;
+  background-image: none;
+  color: #000000;
+}
+
+section,
+div,
+dl,
+dt,
+dd,
+footer {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* ==================共用============================================================ */
+
+body {
+  background: #f3f3f3;
+  color: #4d4d4d;
+  /* 增加该属性，可以增加弹性 */
+  -webkit-overflow-scrolling: touch;
+}
+
+body.bg_white {
+  background: #f3f3f3;
+}
+
+#wap {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 10rem;
+  height: 100%;
+  font-size: 0.4rem;
+  padding-bottom: 1.333333rem;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.clearfix {
+  display: block;
+  zoom: 1;
+}
+
+.clearfix:after {
+  content: " ";
+  display: block;
+  font-size: 0;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+  overflow: hidden;
+}
+
+.clearfix_line {
+  content: "";
+  clear: both;
+  overflow: hidden;
+  width: 100%;
+  height: 0.026667rem;
+  background: #f1f1f1;
+}
+
+.clearfix_liner {
+  content: "";
+  clear: both;
+  overflow: hidden;
+  width: 92%;
+  margin: 0 auto;
+  height: 0.026667rem;
+  background: #f1f1f1;
+}
+
+.grey {
+  color: #b8b8b8;
+}
+
+.black {
+  color: #4d4d4d;
+}
+
+.red {
+  color: #fe4a48;
+}
+
+.yellow {
+  color: #ffff00;
+}
+
+.orange {
+  color: #ffae21;
+}
+
+.green {
+  color: #50af0c;
+}
+
+i.i_normal {
+  font-style: normal;
+}
+
+a.orange,
+a.orange:link,
+a.orange:visited,
+a.orange:hover {
+  text-decoration: none;
+  color: #ffae21;
+  cursor: pointer;
+}
+
+header {
+  width: 100%;
+  background: #1c1b20;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  line-height: 1.333333rem;
+  height: 1.333333rem;
+  font-size: 0.533333rem;
+  color: white;
+  position: relative;
+}
+
+header.no_bg {
+  background: none;
+  z-index: 3;
+}
+
+header h2 {
+  width: 60%;
+  margin-left: 20%;
+  text-align: center;
+  font-weight: normal;
+}
+
+header h2 img {
+  vertical-align: middle;
+  width: auto;
+  height: 0.693333rem;
+}
+
+header a.title_a {
+  display: inline-block;
+  position: absolute;
+  color: white;
+  width: 2rem;
+  height: 1.333333rem;
+  line-height: 1.333333rem;
+  cursor: pointer;
+  top: 0;
+}
+
+header a.title_a span {
+  font-size: 0.4rem;
+}
+
+header a.title_a.a_left {
+  left: 0.533333rem;
+  padding-left: 0.48rem;
+  font-size: 0.48rem;
+}
+
+header a.title_a.a_left.back {
+  background: url('../img/icon_back.png') center left no-repeat;
+  background-size: 0.32rem auto;
+}
+
+header a.title_a.a_right {
+  right: 0.533333rem;
+  padding-right: 0;
+  font-size: 0.373333rem;
+  text-align: right;
+}
+
+header a.title_a.a_right i.back {
+  background: url('../img/icon_back.png') center left no-repeat;
+  background-size: 0.213333rem auto;
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  display: inline-block;
+  width: 0.32rem;
+  height: 0.8rem;
+  position: relative;
+  right: 0;
+  top: 0.266667rem;
+}
+
+header a.title_a.a_right.back {
+  background: url('../img/icon_back.png') center right no-repeat;
+  background-size: 0.213333rem auto;
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+header a.title_a.a_right.rule {
+  background: none;
+  font-size: 0.346667rem;
+  text-align: right;
+}
+
+header a.title_a.a_right.cart {
+  background: url('../img/more.png') center right no-repeat;
+  background-size: 0.666667rem auto;
+}
