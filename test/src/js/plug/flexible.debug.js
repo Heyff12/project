@@ -8,6 +8,7 @@
     var tid;
     var flexible = lib.flexible || (lib.flexible = {});
     
+    //计算dpr和scale-----------start----------------------------------------------------------------
     if (metaEl) {
         //console.warn('将根据已有的meta标签来设置缩放比例');
         var match = metaEl.getAttribute('content').match(/initial\-scale=([\d\.]+)/);
@@ -50,7 +51,9 @@
         }
         scale = 1 / dpr;
     }
+    //计算dpr和scale-----------end----------------------------------------------------------------
 
+    //在html和head标签插入dpr及meta-----------start----------------------------------------------------------------
     docEl.setAttribute('data-dpr', dpr);
     if (!metaEl) {
         metaEl = doc.createElement('meta');
@@ -64,7 +67,7 @@
             doc.write(wrap.innerHTML);
         }
     }
-
+    //插入1rem=  px    
     function refreshRem(){
         var width = docEl.getBoundingClientRect().width;
         if (width / dpr > 540) {
@@ -74,7 +77,7 @@
         docEl.style.fontSize = rem + 'px';
         flexible.rem = win.rem = rem;
     }
-
+    //监听浏览器放大缩小、pageshow事件
     win.addEventListener('resize', function() {
         clearTimeout(tid);
         tid = setTimeout(refreshRem, 300);
