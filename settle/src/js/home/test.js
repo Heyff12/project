@@ -1,10 +1,11 @@
 require(['../require-config'], function() {
-    require(["jquery","common1"], function($) {
+    require(["jquery", "common1"], function($) {
         $(function() {
-            // var aaa=$.fn.dialogTip('没有更多的数据了^_^', function() {
+            // var aaa = $.fn.dialogTip('没有更多的数据了^_^', function() {
             //     console.log(222);
             // });
-            // setTimeout(aaa(),1000);
+            // setTimeout("$.fn.dialogTip('没有更多的数据了^_^', function() {console.log(222);});", 3000);//正确
+            // setTimeout(aaa(), 3000);//报错
             // $.fn.test = function() {
             //     return 22;
             // };
