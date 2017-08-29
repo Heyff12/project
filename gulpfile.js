@@ -26,6 +26,7 @@ var gulp = require('gulp'), //基础库
     jscs = require('gulp-jscs'),
     stylish = require('jshint-stylish'),
     uglify = require('gulp-uglify'), //js压缩
+    eslint = require('gulp-eslint'), //js检查
 
     del = require('del'), //删除文件
     header = require('gulp-header'), //给文件头部增加特殊内容
@@ -43,10 +44,14 @@ var gulp = require('gulp'), //基础库
     connect = require('gulp-connect'), //搭建服务器并自动更新更改--本文件没用使用，而是用的browser-sync--本例未使用
     livereload = require('gulp-livereload'), //livereload,可以合上面配合使用（暂时没用）--本例未使用
 
+
+    sftp = require('gulp-sftp'), //ftp部署代码
+
+
     rename = require('gulp-rename'), //重命名--本例未使用
     concat = require('gulp-concat'), //合并文件--本例未使用
     clean = require('gulp-clean'); //清空文件夹--同del，本例取消clean--本例未使用
-var now_project = 'test_require'; //settle(结算)test(es6)test_require(测试requirejs合并js文件)
+var now_project = 'settle'; //settle(结算)test(es6)test_require(测试requirejs合并js文件)
 var file_road = {
     cssSrc: './' + now_project + '/src/less/**/*.less',
     cssDst: './' + now_project + '/static/css',
@@ -85,7 +90,7 @@ gulp.task('css', function() {
             extensions: ['svg', 'png', /\.jpg#datauri$/i],
             exclude: [/\.server\.(com|net)\/dynamic\//, '--live.jpg'],
             maxImageSize: 10 * 1024, // bytes 
-            debug: true
+            debug: false
         }))
         //.pipe(header(banner, { pkg: pkg })) //增加头部注释
         .pipe(gulp.dest(file_road.cssDst)) //本地目录
@@ -127,14 +132,17 @@ gulp.task('js_local_es6', function() {
         //     "undef": true,
         //     "unused": false
         // }))
-        .pipe(jshint.reporter(stylish)) //代码检测
+        // .pipe(jshint.reporter(stylish)) //代码检测
+        .pipe(eslint())
+        .pipe(eslint.format())
+        .pipe(eslint.failAfterError())
         .pipe(babel({
             presets: ['es2015'],
             // modules: "amd" // 默认是 common，也可以改成 umd
         }))
         //.pipe(webpack(require('./webpack.conf.js')))
         .pipe(gulp.dest(file_road.jsDst)) //本地目录--未压缩
-        .pipe(browserSync.stream())
+        .pipe(browserSync.stream());
 });
 //js--非转es6
 gulp.task('jsLocal_es6_no', function() {
@@ -196,6 +204,17 @@ gulp.task('watch', function() {
             del.sync(dest);
         }
     });
+});
+// sftp上传代码------------------------------------------------------------------------------------------------------------------------------------------
+gulp.task('sftp', function(cb) {
+    gulp.src(['./settle/src/**', './settle/html/**'])
+        .pipe(sftp({
+            host: '192.168.0.7',
+            user: 'chujunfang',
+            pass: '123456',
+            remotePath: "/home/chujunfang/test",
+            includeHtml: true
+        }));
 });
 
 
