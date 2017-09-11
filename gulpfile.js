@@ -133,9 +133,9 @@ gulp.task('js_local_es6', function() {
         //     "unused": false
         // }))
         // .pipe(jshint.reporter(stylish)) //代码检测
-        .pipe(eslint())
-        .pipe(eslint.format())
-        .pipe(eslint.failAfterError())
+        // .pipe(eslint())
+        // .pipe(eslint.format())
+        // .pipe(eslint.failAfterError())
         .pipe(babel({
             presets: ['es2015'],
             // modules: "amd" // 默认是 common，也可以改成 umd
@@ -166,7 +166,7 @@ gulp.task('watch', function() {
         server: {
             baseDir: "./",
         },
-        port: 3002
+        port: 3023
     });
     // 监听css
     gulp.watch(file_road.w_cssSrc, ['css']);
@@ -205,7 +205,7 @@ gulp.task('watch', function() {
         }
     });
 });
-// sftp上传代码------------------------------------------------------------------------------------------------------------------------------------------
+// sftp上传代码------仅供测试------------------------------------------------------------------------------------------------------------------------------------
 gulp.task('sftp', function(cb) {
     gulp.src(['./settle/src/**', './settle/html/**'])
         .pipe(sftp({
