@@ -1,4 +1,4 @@
-学习  尼尔格瑞 NGm158382
+
 http://www.css88.com/doc/zeptojs_api/#download
 http://www.h-ui.net/index.shtml
 http://wex5.com/cn/
@@ -46,8 +46,7 @@ http://www.css88.com/book/css/properties/user-interface/pointer-events.htm
 
 http://182.92.75.69:8080/
 
-公积金
-单位客户号：120150809944个人客户号：220153877210
+
 
 手机端meta标签
 http://segmentfault.com/a/1190000002407912
@@ -175,15 +174,9 @@ IOS设备对meta定义的私有属性：
 <!-- 适应移动端end -->
 
 
-备注：
-exmail.qq.com
-企业邮箱：chujunfang@qfpay.com
 
-gitlab 账号
-chujunfang@qfpay.com   chu   junfang  Yaya1212
-http://git.qfpay.net/  chujunfang
-git@git.qfpay.net:qpos/paymis.git
-git@git.qfpay.net:qpos/openapi_trade.git
+
+
 
 https://modao.cc/app/GPIpjAvMyaPskha5qDCG
 /home/dengcheng/project/openapi/bin/fregister/templates
@@ -207,9 +200,7 @@ http://192.168.0.7:8083/paycenter/nav
 13541134276
 123456
 
-18500195993
-15725X
-签约包 签约账号
+
 
 
 
