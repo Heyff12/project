@@ -1,0 +1,131 @@
+@import "./common/common";
+@import "./common/iosSelect";
+@import "./common/bank";
+
+
+/* ==================银行卡============================================================ */
+section.card{
+    .fixed_button{
+        margin-top: 20px;
+    }
+}
+
+/* ==================我要进货============================================================ */
+
+section.tojoin {
+    ul.join_t {
+        width: 100%;
+        padding: 10px 0;
+        box-sizing: border-box;
+        height: 40px;
+        line-height: 20px;
+        border-bottom: 1px solid @border_color;
+        /*no*/
+        li {
+            width: 32%;
+            float: left;
+            text-align: center;
+            box-sizing: border-box;
+            &:nth-child(2) {
+                width: 34%;
+                border-left: 1px solid @border_color;
+                /*no*/
+                border-right: 1px solid @border_color;
+                /*no*/
+            }
+        }
+        &.join_list {
+            height: 60px;
+            line-height: 40px;
+            li {
+                &:nth-child(2) {
+                    width: 34%;
+                    border: 0;
+                }
+                span {
+                    font-size: 12px;
+                }
+                input{
+                	border:1px solid @border_color;/*no*/
+                	background:none;
+                	width: 50px;
+                	text-align: center;
+                	height: 36px;
+                	border-radius: 5px;
+                }
+            }
+        }
+    }
+    ul.page{
+    	width: 100%;
+    	padding: 0 2px;
+    	margin: 0 auto;
+    	height: 35px;
+    	line-height: 35px;
+    	box-sizing: border-box;
+    	border-bottom: 1px solid @border_color;
+        /*no*/
+        li{
+        	float: left;
+        	width: 8.3%;
+        	text-align: center;
+        	&.tab{
+        		color: @orange;
+        	}
+        	img{
+        		width: 22px;
+        		height: auto;
+        		position: relative;
+        		top:6px;
+        	}
+        	&.pre{
+
+        	}
+        	&.next{
+        		
+        	}
+        }
+        &:after {
+            content: '';
+            clear: both;
+            height: 0;
+            line-height: 0;
+            display: block;
+            font-size: 0;
+        }
+    }
+    ul.detail{
+    	width: 100%;
+    	padding: 10px 15px;
+    	box-sizing: border-box;
+    	background: @bg_grey;
+    	li{
+    		line-height: 25px;
+    		input{
+            	border:1px solid @grey;/*no*/
+            	background:none;
+            	width: 50px;
+            	text-align: center;
+            	height: 20px;
+            	border-radius: 5px;
+            	margin: 0 5px;
+            }
+            span.font_13{
+            	font-size: 13px;
+            }
+    	}
+    }
+    .fixed_button{
+    	margin: 10px auto 20px;
+    }
+}
+
+
+
+
+
+
+
+
+
+

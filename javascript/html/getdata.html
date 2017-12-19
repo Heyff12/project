@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>getdata</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <script type="text/javascript" src="../static/js/plug/flexible.debug.js"></script>
+    <link rel="stylesheet" href="../static/css/home.css">
+</head>
+
+<body class="bg_body">
+    <div id="wap">
+        <header>
+            <h2>掘金获取个人收藏</h2>
+            <a class="title_a a_left back"></a>
+        </header>
+        <section class="bind">
+            <form action="https://user-like-wrapper-ms.juejin.im/v1/user/582595a90ce4630058bd0c31/like/entry" method="get">
+                页数：<input type="text" name="page" value="6">
+                <br/>
+                每页数目：<input type="text" name="pageSize" value="20">
+                <br/>
+                <input style="width:100px; height:30px; " type="button" name="submit" onclick="juejin()">
+            </form>
+        </section>
+    </div>
+    <!-- <script src="../static/js/require.2.1.11.min.js " type="text/javascript " data-main="../static/js/home/bind.js" defer async="true "></script> -->
+    <script src="../static/js/home/getdata.js " type="text/javascript "></script>
+</body>
+
+</html>

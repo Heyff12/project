@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>es6新性能</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <script>
+    window.PointerEvent = void 0
+    </script>
+    <script type="text/javascript" src="../static/js/plug/flexible.debug.js"></script>
+    <link rel="stylesheet" href="../static/css/home.css">
+</head>
+
+<body class="bg_body">
+    <div id="wap">
+        <header>
+            <h2>es6新性能-字符串的扩展</h2>
+            <a class="title_a a_left back"></a>
+        </header>
+        <section class="bind descripe">
+            <dl>
+                <dt class="green">1、字符的 Unicode 表示法</dt>
+                <dd>JavaScript 允许采用\uxxxx形式表示一个字符，其中xxxx表示字符的 Unicode 码点。</dd>
+                <dd>ES6 对这一点做出了改进，只要将码点放入大括号，就能正确解读该字符。</dd>
+                <dd>JavaScript 共有6种方法可以表示一个字符。</dd>
+                <dt class="green">2、codePointAt()</dt>
+                <dd>ES6提供了codePointAt方法，能够正确处理4个字节储存的字符，返回一个字符的码点。</dd>
+                <dt class="green">3、String.fromCodePoint()</dt>
+                <dd>ES5提供String.fromCharCode方法，用于从码点返回对应字符，但是这个方法不能识别32位的UTF-16字符（Unicode编号大于0xFFFF）</dd>
+                <dd>ES6提供了String.fromCodePoint方法，可以识别大于0xFFFF的字符，弥补了String.fromCharCode方法的不足。在作用上，正好与codePointAt方法相反。</dd>
+                <dt class="green">4、字符串的遍历器接口</dt>
+                <dt class="green">5、at()</dt>
+                <dd>提出字符串实例的at方法，可以识别Unicode编号大于0xFFFF的字符，返回正确的字符。</dd>
+                <dt class="green">6、normalize()</dt>
+                <dd>ES6提供字符串实例的normalize()方法，用来将字符的不同表示方法统一为同样的形式，这称为Unicode正规化。</dd>
+                <dt class="green">7、includes(), startsWith(), endsWith()</dt>
+                <dd>传统上，JavaScript只有indexOf方法，可以用来确定一个字符串是否包含在另一个字符串中。ES6又提供了三种新方法。</dd>
+                <dd>includes()：返回布尔值，表示是否找到了参数字符串。</dd>
+                <dd>startsWith()：返回布尔值，表示参数字符串是否在源字符串的头部。</dd>
+                <dd>endsWith()：返回布尔值，表示参数字符串是否在源字符串的尾部。</dd>
+                <dd>这三个方法都支持第二个参数，表示开始搜索的位置。</dd>
+                <dt>8、repeat()</dt>
+                <dd>repeat方法返回一个新字符串，表示将原字符串重复n次。</dd>
+                <dd>参数如果是小数，会被取整。</dd>
+                <dt>9、padStart()，padEnd()</dt>
+                <dd>ES2017引入了字符串补全长度的功能。如果某个字符串不够指定长度，会在头部或尾部补全。padStart()用于头部补全，padEnd()用于尾部补全。</dd>
+                <dd>padStart和padEnd一共接受两个参数，第一个参数用来指定字符串的最小长度，第二个参数是用来补全的字符串。</dd>
+                <dd>如果原字符串的长度，等于或大于指定的最小长度，则返回原字符串。</dd>
+                <dd>如果用来补全的字符串与原字符串，两者的长度之和超过了指定的最小长度，则会截去超出位数的补全字符串。</dd>
+                <dd>如果省略第二个参数，默认使用空格补全长度。</dd>
+                <dt>10、模板字符串</dt>
+                <dd>模板字符串（template string）是增强版的字符串，用反引号（`）标识。它可以当作普通字符串使用，也可以用来定义多行字符串，或者在字符串中嵌入变量。</dd>
+                <dd>模板字符串甚至还能嵌套。</dd>
+                <dt>11、实例：模板编译</dt>
+                <dt>12、标签模板</dt>
+                <dd>tag函数的第一个参数是一个数组，该数组的成员是模板字符串中那些没有变量替换的部分，也就是说，变量替换只发生在数组的第一个成员与第二个成员之间、第二个成员与第三个成员之间，以此类推。</dd>
+                <dt>13、String.raw()</dt>
+                <dd>ES6还为原生的String对象，提供了一个raw方法。</dd>
+            </dl>
+            <ul id="list"></ul>
+        </section>
+    </div>
+    <!-- <script src="../static/js/require.2.1.11.min.js " type="text/javascript " data-main="../static/js/home/str.js" defer async="true "></script> -->
+    <script src="../static/js/home/str.js " type="text/javascript "defer async="true "></script>
+</body>
+
+</html>
