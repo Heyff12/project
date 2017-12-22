@@ -1,73 +1,29 @@
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
+'use strict';
 
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
+var a = 1,
+    b = 2,
+    c = 3;
+var head = 1,
+    tail = [2, 3, 4];
 
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
+console.log(head);
+console.log(tail);
+var _ref = ['a'],
+    x = _ref[0],
+    y = _ref[1],
+    z = _ref.slice(2);
 
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			exports: {},
-/******/ 			id: moduleId,
-/******/ 			loaded: false
-/******/ 		};
+console.log(x);
+console.log(y);
+console.log(z);
 
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+var obj = {};
+var arr = [];
 
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
-
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
+var _foo$bar = { foo: 123, bar: true };
+obj.prop = _foo$bar.foo;
+arr[0] = _foo$bar.bar;
 
 
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(0);
-/******/ })
-/************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports) {
-
-	let [a, b, c] = [1, 2, 3];
-
-	let [head, ...tail] = [1, 2, 3, 4];
-	console.log(head) // 1
-	console.log(tail) // [2, 3, 4]
-
-	let [x, y, ...z] = ['a'];
-	console.log(x) // "a"
-	console.log(y) // undefined
-	console.log(z) // []
-
-
-
-	// let [x, y, z] = new Set(['a', 'b', 'c']);
-	// console.log(x) // "a"
-
-
-	let obj = {};
-	let arr = [];
-
-	({ foo: obj.prop, bar: arr[0] } = { foo: 123, bar: true });
-
-	console.log(obj) // {prop:123}
-	console.log(arr) // [true]
-
-/***/ })
-/******/ ]);
+console.log(obj);
+console.log(arr);

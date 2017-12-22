@@ -1,175 +1,131 @@
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
-
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			exports: {},
-/******/ 			id: moduleId,
-/******/ 			loaded: false
-/******/ 		};
+'use strict';
 
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
+var Point = function () {
+  function Point(x, y) {
+    _classCallCheck(this, Point);
 
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+    this.x = x;
+    this.y = y;
+  }
 
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(0);
-/******/ })
-/************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports) {
+  _createClass(Point, [{
+    key: 'toString',
+    value: function toString() {
+      return '(' + this.x + ', ' + this.y + ')';
+    }
+  }]);
 
-	//定义类
-	class Point {
-	  constructor(x, y) {
-	    this.x = x;
-	    this.y = y;
-	  }
+  return Point;
+}();
 
-	  toString() {
-	    return '(' + this.x + ', ' + this.y + ')';
-	  }
-	}
-	class ColorPoint extends Point {
-	  constructor(x, y, color) {
-	    super(x, y); // 调用父类的constructor(x, y)
-	    this.color = color;
-	  }
+var ColorPoint = function (_Point) {
+  _inherits(ColorPoint, _Point);
 
-	  toString() {
-	    return this.color + ' ' + super.toString(); // 调用父类的toString()
-	  }
-	}
+  function ColorPoint(x, y, color) {
+    _classCallCheck(this, ColorPoint);
 
+    var _this = _possibleConstructorReturn(this, (ColorPoint.__proto__ || Object.getPrototypeOf(ColorPoint)).call(this, x, y));
 
+    _this.color = color;
+    return _this;
+  }
 
+  _createClass(ColorPoint, [{
+    key: 'toString',
+    value: function toString() {
+      return this.color + ' ' + _get(ColorPoint.prototype.__proto__ || Object.getPrototypeOf(ColorPoint.prototype), 'toString', this).call(this);
+    }
+  }]);
 
-	class A {
-	  constructor() {
-	    console.log(new.target.name);
-	  }
-	}
-	class B extends A {
-	  constructor() {
-	    super();
-	  }
-	}
-	console.log(new A()) // A
-	console.log(new B()) // B
+  return ColorPoint;
+}(Point);
 
+var A = function A() {
+  _classCallCheck(this, A);
 
+  console.log(new.target.name);
+};
 
-	class A2 {
-	  constructor() {
-	    this.x = 1;
-	  }
-	  print() {
-	    console.log(this.x);
-	  }
-	}
+var B = function (_A) {
+  _inherits(B, _A);
 
-	class B2 extends A2 {
-	  constructor() {
-	    super();
-	    this.x = 2;
-	  }
-	  m() {
-	    super.print();
-	  }
-	}
+  function B() {
+    _classCallCheck(this, B);
 
-	let b = new B2();
-	b.m()// 2
-	//上面代码中，super.print()虽然调用的是A.prototype.print()，但是A.prototype.print()会绑定子类B的this，导致输出的是2，而不是1。也就是说，实际上执行的是super.print.call(this)。
+    return _possibleConstructorReturn(this, (B.__proto__ || Object.getPrototypeOf(B)).call(this));
+  }
 
+  return B;
+}(A);
 
+console.log(new A());
+console.log(new B());
+var A2 = function () {
+  function A2() {
+    _classCallCheck(this, A2);
 
+    this.x = 1;
+  }
 
+  _createClass(A2, [{
+    key: 'print',
+    value: function print() {
+      console.log(this.x);
+    }
+  }]);
 
+  return A2;
+}();
 
-	class A3 {
-	}
+var B2 = function (_A2) {
+  _inherits(B2, _A2);
 
-	class B3 extends A3 {
-	}
+  function B2() {
+    _classCallCheck(this, B2);
 
-	console.log(B3.__proto__ === A3) // true
-	console.log(B3.prototype.__proto__ === A3.prototype) // true
-	//上面代码中，子类B的__proto__属性指向父类A，子类B的prototype属性的__proto__属性指向父类A的prototype属性。
-	//作为一个对象，子类（B）的原型（__proto__属性）是父类（A）；
-	//作为一个构造函数，子类（B）的原型（prototype属性）是父类的实例。
+    var _this3 = _possibleConstructorReturn(this, (B2.__proto__ || Object.getPrototypeOf(B2)).call(this));
 
+    _this3.x = 2;
+    return _this3;
+  }
 
+  _createClass(B2, [{
+    key: 'm',
+    value: function m() {
+      _get(B2.prototype.__proto__ || Object.getPrototypeOf(B2.prototype), 'print', this).call(this);
+    }
+  }]);
 
+  return B2;
+}(A2);
 
+var b = new B2();
+b.m();
+var A3 = function A3() {
+  _classCallCheck(this, A3);
+};
 
+var B3 = function (_A3) {
+  _inherits(B3, _A3);
 
+  function B3() {
+    _classCallCheck(this, B3);
 
+    return _possibleConstructorReturn(this, (B3.__proto__ || Object.getPrototypeOf(B3)).apply(this, arguments));
+  }
 
+  return B3;
+}(A3);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/***/ })
-/******/ ]);
+console.log(B3.__proto__ === A3);
+console.log(B3.prototype.__proto__ === A3.prototype);

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>es6新性能</title>
+    <title>3-类型、值和变量</title>
     <meta charset="utf-8">
     <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
     <meta content="yes" name="apple-mobile-web-app-capable">
@@ -19,17 +19,19 @@
 <body class="bg_body">
     <div id="wap">
         <header>
-            <h2>es6新性能-let const</h2>
+            <h2>3-类型、值和变量</h2>
             <a class="title_a a_left back"></a>
         </header>
         <section class="bind descripe">
             <dl>
-                <dt class="green">1、块级作用域，即{}</dt>
-                <dd>ES6 新增了let命令，用来声明变量。它的用法类似于var，但是所声明的变量，只在let命令所在的代码块内有效。</dd>
-                <dt class="green">2、变量提升</dt>
-                <dd>var命令会发生”变量提升“现象，即变量可以在声明之前使用，值为undefined。为了纠正这种现象，let命令改变了语法行为，它所声明的变量一定要在声明后使用，否则报错。</dd>
-                <dt class="green">3、暂时性死区</dt>
-                <dd>只要块级作用域内存在let命令，它所声明的变量就“绑定”（binding）这个区域，不再受外部的影响。typeof运行时就会抛出一个ReferenceError。</dd>
+                <dt class="green">1、JavaScript类型</dt>
+                <dd>原始类型：number  string boolean  null(空)  undefined(未定义)； 对象  函数  array date  regexp error</dd>
+                <dt class="green">2、对象</dt>
+                <dd>对象的比较并不是值的比较，即便参数完全相同的两个对象/数组  也不全等===/==。</dd>
+                <dd>对象的比较并是引用的比较，当且仅当他们引用同一个及对象时，他们才相等。</dd>
+                <dt class="green">3、作用域</dt>
+                <dd>函数体内的没有通过var 声明的变量是 全局变量。</dd>
+                <dd>全局变量是全局对象的属性。</dd>
                 <dt class="green">4、不允许重复说明</dt>
                 <dd>let不允许在相同作用域内，重复声明同一个变量。</dd>
                 <dt class="green">5、do表达式</dt>
@@ -50,7 +52,19 @@
             </dl>
         </section>
     </div>
-    <script src="../static/js/require.2.1.11.min.js " type="text/javascript " data-main="../static/js/home/es6.js" defer async="true "></script>
+    <script type="text/javascript">
+        var scope = 'global scope';
+        function checkscope(){
+            var scope= 'local scope';
+            function nested(){
+                var scope='nested scope';
+                return scope;
+            }
+            return nested();
+        }
+        checkscope();
+        console.log(checkscope());
+    </script>
 </body>
 
 </html>

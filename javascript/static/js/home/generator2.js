@@ -1,197 +1,126 @@
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
-
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			exports: {},
-/******/ 			id: moduleId,
-/******/ 			loaded: false
-/******/ 		};
-
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
-
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-
-
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(0);
-/******/ })
-/************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports) {
-
-	function* gen(x){
-	  var y = yield x + 2;
-	  return y;
-	}
-
-	var g = gen(1);
-	console.log(g.next()) // { value: 3, done: false }
-	console.log(g.next(2)) // { value: 2, done: true }
-	console.log(g.next(8)) // { value: undfined, done: true }
-
-
-
-	function* gen1(x){
-	  try {
-	    var y = yield x + 2;
-	  } catch (e){
-	    console.log(e);
-	  }
-	  return y;
-	}
-
-	var g1 = gen1(1);
-	console.log(g1.next());
-	console.log(g1.throw('出错了'));
-	// 出错了
-
-
-	let x=1;
-	function f1(m) {
-	  return m * 2;
-	}
-
-	f1(x + 5);
-
-	// 等同于
-
-	var thunk = function () {
-	  return x + 5;
-	};
-
-	function f2(thunk) {
-	  return thunk() * 2;
-	}
-	//这就是 Thunk 函数的定义，它是“传名调用”的一种实现策略，用来替换某个表达式。
-	// ES6版本
-	const Thunk2 = function(fn) {
-	  return function (...args) {
-	    return function (callback) {
-	      return fn.call(this, ...args, callback);
-	    }
-	  };
-	};
-	function f(a, cb) {
-	  cb(a);
-	}
-	const ft = Thunk2(f);
-
-	ft(1)(console.log) // 1
-
-
-
-
-
-	function thunkify(fn) {
-	  return function() {
-	    var args = new Array(arguments.length);
-	    var ctx = this;
-
-	    for (var i = 0; i < args.length; ++i) {
-	      args[i] = arguments[i];
-	    }
-
-	    return function (done) {
-	      var called;
-
-	      args.push(function () {
-	        if (called) return;
-	        called = true;
-	        done.apply(null, arguments);
-	      });
-
-	      try {
-	        fn.apply(ctx, args);
-	      } catch (err) {
-	        done(err);
-	      }
-	    }
-	  }
-	};
-	// function f(a, b, callback){
-	//   var sum = a + b;
-	//   callback(sum);
-	//   callback(sum);
-	// }
-
-	// var ft2 = thunkify(f);
-	// var print = console.log.bind(console);
-	// ft2(1, 2)(print);
-	// // 3
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/***/ })
-/******/ ]);
+'use strict';
+
+var _marked = [gen, gen1].map(regeneratorRuntime.mark);
+
+function gen(x) {
+  var y;
+  return regeneratorRuntime.wrap(function gen$(_context) {
+    while (1) {
+      switch (_context.prev = _context.next) {
+        case 0:
+          _context.next = 2;
+          return x + 2;
+
+        case 2:
+          y = _context.sent;
+          return _context.abrupt('return', y);
+
+        case 4:
+        case 'end':
+          return _context.stop();
+      }
+    }
+  }, _marked[0], this);
+}
+
+var g = gen(1);
+console.log(g.next());
+console.log(g.next(2));
+console.log(g.next(8));
+
+function gen1(x) {
+  var y;
+  return regeneratorRuntime.wrap(function gen1$(_context2) {
+    while (1) {
+      switch (_context2.prev = _context2.next) {
+        case 0:
+          _context2.prev = 0;
+          _context2.next = 3;
+          return x + 2;
+
+        case 3:
+          y = _context2.sent;
+          _context2.next = 9;
+          break;
+
+        case 6:
+          _context2.prev = 6;
+          _context2.t0 = _context2['catch'](0);
+
+          console.log(_context2.t0);
+
+        case 9:
+          return _context2.abrupt('return', y);
+
+        case 10:
+        case 'end':
+          return _context2.stop();
+      }
+    }
+  }, _marked[1], this, [[0, 6]]);
+}
+
+var g1 = gen1(1);
+console.log(g1.next());
+console.log(g1.throw('出错了'));
+
+
+var x = 1;
+function f1(m) {
+  return m * 2;
+}
+
+f1(x + 5);
+
+var thunk = function thunk() {
+  return x + 5;
+};
+
+function f2(thunk) {
+  return thunk() * 2;
+}
+
+var Thunk2 = function Thunk2(fn) {
+  return function () {
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return function (callback) {
+      return fn.call.apply(fn, [this].concat(args, [callback]));
+    };
+  };
+};
+function f(a, cb) {
+  cb(a);
+}
+var ft = Thunk2(f);
+
+ft(1)(console.log);
+
+function thunkify(fn) {
+  return function () {
+    var args = new Array(arguments.length);
+    var ctx = this;
+
+    for (var i = 0; i < args.length; ++i) {
+      args[i] = arguments[i];
+    }
+
+    return function (done) {
+      var called;
+
+      args.push(function () {
+        if (called) return;
+        called = true;
+        done.apply(null, arguments);
+      });
+
+      try {
+        fn.apply(ctx, args);
+      } catch (err) {
+        done(err);
+      }
+    };
+  };
+};

@@ -237,7 +237,8 @@ gulp.task('sftp', function(cb) {
             pass: '123456',
             remotePath: "/home/chujunfang/test",
             includeHtml: true
-        }));
+        }))
+});
 
 gulp.task('watch_pc', function() {
     browserSync.init({
