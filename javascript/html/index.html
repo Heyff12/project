@@ -25,45 +25,607 @@
         <section class="bind descripe">
             <dl>
                 <dt class="green">1、JavaScript类型</dt>
-                <dd>原始类型：number  string boolean  null(空)  undefined(未定义)； 对象  函数  array date  regexp error</dd>
+                <dd>原始类型：number string boolean null(空) undefined(未定义)； 对象 函数 array date regexp error</dd>
                 <dt class="green">2、对象</dt>
-                <dd>对象的比较并不是值的比较，即便参数完全相同的两个对象/数组  也不全等===/==。</dd>
+                <dd>对象的比较并不是值的比较，即便参数完全相同的两个对象/数组 也不全等===/==。</dd>
                 <dd>对象的比较并是引用的比较，当且仅当他们引用同一个及对象时，他们才相等。</dd>
                 <dt class="green">3、作用域</dt>
                 <dd>函数体内的没有通过var 声明的变量是 全局变量。</dd>
                 <dd>全局变量是全局对象的属性。</dd>
-                <dt class="green">4、不允许重复说明</dt>
-                <dd>let不允许在相同作用域内，重复声明同一个变量。</dd>
-                <dt class="green">5、do表达式</dt>
-                <dd>本质上，块级作用域是一个语句，将多个操作封装在一起，没有返回值。</dd>
-                <dt class="green">6、const</dt>
-                <dd>const声明一个只读的常量。一旦声明，常量的值就不能改变。<br/>const的作用域与let命令相同：只在声明所在的块级作用域内有效。<br/>const命令声明的常量也是不提升，同样存在暂时性死区，只能在声明的位置后面使用。<br/>const声明的常量，也与let一样不可重复声明。</dd>
-                <dt class="green">7、const本质</dt>
-                <dd>const实际上保证的，并不是变量的值不得改动，而是变量指向的那个内存地址不得改动。<br/>对于简单类型的数据（数值、字符串、布尔值），值就保存在变量指向的那个内存地址，因此等同于常量。但对于复合类型的数据（主要是对象和数组），变量指向的内存地址，保存的只是一个指针，const只能保证这个指针是固定的，至于它指向的数据结构是不是可变的，就完全不能控制了。</dd>
-                <dt class="green">8、ES6 一共有6种声明变量的方法</dt>
-                <dd>ES5 只有两种声明变量的方法：var命令和function命令。ES6除了添加let和const命令，后面章节还会提到，另外两种声明变量的方法：import命令和class命令。所以，ES6 一共有6种声明变量的方法。</dd>
-                <dt class="green">9、顶层对象的属性</dt>
-                <dd>顶层对象，在浏览器环境指的是window对象，在Node指的是global对象。ES5之中，顶层对象的属性与全局变量是等价的。</dd>
-                <dd>ES6为了改变这一点，一方面规定，为了保持兼容性，var命令和function命令声明的全局变量，依旧是顶层对象的属性；另一方面规定，let命令、const命令、class命令声明的全局变量，不属于顶层对象的属性。也就是说，从ES6开始，全局变量将逐步与顶层对象的属性脱钩。</dd>
-                <dt class="green">10、global对象</dt>
-                <dd>全局环境中，this会返回顶层对象。但是，Node模块和ES6模块中，this返回的是当前模块。</dd>
-                <dd>函数里面的this，如果函数不是作为对象的方法运行，而是单纯作为函数运行，this会指向顶层对象。但是，严格模式下，这时this会返回undefined。</dd>
-                <dd>不管是严格模式，还是普通模式，new Function('return this')()，总是会返回全局对象。但是，如果浏览器用了CSP（Content Security Policy，内容安全政策），那么eval、new Function这些方法都可能无法使用。</dd>
+                <dt class="green">4、defer async</dt>
+                <dd>defer：立即下载，在页面解析完毕后执行，按照加载得到js文件的按照顺序执行</dd>
+                <dd>async：立即下载，可能会在页面加载前执行，不按照js文件的顺序执行</dd>
+                <dt class="green">5、XHTML的用法，下面例子</dt>
+                <dd>
+                    <noscript>
+                        <p>本 要 ( 用)JavaScript
+                    </noscript>
+                </dd>
+                <dt class="green">6、JavaScript区分大小写，html不区分大小写</dt>
+                <dt class="green">7、javascript数据类型</dt>
+                <dd>Undefined、 Null、 Boolean、 Number 、 String 、Object</dd>
+                <dt class="green">8、面向对象的程序设计</dt>
+                <dd>使用不带圆括号的函数名是访问函数指针，而非调用函数</dd>
+                <dd>解析器会率先读取函数声明，并使其在执行任何代码之前可用；至于函数表达式，则必须等到解析器执行到它所在的代码行，才能解释执行</dd>
+                <dd>构造函数与原型模式混合：构造函数用于定义实例属性，原型模式用于定义方法和共享属性。</dd>
+                <dd>每个构造函数都有一个原型对象，原型对象都包含一个指向构造函数的指针，而实例都包含一个指向原型对象的内部指针</dd>
+                <dd>给原型添加方法的代码的代码一定要放在替换原型的语句之后</dd>
+                <dd>Object.preventExtensions()使用后，就不能对对象添加新的属性和方法了</dd>
+                <dd>Object.seal(person)可以密封对象，不能删除、添加，不能扩展</dd>
+                <dd> Object.isSealed()方法可以确定对象是否被密封</dd>
+                <dd>冻结的对象，既不能扩展，还是密封的。Object.freeze(person);检测Object.isFrozen()</dd>
+                <dd></dd>
             </dl>
         </section>
+        <div id="myBtn">事件处理程序</div>
     </div>
     <script type="text/javascript">
-        var scope = 'global scope';
-        function checkscope(){
-            var scope= 'local scope';
-            function nested(){
-                var scope='nested scope';
-                return scope;
-            }
-            return nested();
+    // 5、XHTML的用法
+    //<![CDATA[
+    function compare(a, b) {
+        if (a < b) {
+            alert("A is less than B");
+        } else if (a > b) {
+            alert("A is greater than B");
+        } else {
+            alert("A is equal to B");
         }
-        checkscope();
-        console.log(checkscope());
+    }
+    //]]>
+    </script>
+    <script type="text/javascript">
+    //--------变量作用域------------------------------------
+    var scope = 'global scope';
+
+    function checkscope() {
+        var scope = 'local scope';
+
+        function nested() {
+            var scope = 'nested scope';
+            return scope;
+        }
+        return nested();
+    }
+    checkscope();
+    console.log(checkscope());
+
+    //--------class------------------------------------
+    //构造函数
+    function Range(from, to) {
+        this.from = from;
+        this.to = to;
+    }
+    //原型
+    Range.prototype = {
+        includes: function(x) {
+            return this.from <= x && x <= this.to;
+        },
+        foreach: function(f) {
+            for (var x = Math.ceil(this.from); x <= this.to; x++) {
+                f(x);
+            }
+        },
+        toString: function() {
+            return '(' + this.from + '...' + this.to + ')';
+        }
+    };
+    var r = new Range(1, 3);
+    console.log(r.includes(2)); //true
+    r.foreach(console.log); //1 2 3
+    console.log(r); //Range {from: 1, to: 3}
+    console.log(r instanceof Range); //true
+
+
+    var F = function() {};
+    var p = F.prototype;
+    var c = p.constructor;
+    console.log(c === F); //true
+
+    var o = new F();
+    console.log(o.constructor === F); //true
+    //--------测试++--------------------------------------
+    let i = 0;
+    for (i; i <= 5; i++) {
+        console.log(i);
+    }
+    console.log(i);
+    let ii = 0;
+    for (ii; ii <= 5; ++ii) {
+        console.log(ii);
+    }
+    console.log(ii);
+    //--------测试sort排序--------------------------------------
+    function compare(val1, val2) {
+        let cha = val1 - val2;
+        cha > 0 ? 1 : cha == 0 ? 0 : -1;
+        if (newSortList.length == sortLen + 1) {
+            clearInterval(aa);
+        }
+        return cha;
+    }
+
+    var sortList = [];
+    var newSortList = [];
+    var sortLen = 10000000;
+    var timeing = 0; //计时
+    // for (let i = 0; i <= sortLen; i++) {
+    //     sortList.push(i);
+    //     if (i == sortLen) {
+    //         var aa = setInterval(() => {
+    //             timeing++;
+    //         }, 100);
+    //         newSortList = sortList.sort(compare);
+    //         console.log(newSortList);
+    //     }
+    // }
+    // console.log(timeing / 10);
+
+
+
+    //--------正则--------------------------------------
+    var text = "this has been a shhhort summer";
+    var pattern = /(.)hort/g;
+    /*
+     *   :Opera 不   input、lastMatch、lastParen 和 multiline 属性 * Internet Explorer 不   multiline 属性
+     */
+    if (pattern.test(text)) {
+        console.log(RegExp.input); // this has been a short summer
+        console.log(RegExp.leftContext); // this has been a
+        console.log(RegExp.rightContext); // summer
+        console.log(RegExp.lastMatch); // short
+        console.log(RegExp.lastParen); // s
+        console.log(RegExp.multiline); // false
+    }
+
+    //--------函数参数--------------------------------------
+    // function createComparisonFunction(propertyName) {
+    //     return function(object1, object2) {
+    //         var value1 = object1[propertyName];
+    //         var value2 = object2[propertyName];
+    //         if (value1 < value2) {
+    //             return -1;
+    //         } else if (value1 > value2) {
+    //             return 1;
+    //         }
+    //     };
+    // }
+    // data.sort(createComparisonFunction("name"));
+    // var data = [{ name: "Zachary", age: 28 }, { name: "Nicholas", age: 29 }];
+    // alert(data[0].name); //Nicholas
+    // data.sort(createComparisonFunction("age"));
+    // alert(data[0].name); //Zachary
+    //--------函数construct原型模式--------------------------------------
+    function Person() {}
+    Person.prototype = {
+        name: "Nicholas",
+        age: 29,
+        job: "Software Engineer",
+        sayName: function() {
+            console.log(this.name);
+        }
+    };
+    var friend = new Person();
+    console.log(friend instanceof Object); //true
+    console.log(friend instanceof Person); //true
+    console.log(friend.constructor == Person); //false
+    console.log(friend.constructor == Object); //true
+    console.log(friend.constructor == friend); //false
+
+    //--------构造函数与原型模式混合--------------------------------------
+    function Person11(name, age, job) {
+        this.name = name;
+        this.age = age;
+        this.job = job;
+        this.friends = ["Shelby", "Court"];
+    } //构造函数模式
+    Person11.prototype = {
+        constructor: Person,
+        sayName: function() {
+            console.log(this.name);
+        }
+    } //原型模式，重写原型模式
+    var person1 = new Person11("Nicholas", 29, "Software Engineer");
+    var person2 = new Person11("Greg", 27, "Doctor");
+    person1.friends.push("Van");
+    console.log(person1.friends); //"Shelby,Count,Van"
+    console.log(person2.friends); //"Shelby,Count"
+    console.log(person1.friends === person2.friends); //false
+    console.log(person1.sayName === person2.sayName); //true
+    //--------原型链--------------------------------------
+    function SuperType() {
+        this.property = true;
+    }
+    SuperType.prototype.getSuperValue = function() {
+        return this.property;
+    };
+
+    function SubType() {
+        this.subproperty = false;
+    }
+    //    SuperType
+    SubType.prototype = new SuperType();
+    SubType.prototype.getSubValue = function() {
+        return this.subproperty;
+    };
+    var instance = new SubType();
+    console.log(instance.getSuperValue()); //true
+    //确定原型和实例关系
+    console.log(instance instanceof Object); //true
+    console.log(instance instanceof SuperType); //true
+    console.log(instance instanceof SubType); //true
+    console.log(Object.prototype.isPrototypeOf(instance)); //true
+    console.log(SuperType.prototype.isPrototypeOf(instance)); //true
+    console.log(SubType.prototype.isPrototypeOf(instance)); //true
+    //--------arguments.callee指向正在执行的函数的指针--------------------------------------
+    function factorial(num) {
+        if (num <= 1) {
+            return 1;
+        } else {
+            return num * arguments.callee(num - 1);
+        }
+    }
+    var anotherFactorial = factorial;
+    factorial = null;
+    console.log(anotherFactorial(4)); //24
+    //--------闭包--------------------------------------
+    function createFunctions0() {
+        var result = new Array();
+        for (var i = 0; i < 10; i++) {
+            result[i] = function() {
+                return i;
+            };
+        }
+        return result;
+    }
+    console.log(createFunctions0()); //[0,1,2,3,4,5,6,7,8,9]
+
+    function createFunctions() {
+        var result = new Array();
+        for (var i = 0; i < 10; i++) {
+            result[i] = function(num) {
+                return function() {
+                    return num;
+                };
+            }(i);
+        }
+        return result;
+    }
+    console.log(createFunctions()); //[0,1,2,3,4,5,6,7,8,9]
+    //--------作用域--------------------------------------
+    function outputNumbers(count) {
+        for (var i = 0; i < count; i++) {
+            console.log(i);
+        }
+        console.log(i); //计数 
+    }
+    outputNumbers(3); //0 1 2 3
+
+    function outputNumbers1(count) {
+        for (var i = 0; i < count; i++) {
+            console.log(i);
+        }
+        var i;
+        console.log(i); //计数 
+    }
+    outputNumbers1(3); //0 1 2 3
+    //块级作用域
+    (function() { //这里是块级作用域
+    })();
+    //--------window--------------------------------------
+    // var wroxWin0 = window.open("http://www.wrox.com/", "wroxWindow", "height=400,width=400,top=10,left=10,resizable=yes");
+    // //调整大小
+    // // wroxWin0.resizeTo(500, 500);
+    // // //移动位置 
+    // wroxWin0.moveTo(100, 100);
+    // wroxWin0.close();
+    // //测试window.open是否被禁用
+    // var blocked = false;
+    // try {
+    //     var wroxWin = window.open("http://www.wrox.com", "_blank");
+    //     if (wroxWin == null) {
+    //         blocked = true;
+    //     }
+    // } catch (ex) {
+    //     blocked = true;
+    // }
+    // if (blocked) {
+    //     alert("The popup was blocked!");
+    // }
+
+    // //confirm 返回 true or false
+    // if (confirm("Are you sure?")) {
+    //     alert("I'm so glad you're sure! ");
+    // } else {
+    //     alert("I'm sorry to hear you're not sure. ");
+    // }
+    // //prompt
+    // var result = prompt("What is your name? ", "");
+    // if (result !== null) {
+    //     alert("Welcome, " + result);
+    // }
+    //检测浏览器 插件
+    function hasPlugin(name) {
+        name = name.toLowerCase();
+        for (var i = 0; i < navigator.plugins.length; i++) {
+            if (navigator.plugins[i].name.toLowerCase().indexOf(name) > -1) {
+                return true;
+            }
+        }
+        return false;
+    }
+    //检测Flash 
+    console.log(hasPlugin("Flash"));
+    //检测QuickTime 
+    console.log(hasPlugin("QuickTime"));
+
+    //检测IE  的 浏览器 插件 
+    function hasIEPlugin(name) {
+        try {
+            new ActiveXObject(name);
+            return true;
+        } catch (ex) {
+            return false;
+        }
+    }
+    //检测Flash 
+    console.log(hasIEPlugin("ShockwaveFlash.ShockwaveFlash"));
+    //检测QuickTime 
+    console.log(hasIEPlugin("QuickTime.QuickTime"));
+
+    //检测所有浏览器 插件
+    function hasFlash() {
+        var result = hasPlugin("Flash");
+        if (!result) {
+            result = hasIEPlugin("ShockwaveFlash.ShockwaveFlash");
+        }
+        return result;
+    }
+    //   有    的 QuickTime 
+    function hasQuickTime() {
+        var result = hasPlugin("QuickTime");
+        if (!result) {
+            result = hasIEPlugin("QuickTime.QuickTime");
+        }
+        return result;
+    }
+    //   Flash 
+    console.log(hasFlash());
+    //   QuickTime 
+    console.log(hasQuickTime());
+
+    //--------客户端检测--------------------------------------
+    var client = function() {
+        var engine = {
+            //呈现引擎
+            ie: 0,
+            gecko: 0,
+            webkit: 0,
+            khtml: 0,
+            opera: 0,
+            //具体的版本号
+            ver: null
+        };
+        var browser = {
+            ie: 0,
+            firefox: 0,
+            safari: 0,
+            konq: 0,
+            opera: 0,
+            chrome: 0,
+            //具体的版本号
+            ver: null
+        };
+        //再次检测呈现引擎和设备
+        return {
+            engine: engine,
+            browser: browser
+        };
+    }();
+    if (client.engine.ie) { //是IE，client.ie的值大于0 
+        // 针对IE 的代码
+    } else if (client.engine.gecko > 1.5) {
+        if (client.engine.ver == "1.8.1") {
+            // 对这个版本的代码
+        }
+    }
+
+    //--------事件处理程序--------------------------------------
+    var EventUtil = {
+        addHandler: function(element, type, handler) {
+            if (element.addEventListener) {
+                element.addEventListener(type, handler, false);
+            } else if (element.attachEvent) {
+                element.attachEvent("on" + type, handler);
+            } else {
+                element["on" + type] = handler;
+            }
+        },
+        removeHandler: function(element, type, handler) {
+            if (element.removeEventListener) {
+                element.removeEventListener(type, handler, false);
+            } else if (element.detachEvent) {
+                element.detachEvent("on" + type, handler);
+            } else {
+                element["on" + type] = null;
+            }
+        }
+    };
+    // var btn = document.getElementById("myBtn");
+    // var handler = function() {
+    //     alert("Clicked");
+    // };
+    // EventUtil.addHandler(btn, "click", handler);
+    // EventUtil.removeHandler(btn, "click", handler);
+
+    //event 对象
+    // var btn = document.getElementById("myBtn");
+    // btn.onclick = function(event) {
+    //     console.log(event.currentTarget === this);
+    //     console.log(event.target === this);
+    // };
+    // document.body.onclick = function(event) {
+    //     console.log(event.currentTarget === document.body); //true 
+    //     console.log(this === document.body); //true 
+    //     console.log(event.target === document.getElementById("myBtn")); //true 
+    // };
+
+    //执行顺序
+    var btn = document.getElementById("myBtn");
+    // btn.onclick = function(event) {
+    //     alert(event.eventPhase); //2 目标事件
+    // };
+    // document.body.addEventListener("click", function(event) {
+    //     alert(event.eventPhase); //1  捕获
+    // }, true);
+    // document.body.onclick = function(event) {
+    //     alert(event.eventPhase); //3  冒泡
+    // };
+    // 点击btn  提示顺序  1  2  3
+    // 点击 body  提示顺序  1   3
+
+    //--------事件对象--------------------------------------
+    var EventUtil = {
+        addHandler: function(element, type, handler) {
+            if (element.addEventListener) {
+                element.addEventListener(type, handler, false);
+            } else if (element.attachEvent) {
+                element.attachEvent("on" + type, handler);
+            } else {
+                element["on" + type] = handler;
+            }
+        },
+        getEvent: function(event) {
+            return event ? event : window.event;
+        },
+        getTarget: function(event) {
+            return event.target || event.srcElement;
+        },
+        preventDefault: function(event) {
+            if (event.preventDefault) {
+                event.preventDefault();
+            } else {
+                event.returnValue = false;
+            }
+        },
+        removeHandler: function(element, type, handler) {
+            if (element.removeEventListener) {
+                element.removeEventListener(type, handler, false);
+            } else if (element.detachEvent) {
+                element.detachEvent("on" + type, handler);
+            } else {
+                element["on" + type] = null;
+            }
+        },
+        stopPropagation: function(event) {
+            if (event.stopPropagation) {
+                event.stopPropagation();
+            } else {
+                event.cancelBubble = true;
+            }
+        },
+        getRelatedTarget: function(event) {
+            if (event.relatedTarget) {
+                return event.relatedTarget;
+            } else if (event.toElement) {
+                return event.toElement;
+            } else if (event.fromElement) {
+                return event.fromElement;
+            } else {
+                return null;
+            }
+        },
+        getButton: function(event) {
+            if (document.implementation.hasFeature("MouseEvents", "2.0")) {
+                return event.button;
+            } else {
+                switch (event.button) {
+                    case 0:
+                    case 1:
+                    case 3:
+                    case 5:
+                    case 7:
+                        return 0;
+                    case 2:
+                    case 6:
+                        return 2;
+                    case 4:
+                        return 1;
+                }
+            }
+        },
+    };
+    // btn.onclick = function(event) {
+    //     event = EventUtil.getEvent(event);
+    // };
+    EventUtil.addHandler(window, "load", function(event) {
+        alert("Loaded!");
+    });
+    EventUtil.addHandler(window, "unload", function(event) {
+        alert("Unloaded");
+    });
+    EventUtil.addHandler(window, "click", function(event) {
+        event = EventUtil.getEvent(event);
+        alert("Client coordinates: " + event.clientX + "," + event.clientY);
+        var pageX = event.pageX,
+            pageY = event.pageY;
+        if (pageX === undefined) {
+            pageX = event.clientX + (document.body.scrollLeft ||
+                document.documentElement.scrollLeft);
+        }
+        if (pageY === undefined) {
+            pageY = event.clientY + (document.body.scrollTop ||
+                document.documentElement.scrollTop);
+        }
+        alert("Page coordinates: " + event.pageX + "," + event.pageY);
+    });
+    EventUtil.addHandler(btn, "mousedown", function(event) {
+        event = EventUtil.getEvent(event);
+        alert(EventUtil.getButton(event));
+        EventUtil.stopPropagation(event);
+        EventUtil.preventDefault(event);
+    });
+
+
+
+
+
+
+
+
+
+    // var newSortList = sortList.sort(compare);
+    // console.log(newSortList);
+
+
+    // class JuejinFrontendEnginnerSpecification implements Specification {
+    //     isSatisfiedBy(person) {
+    //         return person.isInteresting() && person.canWriteBUG()
+    //     }
+    // }
+    // class JuejinFrontendEnginner extends FrontendEngineer {
+    //     constructor(person) {
+    //         super(person)
+    //         this.thingList = [
+    //             'ES6+',
+    //             'Node.js v8+',
+    //             'Vue.js v2+',
+    //             'SSR',
+    //             'Chrome (Extension|Headless)',
+    //             'Weixin',
+    //             'Docker',
+    //             ...,
+    //             'rm -rf /',
+    //             'escape'
+    //         ]
+    //     }
+    //     doSomeInterestingThings() {
+    //         this.thingList.forEach(this.tryToPlay.bind(this))
+    //     }
+    // }
+    // const juejinFrontendEnginnerSpecification = new JuejinFrontendEnginnerSpecification();
+    // if (juejinFrontendEnginnerSpecification.isSatisfiedBy(you)) {
+    //     new JuejinFrontendEnginner(you).doSomeInterestingThings()
+    // }
     </script>
 </body>
 

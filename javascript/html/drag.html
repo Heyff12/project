@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>drag</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <style type="text/css">
+    #droptarget {
+        width: 60px;
+        height: 60px;
+        background-color: yellow;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="droptarget"></div>
+    <form id="user-info">
+        <input type="text" name="name" value="111" />
+        <br/>
+        <input type="text" name="age" value="222" />
+        <br/>
+        <input type="text" name="addr" value="333" />
+        <br/>
+        <input type="text" name="tel" value="4444" />
+        <br/>
+        <input type="radio" name="sex" value="girl" checked="checked" />
+        <input type="radio" name="sex" value="boy" />
+        <br/>
+        <select name="e">
+            <option value="5" selected="selected">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+        </select>
+        <br/>
+        <input type="checkbox" name="f" value="8" id="f8" checked="checked" />
+        <input type="checkbox" name="f" value="9" id="f9" />
+        <input type="checkbox" name="f" value="10" id="f10" />
+        <input type="checkbox" name="f" value="11" id="f11" />
+        <input type="checkbox" name="f" value="12" id="f12" />
+        <br/>
+    </form>
+    <id id="status"></id>
+    <script type="text/javascript">
+    var EventUtil = {
+        addHandler: function(element, type, handler) {
+            if (element.addEventListener) {
+                element.addEventListener(type, handler, false);
+            } else if (element.attachEvent) {
+                element.attachEvent("on" + type, handler);
+            } else {
+                element["on" + type] = handler;
+            }
+        },
+        getEvent: function(event) {
+            return event ? event : window.event;
+        },
+        getTarget: function(event) {
+            return event.target || event.srcElement;
+        },
+        preventDefault: function(event) {
+            if (event.preventDefault) {
+                event.preventDefault();
+            } else {
+                event.returnValue = false;
+            }
+        },
+        removeHandler: function(element, type, handler) {
+            if (element.removeEventListener) {
+                element.removeEventListener(type, handler, false);
+            } else if (element.detachEvent) {
+                element.detachEvent("on" + type, handler);
+            } else {
+                element["on" + type] = null;
+            }
+        },
+        stopPropagation: function(event) {
+            if (event.stopPropagation) {
+                event.stopPropagation();
+            } else {
+                event.cancelBubble = true;
+            }
+        },
+        getRelatedTarget: function(event) {
+            if (event.relatedTarget) {
+                return event.relatedTarget;
+            } else if (event.toElement) {
+                return event.toElement;
+            } else if (event.fromElement) {
+                return event.fromElement;
+            } else {
+                return null;
+            }
+        },
+        getButton: function(event) {
+            if (document.implementation.hasFeature("MouseEvents", "2.0")) {
+                return event.button;
+            } else {
+                switch (event.button) {
+                    case 0:
+                    case 1:
+                    case 3:
+                    case 5:
+                    case 7:
+                        return 0;
+                    case 2:
+                    case 6:
+                        return 2;
+                    case 4:
+                        return 1;
+                }
+            }
+        },
+    };
+    var droptarget = document.getElementById("droptarget");
+    EventUtil.addHandler(droptarget, "dragover", function(event) {
+        EventUtil.preventDefault(event);
+    });
+    EventUtil.addHandler(droptarget, "dragenter", function(event) {
+        EventUtil.preventDefault(event);
+    });
+
+    //------form---------------------------------------------------
+    var form = document.getElementById("user-info");
+    // console.log(serialize(form));
+    console.log(new FormData(form));
+    var data = new FormData();
+    data.append('name', 'yaya');
+
+    //------ajax---------------------------------------------------
+    function addURLParam(url, name, value) {
+        url += (url.indexOf("?") == -1 ? "?" : "&");
+        url += encodeURIComponent(name) + "=" + encodeURIComponent(value);
+        return url;
+    }
+
+    function createXHR() {
+        if (typeof XMLHttpRequest != "undefined") {
+            return new XMLHttpRequest();
+        } else if (typeof ActiveXObject != "undefined") {
+            if (typeof arguments.callee.activeXString != "string") {
+                var versions = ["MSXML2.XMLHttp.6.0", "MSXML2.XMLHttp.3.0", "MSXML2.XMLHttp"],
+                    i, len;
+                for (i = 0, len = versions.length; i < len; i++) {
+                    try {
+                        new ActiveXObject(versions[i]);
+                        arguments.callee.activeXString = versions[i];
+                        break;
+                    } catch (ex) {
+                        //   }
+                    }
+                }
+                return new ActiveXObject(arguments.callee.activeXString);
+            } else {
+                throw new Error("No XHR object available.");
+            }
+        }
+    }
+    var xhr = createXHR();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4) {
+            if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
+                console.log(xhr.responseText);
+            } else {
+                console.log("Request was unsuccessful: " + xhr.status);
+            }
+        }
+    };
+    xhr.onprogress = function(event) {
+        var divStatus = document.getElementById("status");
+        if (event.lengthComputable) {
+            divStatus.innerHTML = "Received " + event.position + " of " +
+                event.totalSize + " bytes";
+        }
+    };
+    var url = "example.php";
+    url = addURLParam(url, "name", "Nicholas");
+    url = addURLParam(url, "book", "Professional JavaScript");
+    xhr.open("get", url, true);
+    xhr.setRequestHeader("MyHeader", "MyValue"); //固定位置
+    xhr.timeout = 1000; // 设置超时
+    xhr.ontimeout = function() {
+        console.log("Request did not return in a second.");
+    };
+    xhr.send(null);
+
+
+    xhr.open("post", "postexample.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    // var form = document.getElementById("user-info");
+    // xhr.send(serialize(form));
+    xhr.overrideMimeType("text/xml"); //强迫xhr队形响应当做xml而非纯文本处理
+    xhr.send();
+
+
+    //------柯里化函数---------------------------------------------------
+    function curry(fn) {
+        var args = Array.prototype.slice.call(arguments, 1);
+        console.log(args);
+        return function() {
+            var innerArgs = Array.prototype.slice.call(arguments);
+            var finalArgs = args.concat(innerArgs);
+            console.log(innerArgs);
+            console.log(finalArgs);
+            return fn.apply(null, finalArgs);
+        };
+    }
+
+    function add(num1, num2) {
+        return num1 + num2;
+    }
+    var curriedAdd = curry(add, 5);
+    console.log(curriedAdd(3)); //8
+    var curriedAdd1 = curry(add, 5, 12);
+    console.log(curriedAdd1()); //17
+
+
+    var CookieUtil = {
+        get: function(name) {
+            var cookieName = encodeURIComponent(name) + "=",
+                cookieStart = document.cookie.indexOf(cookieName),
+                cookieValue = null;
+            if (cookieStart > -1) {
+                var cookieEnd = document.cookie.indexOf(";", cookieStart);
+                if (cookieEnd == -1) {
+                    cookieEnd = document.cookie.length;
+                }
+                cookieValue = decodeURIComponent(document.cookie.substring(cookieStart + cookieName.length, cookieEnd));
+
+                return cookieValue;
+            }
+        },
+        set: function(name, value, expires, path, domain, secure) {
+            var cookieText = encodeURIComponent(name) + "=" +
+                encodeURIComponent(value);
+            if (expires instanceof Date) {
+                cookieText += "; expires=" + expires.toGMTString();
+            }
+            if (path) {
+                cookieText += "; path=" + path;
+            }
+            if (domain) {
+                cookieText += "; domain=" + domain;
+            }
+            if (secure) {
+                cookieText += "; secure";
+            }
+            document.cookie = cookieText;
+        },
+        unset: function(name, path, domain, secure) {
+            this.set(name, "", new Date(0), path, domain, secure);
+        }
+    };
+    </script>
+</body>
+
+</html>
