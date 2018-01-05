@@ -11,14 +11,6 @@
 // export function circumference(radius) {
 //   return 2 * Math.PI * radius;
 // }
-
-
-// var firstName = 'Michael';
-// var lastName = 'Jackson';
-// var year = 1958;
-
-// export {firstName, lastName, year};
-
 function area(radius) {
     return Math.PI * radius * radius;
 }
@@ -26,6 +18,14 @@ function area(radius) {
 function circumference(radius) {
     return 2 * Math.PI * radius;
 }
+
+var firstName = 'Michael';
+var lastName = 'Jackson';
+var year = 1958;
+
+// export { firstName, lastName, year, area, circumference };
+
+
 module.exports = {
     area: area,
     circumference: circumference,

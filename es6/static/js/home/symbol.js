@@ -1,66 +1,31 @@
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
+'use strict';
 
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
+var _keyFor = require('babel-runtime/core-js/symbol/key-for');
 
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
+var _keyFor2 = _interopRequireDefault(_keyFor);
 
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			exports: {},
-/******/ 			id: moduleId,
-/******/ 			loaded: false
-/******/ 		};
+var _symbol = require('babel-runtime/core-js/symbol');
 
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+var _symbol2 = _interopRequireDefault(_symbol);
 
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
+var _for = require('babel-runtime/core-js/symbol/for');
 
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
+var _for2 = _interopRequireDefault(_for);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var s1 = (0, _for2.default)('foo');
+var s2 = (0, _for2.default)('foo');
+
+console.log(s1 === s2);
+
+console.log((0, _for2.default)("bar") === (0, _for2.default)("bar"));
 
 
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
+console.log((0, _symbol2.default)("bar") === (0, _symbol2.default)("bar"));
 
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
+var s3 = (0, _for2.default)("fooo");
+console.log((0, _keyFor2.default)(s3));
 
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(0);
-/******/ })
-/************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports) {
-
-	var s1 = Symbol.for('foo');
-	var s2 = Symbol.for('foo');
-
-	console.log(s1 === s2) // true
-
-	console.log(Symbol.for("bar") === Symbol.for("bar")) 
-	// true
-
-	console.log(Symbol("bar") === Symbol("bar")) 
-
-
-
-	var s3 = Symbol.for("fooo");
-	console.log(Symbol.keyFor(s3))  // "fooo"
-
-	var s4 = Symbol("foo0");
-	console.log(Symbol.keyFor(s4))  // undefined
-
-/***/ })
-/******/ ]);
+var s4 = (0, _symbol2.default)("foo0");
+console.log((0, _keyFor2.default)(s4));

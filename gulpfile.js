@@ -52,7 +52,7 @@ var gulp = require('gulp'), //基础库
     rename = require('gulp-rename'), //重命名--本例未使用
     concat = require('gulp-concat'), //合并文件--本例未使用
     clean = require('gulp-clean'); //清空文件夹--同del，本例取消clean--本例未使用
-var now_project = 'javascript'; //settle(结算)es6(es6)test_require(测试requirejs合并js文件)taoyijie(网页)javascript(javascript权威指南)
+var now_project = 'es6'; //settle(结算)es6(es6)test_require(测试requirejs合并js文件)taoyijie(网页)javascript(javascript权威指南)
 
 var file_road = {
     cssSrc: './' + now_project + '/src/less/**/*.less',
@@ -157,9 +157,19 @@ gulp.task('js_local_es6', function() {
         // .pipe(eslint())
         // .pipe(eslint.format())
         // .pipe(eslint.failAfterError())
+        // .pipe(babel({
+        //     presets: ['es2015'],
+        //     // modules: "amd" // 默认是 common，也可以改成 umd
+        // }))
         .pipe(babel({
-            presets: ['es2015'],
-            // modules: "amd" // 默认是 common，也可以改成 umd
+            "presets": ["es2015", "stage-2"],
+            "plugins": ["transform-runtime"],
+            "comments": false,
+            "env": {
+                "test": {
+                    "plugins": ["istanbul"]
+                }
+            }
         }))
         //.pipe(webpack(require('./webpack.conf.js')))
         .pipe(gulp.dest(file_road.jsDst)) //本地目录--未压缩

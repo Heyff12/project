@@ -1,92 +1,125 @@
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
+'use strict';
 
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
+var _slicedToArray2 = require('babel-runtime/helpers/slicedToArray');
 
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
+var _slicedToArray3 = _interopRequireDefault(_slicedToArray2);
 
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			exports: {},
-/******/ 			id: moduleId,
-/******/ 			loaded: false
-/******/ 		};
+var _getIterator2 = require('babel-runtime/core-js/get-iterator');
 
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+var _getIterator3 = _interopRequireDefault(_getIterator2);
 
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
+var _entries = require('babel-runtime/core-js/object/entries');
 
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
+var _entries2 = _interopRequireDefault(_entries);
 
+var _values = require('babel-runtime/core-js/object/values');
 
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
+var _values2 = _interopRequireDefault(_values);
 
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
+var _keys = require('babel-runtime/core-js/object/keys');
 
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+var _keys2 = _interopRequireDefault(_keys);
 
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(0);
-/******/ })
-/************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports) {
+var _assign = require('babel-runtime/core-js/object/assign');
 
-	//4、Object.is()------------------------------------------
-	console.log(Object.is('foo', 'foo'))
-	// true
-	console.log(Object.is({}, {}))
-	// false
+var _assign2 = _interopRequireDefault(_assign);
+
+var _is = require('babel-runtime/core-js/object/is');
+
+var _is2 = _interopRequireDefault(_is);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+console.log((0, _is2.default)('foo', 'foo'));
+
+console.log((0, _is2.default)({}, {}));
 
 
+var target = { a: 1 };
 
-	//5、Object.assign()------------------------------------------
+var source1 = { b: 2 };
+var source2 = { c: 3 };
 
-	var target = { a: 1 };
+(0, _assign2.default)(target, source1, source2);
+console.log(target);var keys = _keys2.default,
+    values = _values2.default,
+    entries = _entries2.default;
 
-	var source1 = { b: 2 };
-	var source2 = { c: 3 };
+var obj = { a: 1, b: 2, c: 3 };
 
-	Object.assign(target, source1, source2);
-	console.log(target) // {a:1, b:2, c:3}
+var _iteratorNormalCompletion = true;
+var _didIteratorError = false;
+var _iteratorError = undefined;
 
+try {
+  for (var _iterator = (0, _getIterator3.default)(keys(obj)), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+    var key = _step.value;
 
-	//9、Object.keys()，Object.values()，Object.entries()------------------------------------------
+    console.log(key);
+  }
+} catch (err) {
+  _didIteratorError = true;
+  _iteratorError = err;
+} finally {
+  try {
+    if (!_iteratorNormalCompletion && _iterator.return) {
+      _iterator.return();
+    }
+  } finally {
+    if (_didIteratorError) {
+      throw _iteratorError;
+    }
+  }
+}
 
-	let {keys, values, entries} = Object;
-	let obj = { a: 1, b: 2, c: 3 };
+var _iteratorNormalCompletion2 = true;
+var _didIteratorError2 = false;
+var _iteratorError2 = undefined;
 
-	for (let key of keys(obj)) {
-	  console.log(key); // 'a', 'b', 'c'
-	}
+try {
+  for (var _iterator2 = (0, _getIterator3.default)(values(obj)), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+    var value = _step2.value;
 
-	for (let value of values(obj)) {
-	  console.log(value); // 1, 2, 3
-	}
+    console.log(value);
+  }
+} catch (err) {
+  _didIteratorError2 = true;
+  _iteratorError2 = err;
+} finally {
+  try {
+    if (!_iteratorNormalCompletion2 && _iterator2.return) {
+      _iterator2.return();
+    }
+  } finally {
+    if (_didIteratorError2) {
+      throw _iteratorError2;
+    }
+  }
+}
 
-	for (let [key, value] of entries(obj)) {
-	  console.log([key, value]); // ['a', 1], ['b', 2], ['c', 3]
-	}
+var _iteratorNormalCompletion3 = true;
+var _didIteratorError3 = false;
+var _iteratorError3 = undefined;
 
+try {
+  for (var _iterator3 = (0, _getIterator3.default)(entries(obj)), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+    var _step3$value = (0, _slicedToArray3.default)(_step3.value, 2),
+        _key = _step3$value[0],
+        _value = _step3$value[1];
 
-
-
-
-
-
-
-
-/***/ })
-/******/ ]);
+    console.log([_key, _value]);
+  }
+} catch (err) {
+  _didIteratorError3 = true;
+  _iteratorError3 = err;
+} finally {
+  try {
+    if (!_iteratorNormalCompletion3 && _iterator3.return) {
+      _iterator3.return();
+    }
+  } finally {
+    if (_didIteratorError3) {
+      throw _iteratorError3;
+    }
+  }
+}

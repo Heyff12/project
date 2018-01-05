@@ -1,175 +1,141 @@
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
-
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			exports: {},
-/******/ 			id: moduleId,
-/******/ 			loaded: false
-/******/ 		};
+'use strict';
 
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
 
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
 
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
 
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
+var _get2 = require('babel-runtime/helpers/get');
 
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
+var _get3 = _interopRequireDefault(_get2);
 
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+var _inherits2 = require('babel-runtime/helpers/inherits');
 
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(0);
-/******/ })
-/************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports) {
+var _inherits3 = _interopRequireDefault(_inherits2);
 
-	//定义类
-	class Point {
-	  constructor(x, y) {
-	    this.x = x;
-	    this.y = y;
-	  }
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
 
-	  toString() {
-	    return '(' + this.x + ', ' + this.y + ')';
-	  }
-	}
-	class ColorPoint extends Point {
-	  constructor(x, y, color) {
-	    super(x, y); // 调用父类的constructor(x, y)
-	    this.color = color;
-	  }
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
-	  toString() {
-	    return this.color + ' ' + super.toString(); // 调用父类的toString()
-	  }
-	}
+var _createClass2 = require('babel-runtime/helpers/createClass');
 
+var _createClass3 = _interopRequireDefault(_createClass2);
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var Point = function () {
+  function Point(x, y) {
+    (0, _classCallCheck3.default)(this, Point);
 
-	class A {
-	  constructor() {
-	    console.log(new.target.name);
-	  }
-	}
-	class B extends A {
-	  constructor() {
-	    super();
-	  }
-	}
-	console.log(new A()) // A
-	console.log(new B()) // B
+    this.x = x;
+    this.y = y;
+  }
 
+  (0, _createClass3.default)(Point, [{
+    key: 'toString',
+    value: function toString() {
+      return '(' + this.x + ', ' + this.y + ')';
+    }
+  }]);
+  return Point;
+}();
 
+var ColorPoint = function (_Point) {
+  (0, _inherits3.default)(ColorPoint, _Point);
 
-	class A2 {
-	  constructor() {
-	    this.x = 1;
-	  }
-	  print() {
-	    console.log(this.x);
-	  }
-	}
+  function ColorPoint(x, y, color) {
+    (0, _classCallCheck3.default)(this, ColorPoint);
 
-	class B2 extends A2 {
-	  constructor() {
-	    super();
-	    this.x = 2;
-	  }
-	  m() {
-	    super.print();
-	  }
-	}
+    var _this = (0, _possibleConstructorReturn3.default)(this, (ColorPoint.__proto__ || (0, _getPrototypeOf2.default)(ColorPoint)).call(this, x, y));
 
-	let b = new B2();
-	b.m()// 2
-	//上面代码中，super.print()虽然调用的是A.prototype.print()，但是A.prototype.print()会绑定子类B的this，导致输出的是2，而不是1。也就是说，实际上执行的是super.print.call(this)。
+    _this.color = color;
+    return _this;
+  }
 
+  (0, _createClass3.default)(ColorPoint, [{
+    key: 'toString',
+    value: function toString() {
+      return this.color + ' ' + (0, _get3.default)(ColorPoint.prototype.__proto__ || (0, _getPrototypeOf2.default)(ColorPoint.prototype), 'toString', this).call(this);
+    }
+  }]);
+  return ColorPoint;
+}(Point);
 
+var A = function A() {
+  (0, _classCallCheck3.default)(this, A);
 
+  console.log(new.target.name);
+};
 
+var B = function (_A) {
+  (0, _inherits3.default)(B, _A);
 
+  function B() {
+    (0, _classCallCheck3.default)(this, B);
+    return (0, _possibleConstructorReturn3.default)(this, (B.__proto__ || (0, _getPrototypeOf2.default)(B)).call(this));
+  }
 
-	class A3 {
-	}
+  return B;
+}(A);
 
-	class B3 extends A3 {
-	}
+console.log(new A());
+console.log(new B());
+var A2 = function () {
+  function A2() {
+    (0, _classCallCheck3.default)(this, A2);
 
-	console.log(B3.__proto__ === A3) // true
-	console.log(B3.prototype.__proto__ === A3.prototype) // true
-	//上面代码中，子类B的__proto__属性指向父类A，子类B的prototype属性的__proto__属性指向父类A的prototype属性。
-	//作为一个对象，子类（B）的原型（__proto__属性）是父类（A）；
-	//作为一个构造函数，子类（B）的原型（prototype属性）是父类的实例。
+    this.x = 1;
+  }
 
+  (0, _createClass3.default)(A2, [{
+    key: 'print',
+    value: function print() {
+      console.log(this.x);
+    }
+  }]);
+  return A2;
+}();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/***/ })
-/******/ ]);
+var B2 = function (_A2) {
+  (0, _inherits3.default)(B2, _A2);
+
+  function B2() {
+    (0, _classCallCheck3.default)(this, B2);
+
+    var _this3 = (0, _possibleConstructorReturn3.default)(this, (B2.__proto__ || (0, _getPrototypeOf2.default)(B2)).call(this));
+
+    _this3.x = 2;
+    return _this3;
+  }
+
+  (0, _createClass3.default)(B2, [{
+    key: 'm',
+    value: function m() {
+      (0, _get3.default)(B2.prototype.__proto__ || (0, _getPrototypeOf2.default)(B2.prototype), 'print', this).call(this);
+    }
+  }]);
+  return B2;
+}(A2);
+
+var b = new B2();
+b.m();
+var A3 = function A3() {
+  (0, _classCallCheck3.default)(this, A3);
+};
+
+var B3 = function (_A3) {
+  (0, _inherits3.default)(B3, _A3);
+
+  function B3() {
+    (0, _classCallCheck3.default)(this, B3);
+    return (0, _possibleConstructorReturn3.default)(this, (B3.__proto__ || (0, _getPrototypeOf2.default)(B3)).apply(this, arguments));
+  }
+
+  return B3;
+}(A3);
+
+console.log(B3.__proto__ === A3);
+console.log(B3.prototype.__proto__ === A3.prototype);

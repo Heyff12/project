@@ -1,164 +1,103 @@
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
+'use strict';
 
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
+var _getIterator2 = require('babel-runtime/core-js/get-iterator');
 
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
+var _getIterator3 = _interopRequireDefault(_getIterator2);
 
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			exports: {},
-/******/ 			id: moduleId,
-/******/ 			loaded: false
-/******/ 		};
+var _fromCodePoint = require('babel-runtime/core-js/string/from-code-point');
 
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+var _fromCodePoint2 = _interopRequireDefault(_fromCodePoint);
 
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
+console.log('\uD842\uDFB7');
 
+console.log('\z' === 'z');
+console.log('\x7A' === 'z');
+console.log('z' === 'z');
+console.log('z' === 'z');
+var s = "𠮷";
 
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
+console.log(s.length);
+console.log(s.charAt(0));
+console.log(s.charAt(1));
+console.log(s.charCodeAt(0));
+console.log(s.charCodeAt(1));
 
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
+var s = '𠮷a';
 
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+console.log(s.codePointAt(0));
+console.log(s.codePointAt(1));
 
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(0);
-/******/ })
-/************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports) {
+console.log(s.codePointAt(2));
+console.log((0, _fromCodePoint2.default)(0x20BB7));
 
-	//var $ = require('../plug/zepto.min.js');
-	//import $ from '../plug/zepto.min.js';
+console.log((0, _fromCodePoint2.default)(0x78, 0x1f680, 0x79) === 'x\uD83D\uDE80y');
 
+var text = (0, _fromCodePoint2.default)(0x20BB7);
 
-	console.log("\u{20BB7}")
-	    // "𠮷"
+for (var i = 0; i < text.length; i++) {
+    console.log(text[i]);
+}
+var _iteratorNormalCompletion = true;
+var _didIteratorError = false;
+var _iteratorError = undefined;
 
-	/////JavaScript 共有6种方法可以表示一个字符。------------------------
-	console.log('\z' === 'z') // true
-	    //console.log('\172' === 'z') // true
-	console.log('\x7A' === 'z') // true
-	console.log('\u007A' === 'z') // true
-	console.log('\u{7A}' === 'z') // true
+try {
 
-	/////2、codePointAt()--------------------------------------------
-	var s = "𠮷";
+    for (var _iterator = (0, _getIterator3.default)(text), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        var _i = _step.value;
 
-	console.log(s.length) // 2
-	console.log(s.charAt(0)) // ''
-	console.log(s.charAt(1)) // ''
-	console.log(s.charCodeAt(0)) // 55362
-	console.log(s.charCodeAt(1)) // 57271
+        console.log(_i);
+    }
+} catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
+} finally {
+    try {
+        if (!_iteratorNormalCompletion && _iterator.return) {
+            _iterator.return();
+        }
+    } finally {
+        if (_didIteratorError) {
+            throw _iteratorError;
+        }
+    }
+}
 
+console.log('abc'.charAt(0));
+console.log('𠮷'.charAt(0));
+var s = 'Hello world!';
 
-	var s = '𠮷a';
+s.startsWith('Hello');
+s.endsWith('!');
+s.includes('o');
 
-	console.log(s.codePointAt(0)) // 134071
-	console.log(s.codePointAt(1)) // 57271
+var s = 'Hello world!';
 
-	console.log(s.codePointAt(2)) // 97
+s.startsWith('world', 6);
+s.endsWith('Hello', 5);
+s.includes('Hello', 6);
 
-	/////3、String.fromCodePoint()--------------------------------------------
-	console.log(String.fromCodePoint(0x20BB7))
-	    // "𠮷"
-	console.log(String.fromCodePoint(0x78, 0x1f680, 0x79) === 'x\uD83D\uDE80y')
-	    // true
+'x'.repeat(3);
+'hello'.repeat(2);
+'na'.repeat(0);
+'x'.padStart(5, 'ab');
+'x'.padStart(4, 'ab');
 
+'x'.padEnd(5, 'ab');
+'x'.padEnd(4, 'ab');
+console.log('string text line 1\nstring text line 2');
 
-	/////4、字符串的遍历器接口--------------------------------------------
-	var text = String.fromCodePoint(0x20BB7);
+var name = "Bob",
+    time = "today";
+console.log('Hello ' + name + ', how are you ' + time + '?');
 
-	for (let i = 0; i < text.length; i++) {
-	    console.log(text[i]);
-	}
-	// " "
-	// " "
+document.getElementById('list').innerHTML = ('\n<ul>\n  <li>first--' + name + '</li>\n  <li>second</li>\n  <li>first22--' + time + '</li>\n  <li>second44</li>\n</ul>\n').trim();
 
-	for (let i of text) {
-	    console.log(i);
-	}
-	// "𠮷"
-
-
-	/////5、at()--------------------------------------------
-	console.log('abc'.charAt(0)) // "a"
-	console.log('𠮷'.charAt(0)) // "\uD842"
-	    // console.log('abc'.at(0)) // "a"
-	    // console.log('𠮷'.at(0)) // "𠮷"
-
-	/////7、includes(), startsWith(), endsWith()--------------------------------------------
-	var s = 'Hello world!';
-
-	s.startsWith('Hello') // true
-	s.endsWith('!') // true
-	s.includes('o') // true
-
-
-	var s = 'Hello world!';
-
-	s.startsWith('world', 6) // true
-	s.endsWith('Hello', 5) // true
-	s.includes('Hello', 6) // false
-
-	/////8、repeat()--------------------------------------------
-
-	'x'.repeat(3) // "xxx"
-	'hello'.repeat(2) // "hellohello"
-	'na'.repeat(0) // ""
-
-	/////9、padStart()，padEnd()--------------------------------------------
-	'x'.padStart(5, 'ab') // 'ababx'
-	'x'.padStart(4, 'ab') // 'abax'
-
-	'x'.padEnd(5, 'ab') // 'xabab'
-	'x'.padEnd(4, 'ab') // 'xaba'
-
-	/////10、模板字符串--------------------------------------------
-	console.log(`string text line 1
-	string text line 2`);
-
-	// 字符串中嵌入变量
-	var name = "Bob",
-	    time = "today";
-	console.log(`Hello ${name}, how are you ${time}?`)
-
-	document.getElementById('list').innerHTML=`
-	<ul>
-	  <li>first--${name}</li>
-	  <li>second</li>
-	  <li>first22--${time}</li>
-	  <li>second44</li>
-	</ul>
-	`.trim();
-
-
-	// 写法一
-	let str = 'return ' + '`Hello ${name}!`';
-	let func = new Function('name', str);
-	console.log(func('Jack')) // "Hello Jack!"
-
-	// 写法二
-	let str1 = '(name) => `Hello ${name}!`';
-	let func1 = eval.call(null, str1);
-	console.log(func1('Jack')) // "Hello Jack!"
-
-
-/***/ })
-/******/ ]);
+var str = 'return ' + '`Hello ${name}!`';
+var func = new Function('name', str);
+console.log(func('Jack'));
+var str1 = '(name) => `Hello ${name}!`';
+var func1 = eval.call(null, str1);
+console.log(func1('Jack'));

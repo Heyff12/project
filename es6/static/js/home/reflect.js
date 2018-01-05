@@ -1,116 +1,23 @@
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
+'use strict';
 
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
+var _get = require('babel-runtime/core-js/reflect/get');
 
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
+var _get2 = _interopRequireDefault(_get);
 
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			exports: {},
-/******/ 			id: moduleId,
-/******/ 			loaded: false
-/******/ 		};
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+var myObject = {
+  foo: 1,
+  bar: 2,
+  get baz() {
+    console.log(this.foo + this.bar);
+    return this.foo + this.bar;
+  }
+};
 
-/******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
+var myReceiverObject = {
+  foo: 4,
+  bar: 4
+};
 
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-
-
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(0);
-/******/ })
-/************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports) {
-
-	// // 老写法
-	// try {
-	//   Object.defineProperty(target, property, attributes);
-	//   // success
-	// } catch (e) {
-	//   // failure
-	// }
-
-	// // 新写法
-	// if (Reflect.defineProperty(target, property, attributes)) {
-	//   // success
-	// } else {
-	//   // failure
-	// }
-
-
-
-
-	var myObject = {
-	  foo: 1,
-	  bar: 2,
-	  get baz() {
-	  	console.log(this.foo + this.bar);
-	    return this.foo + this.bar;
-	  },
-	};
-
-	var myReceiverObject = {
-	  foo: 4,
-	  bar: 4,
-	};
-
-	Reflect.get(myObject, 'baz', myReceiverObject) // 8
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/***/ })
-/******/ ]);
+(0, _get2.default)(myObject, 'baz', myReceiverObject);
