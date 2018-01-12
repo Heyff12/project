@@ -1,8 +1,30 @@
 'use strict';
 
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+var _slicedToArray2 = require('babel-runtime/helpers/slicedToArray');
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+var _slicedToArray3 = _interopRequireDefault(_slicedToArray2);
+
+var _map = require('babel-runtime/core-js/map');
+
+var _map2 = _interopRequireDefault(_map);
+
+var _set = require('babel-runtime/core-js/set');
+
+var _set2 = _interopRequireDefault(_set);
+
+var _iterator12 = require('babel-runtime/core-js/symbol/iterator');
+
+var _iterator13 = _interopRequireDefault(_iterator12);
+
+var _typeof2 = require('babel-runtime/helpers/typeof');
+
+var _typeof3 = _interopRequireDefault(_typeof2);
+
+var _getIterator2 = require('babel-runtime/core-js/get-iterator');
+
+var _getIterator3 = _interopRequireDefault(_getIterator2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var it = makeIterator(['a', 'b']);
 
@@ -20,7 +42,7 @@ function makeIterator(array) {
 }
 
 var arr = ['a', 'b', 'c'];
-var iter = arr[Symbol.iterator]();
+var iter = (0, _getIterator3.default)(arr);
 
 console.log(iter.next());
 console.log(iter.next());
@@ -28,10 +50,10 @@ console.log(iter.next());
 console.log(iter.next());
 
 var someString = "hi";
-console.log(_typeof(someString[Symbol.iterator]));
+console.log((0, _typeof3.default)(someString[_iterator13.default]));
 
 
-var iterator = someString[Symbol.iterator]();
+var iterator = (0, _getIterator3.default)(someString);
 
 console.log(iterator.next());
 console.log(iterator.next());
@@ -44,7 +66,7 @@ var _didIteratorError = false;
 var _iteratorError = undefined;
 
 try {
-  for (var _iterator = arr1[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+  for (var _iterator = (0, _getIterator3.default)(arr1), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
     var v = _step.value;
 
     console.log(v);
@@ -65,14 +87,14 @@ try {
 }
 
 var obj = {};
-obj[Symbol.iterator] = arr1[Symbol.iterator].bind(arr1);
+obj[_iterator13.default] = arr1[_iterator13.default].bind(arr1);
 
 var _iteratorNormalCompletion2 = true;
 var _didIteratorError2 = false;
 var _iteratorError2 = undefined;
 
 try {
-  for (var _iterator2 = obj[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+  for (var _iterator2 = (0, _getIterator3.default)(obj), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
     var _v = _step2.value;
 
     console.log(_v);
@@ -103,7 +125,7 @@ var _didIteratorError3 = false;
 var _iteratorError3 = undefined;
 
 try {
-  for (var _iterator3 = arr2[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+  for (var _iterator3 = (0, _getIterator3.default)(arr2), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
     var _a = _step3.value;
 
     console.log(_a);
@@ -135,7 +157,7 @@ var _didIteratorError4 = false;
 var _iteratorError4 = undefined;
 
 try {
-  for (var _iterator4 = arr3[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+  for (var _iterator4 = (0, _getIterator3.default)(arr3), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
     var _i = _step4.value;
 
     console.log(_i);
@@ -155,13 +177,13 @@ try {
   }
 }
 
-var engines = new Set(["Gecko", "Trident", "Webkit", "Webkit"]);
+var engines = new _set2.default(["Gecko", "Trident", "Webkit", "Webkit"]);
 var _iteratorNormalCompletion5 = true;
 var _didIteratorError5 = false;
 var _iteratorError5 = undefined;
 
 try {
-  for (var _iterator5 = engines[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+  for (var _iterator5 = (0, _getIterator3.default)(engines), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
     var e = _step5.value;
 
     console.log(e);
@@ -181,7 +203,7 @@ try {
   }
 }
 
-var es6 = new Map();
+var es6 = new _map2.default();
 es6.set("edition", 6);
 es6.set("committee", "TC39");
 es6.set("standard", "ECMA-262");
@@ -190,8 +212,8 @@ var _didIteratorError6 = false;
 var _iteratorError6 = undefined;
 
 try {
-  for (var _iterator6 = es6[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
-    var _step6$value = _slicedToArray(_step6.value, 2),
+  for (var _iterator6 = (0, _getIterator3.default)(es6), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
+    var _step6$value = (0, _slicedToArray3.default)(_step6.value, 2),
         name = _step6$value[0],
         value = _step6$value[1];
 
@@ -212,13 +234,13 @@ try {
   }
 }
 
-var map2 = new Map().set('a', 1).set('b', 2);
+var map2 = new _map2.default().set('a', 1).set('b', 2);
 var _iteratorNormalCompletion7 = true;
 var _didIteratorError7 = false;
 var _iteratorError7 = undefined;
 
 try {
-  for (var _iterator7 = map2[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
+  for (var _iterator7 = (0, _getIterator3.default)(map2), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
     var pair = _step7.value;
 
     console.log(pair);
@@ -244,8 +266,8 @@ var _iteratorError8 = undefined;
 
 try {
 
-  for (var _iterator8 = map2[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
-    var _step8$value = _slicedToArray(_step8.value, 2),
+  for (var _iterator8 = (0, _getIterator3.default)(map2), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
+    var _step8$value = (0, _slicedToArray3.default)(_step8.value, 2),
         key = _step8$value[0],
         _value = _step8$value[1];
 
@@ -273,7 +295,7 @@ var _didIteratorError9 = false;
 var _iteratorError9 = undefined;
 
 try {
-  for (var _iterator9 = str[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
+  for (var _iterator9 = (0, _getIterator3.default)(str), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
     var s = _step9.value;
 
     console.log(s);
@@ -300,7 +322,7 @@ var _didIteratorError10 = false;
 var _iteratorError10 = undefined;
 
 try {
-  for (var _iterator10 = paras[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
+  for (var _iterator10 = (0, _getIterator3.default)(paras), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
     var p = _step10.value;
 
     p.classList.add("test");
@@ -326,7 +348,7 @@ function printArgs() {
   var _iteratorError11 = undefined;
 
   try {
-    for (var _iterator11 = arguments[Symbol.iterator](), _step11; !(_iteratorNormalCompletion11 = (_step11 = _iterator11.next()).done); _iteratorNormalCompletion11 = true) {
+    for (var _iterator11 = (0, _getIterator3.default)(arguments), _step11; !(_iteratorNormalCompletion11 = (_step11 = _iterator11.next()).done); _iteratorNormalCompletion11 = true) {
       var x = _step11.value;
 
       console.log(x);

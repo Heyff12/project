@@ -1,5 +1,15 @@
 'use strict';
 
+var _getIterator2 = require('babel-runtime/core-js/get-iterator');
+
+var _getIterator3 = _interopRequireDefault(_getIterator2);
+
+var _fromCodePoint = require('babel-runtime/core-js/string/from-code-point');
+
+var _fromCodePoint2 = _interopRequireDefault(_fromCodePoint);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 console.log('\uD842\uDFB7');
 
 console.log('\z' === 'z');
@@ -20,11 +30,11 @@ console.log(s.codePointAt(0));
 console.log(s.codePointAt(1));
 
 console.log(s.codePointAt(2));
-console.log(String.fromCodePoint(0x20BB7));
+console.log((0, _fromCodePoint2.default)(0x20BB7));
 
-console.log(String.fromCodePoint(0x78, 0x1f680, 0x79) === 'x\uD83D\uDE80y');
+console.log((0, _fromCodePoint2.default)(0x78, 0x1f680, 0x79) === 'x\uD83D\uDE80y');
 
-var text = String.fromCodePoint(0x20BB7);
+var text = (0, _fromCodePoint2.default)(0x20BB7);
 
 for (var i = 0; i < text.length; i++) {
     console.log(text[i]);
@@ -35,7 +45,7 @@ var _iteratorError = undefined;
 
 try {
 
-    for (var _iterator = text[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+    for (var _iterator = (0, _getIterator3.default)(text), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
         var _i = _step.value;
 
         console.log(_i);

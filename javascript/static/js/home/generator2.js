@@ -1,10 +1,16 @@
 'use strict';
 
-var _marked = [gen, gen1].map(regeneratorRuntime.mark);
+var _regenerator = require('babel-runtime/regenerator');
+
+var _regenerator2 = _interopRequireDefault(_regenerator);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _marked = [gen, gen1].map(_regenerator2.default.mark);
 
 function gen(x) {
   var y;
-  return regeneratorRuntime.wrap(function gen$(_context) {
+  return _regenerator2.default.wrap(function gen$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
@@ -30,7 +36,7 @@ console.log(g.next(8));
 
 function gen1(x) {
   var y;
-  return regeneratorRuntime.wrap(function gen1$(_context2) {
+  return _regenerator2.default.wrap(function gen1$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:

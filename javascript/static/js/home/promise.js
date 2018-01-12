@@ -1,6 +1,12 @@
 'use strict';
 
-var promise = new Promise(function (resolve, reject) {
+var _promise = require('babel-runtime/core-js/promise');
+
+var _promise2 = _interopRequireDefault(_promise);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var promise = new _promise2.default(function (resolve, reject) {
   console.log('Promise');
   resolve();
 });
@@ -12,7 +18,7 @@ promise.then(function () {
 console.log('Hi!');
 
 function loadImageAsync(url) {
-  return new Promise(function (resolve, reject) {
+  return new _promise2.default(function (resolve, reject) {
     var image = new Image();
 
     image.onload = function () {
@@ -28,7 +34,7 @@ function loadImageAsync(url) {
 }
 
 var getJSON = function getJSON(url) {
-  var promise = new Promise(function (resolve, reject) {
+  var promise = new _promise2.default(function (resolve, reject) {
     var client = new XMLHttpRequest();
     client.open("GET", url);
     client.onreadystatechange = handler;
@@ -57,13 +63,13 @@ getJSON("/posts.json").then(function (json) {
   console.error('出错了', error);
 });
 
-var p1 = new Promise(function (resolve, reject) {
+var p1 = new _promise2.default(function (resolve, reject) {
   setTimeout(function () {
     return reject(new Error('fail'));
   }, 500);
 });
 
-var p2 = new Promise(function (resolve, reject) {
+var p2 = new _promise2.default(function (resolve, reject) {
   setTimeout(function () {
     return resolve(p1);
   }, 1000);
@@ -77,7 +83,7 @@ p2.then(function (result) {
 
 
 var someAsyncThing = function someAsyncThing() {
-  return new Promise(function (resolve, reject) {
+  return new _promise2.default(function (resolve, reject) {
     resolve(x + 2);
   });
 };
@@ -89,7 +95,7 @@ someAsyncThing().catch(function (error) {
 });
 
 
-var p11 = new Promise(function (resolve, reject) {
+var p11 = new _promise2.default(function (resolve, reject) {
   resolve('hello');
 }).then(function (result) {
   return result;
@@ -97,7 +103,7 @@ var p11 = new Promise(function (resolve, reject) {
   return e;
 });
 
-var p22 = new Promise(function (resolve, reject) {
+var p22 = new _promise2.default(function (resolve, reject) {
   throw new Error('报错了');
 }).then(function (result) {
   return result;
@@ -105,26 +111,26 @@ var p22 = new Promise(function (resolve, reject) {
   return e;
 });
 
-Promise.all([p11, p22]).then(function (result) {
+_promise2.default.all([p11, p22]).then(function (result) {
   return console.log(result);
 }).catch(function (e) {
   return console.log(e);
 });
 
 
-var p13 = new Promise(function (resolve, reject) {
+var p13 = new _promise2.default(function (resolve, reject) {
   resolve('hello');
 }).then(function (result) {
   return result;
 });
 
-var p23 = new Promise(function (resolve, reject) {
+var p23 = new _promise2.default(function (resolve, reject) {
   throw new Error('报错了');
 }).then(function (result) {
   return result;
 });
 
-Promise.all([p13, p23]).then(function (result) {
+_promise2.default.all([p13, p23]).then(function (result) {
   return console.log(result);
 }).catch(function (e) {
   return console.log(e);
@@ -137,7 +143,7 @@ var thenable = {
   }
 };
 
-var p14 = Promise.resolve(thenable);
+var p14 = _promise2.default.resolve(thenable);
 p14.then(function (value) {
   console.log(value);
 });
@@ -146,14 +152,14 @@ setTimeout(function () {
   console.log('three');
 }, 0);
 
-Promise.resolve().then(function () {
+_promise2.default.resolve().then(function () {
   console.log('two');
 });
 
 console.log('one');
 
 var preloadImage = function preloadImage(path) {
-  return new Promise(function (resolve, reject) {
+  return new _promise2.default(function (resolve, reject) {
     var image = new Image();
     image.onload = resolve;
     image.onerror = reject;

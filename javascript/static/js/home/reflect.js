@@ -1,5 +1,11 @@
 'use strict';
 
+var _get = require('babel-runtime/core-js/reflect/get');
+
+var _get2 = _interopRequireDefault(_get);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var myObject = {
   foo: 1,
   bar: 2,
@@ -14,4 +20,4 @@ var myReceiverObject = {
   bar: 4
 };
 
-Reflect.get(myObject, 'baz', myReceiverObject);
+(0, _get2.default)(myObject, 'baz', myReceiverObject);

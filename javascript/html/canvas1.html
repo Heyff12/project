@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>canvas</title>
+    <style type="text/css">
+    #tutorial {}
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    canvas {
+        border: 1px solid black;
+    }
+    </style>
+</head>
+
+<body onload="draw();">
+    <canvas id="tutorial" width="150" height="150"></canvas>
+    <canvas id="tutorial1" width="150" height="150"></canvas>
+    <canvas id="tutorial2" width="150" height="150"></canvas>
+    <canvas id="tutorial3" width="150" height="150"></canvas>
+    <canvas id="tutorial4" width="150" height="150"></canvas>
+    <canvas id="tutorial5" width="150" height="150"></canvas>
+    <canvas id="tutorial6" width="150" height="150"></canvas>
+    <canvas id="tutorial7" width="150" height="150"></canvas>
+    <canvas id="tutorial8" width="150" height="150"></canvas>
+    <canvas id="tutorial9" width="150" height="150"></canvas>
+    <canvas id="tutorial10" width="150" height="150"></canvas>
+    <canvas id="tutorial11" width="150" height="150"></canvas>
+    <canvas id="tutorial12" width="150" height="150"></canvas>
+    <canvas id="tutorial13" width="150" height="150"></canvas>
+    <canvas id="tutorial14" width="150" height="150"></canvas>
+    <canvas id="tutorial15" width="150" height="150"></canvas>
+    <canvas id="tutorial16" width="150" height="150"></canvas>
+    <canvas id="tutorial17" width="300" height="300"></canvas>
+    <canvas id="tutorial18" width="150" height="150"></canvas>
+    <canvas id="tutorial19" width="150" height="150"></canvas>
+    <script type="text/javascript">
+    // var canvas = document.getElementById('tutorial');
+    // // var ctx = canvas.getContext('2d');
+    // if (canvas.getContext) {
+    //     var ctx = canvas.getContext('2d');
+    //     // drawing code here
+    // } else {
+    //     // canvas-unsupported code here
+    //     console.log('您的浏览器暂不支持canvas');
+    // }
+    function draw() {
+        var canvas = document.getElementById('tutorial');
+        var canvas1 = document.getElementById('tutorial1');
+        var canvas2 = document.getElementById('tutorial2');
+        var canvas3 = document.getElementById('tutorial3');
+        var canvas4 = document.getElementById('tutorial4');
+        var canvas5 = document.getElementById('tutorial5');
+        var canvas6 = document.getElementById('tutorial6');
+        var canvas7 = document.getElementById('tutorial7');
+        var canvas8 = document.getElementById('tutorial8');
+        var canvas9 = document.getElementById('tutorial9');
+        var canvas10 = document.getElementById('tutorial10');
+        var canvas11 = document.getElementById('tutorial11');
+        var canvas12 = document.getElementById('tutorial12');
+        var canvas13 = document.getElementById('tutorial13');
+        var canvas14 = document.getElementById('tutorial14');
+        var canvas15 = document.getElementById('tutorial15');
+        var canvas16 = document.getElementById('tutorial16');
+        var canvas17 = document.getElementById('tutorial17');
+        var canvas18 = document.getElementById('tutorial18');
+        var canvas19 = document.getElementById('tutorial19');
+        if (canvas.getContext) { //判断是否支持canvasS
+            var ctx = canvas.getContext('2d');
+            ctx.fillStyle = 'rgb(200,0,0)';
+            ctx.fillRect(10, 10, 55, 50);
+            ctx.fillStyle = 'rgba(0,0,200,0.5)';
+            ctx.fillRect(30, 30, 55, 50);
+
+            var ctx1 = canvas1.getContext('2d');
+            ctx1.fillRect(25, 25, 100, 100);
+            ctx1.clearRect(45, 45, 60, 60); //清除
+            ctx1.strokeRect(50, 50, 50, 50); //绘制边框
+
+            //绘制三角形-------------------------------------------------------------------------
+            var ctx2 = canvas2.getContext('2d');
+            ctx2.beginPath();
+            ctx2.moveTo(75, 50); //设置起点
+            ctx2.lineTo(100, 75);
+            ctx2.lineTo(100, 25);
+            ctx2.fill(); //闭合之后才能渲染路径
+
+            //绘制不连续路径--绘制脸-------------------------------------------------------------------------
+            var ctx3 = canvas3.getContext('2d');
+            ctx3.beginPath();
+            ctx3.arc(75, 75, 50, 0, Math.PI * 2, true); //绘制圆
+            ctx3.moveTo(110, 75);
+            ctx3.arc(75, 75, 35, 0, Math.PI, false); //口 顺时针
+            ctx3.moveTo(65, 65);
+            ctx3.arc(60, 65, 5, 0, Math.PI * 2, true); //左眼
+            ctx3.moveTo(95, 65);
+            ctx3.arc(90, 65, 5, 0, Math.PI * 2, true); //右眼
+            ctx3.stroke();
+
+            //二次贝塞尔曲线--会话框-------------------------------------------------------------------------
+            var ctx4 = canvas4.getContext('2d');
+            ctx4.beginPath();
+            ctx4.moveTo(75, 25);
+            ctx4.quadraticCurveTo(25, 25, 25, 52.5);
+            ctx4.quadraticCurveTo(25, 100, 50, 100);
+            ctx4.quadraticCurveTo(50, 120, 30, 125);
+            ctx4.quadraticCurveTo(60, 120, 65, 100);
+            ctx4.quadraticCurveTo(125, 100, 125, 62.5);
+            ctx4.quadraticCurveTo(125, 25, 75, 25);
+            ctx4.stroke();
+
+            //三次贝塞尔曲线--心-------------------------------------------------------------------------
+            var ctx5 = canvas5.getContext('2d');
+            ctx5.beginPath();
+            ctx5.moveTo(75, 40);
+            ctx5.bezierCurveTo(75, 37, 70, 25, 50, 25);
+            ctx5.bezierCurveTo(20, 25, 20, 62.5, 20, 62.5);
+            ctx5.bezierCurveTo(20, 80, 40, 102, 75, 120);
+            ctx5.bezierCurveTo(110, 102, 130, 80, 130, 62.5);
+            ctx5.bezierCurveTo(130, 62.5, 130, 25, 100, 25);
+            ctx5.bezierCurveTo(85, 25, 75, 37, 75, 40);
+            ctx5.fill();
+
+            //组合使用--游戏图-------------------------------------------------------------------------
+            var ctx6 = canvas6.getContext('2d');
+            roundedRect(ctx6, 12, 12, 150, 150, 15);
+            roundedRect(ctx6, 19, 19, 150, 150, 9);
+            roundedRect(ctx6, 53, 53, 49, 33, 10);
+            roundedRect(ctx6, 53, 119, 49, 16, 6);
+            roundedRect(ctx6, 135, 53, 49, 33, 10);
+            roundedRect(ctx6, 135, 119, 25, 49, 10);
+
+            ctx6.beginPath();
+            ctx6.arc(37, 37, 13, Math.PI / 7, -Math.PI / 7, false);
+            ctx6.lineTo(31, 37);
+            ctx6.fill();
+
+            for (var i = 0; i < 8; i++) {
+                ctx6.fillRect(51 + i * 16, 35, 4, 4);
+            }
+            for (i = 0; i < 6; i++) {
+                ctx6.fillRect(115, 51 + i * 16, 4, 4);
+            }
+
+            for (i = 0; i < 8; i++) {
+                ctx6.fillRect(51 + i * 16, 99, 4, 4);
+            }
+
+            ctx6.beginPath();
+            ctx6.moveTo(83, 116);
+            ctx6.lineTo(83, 102);
+            ctx6.bezierCurveTo(83, 94, 89, 88, 97, 88);
+            ctx6.bezierCurveTo(105, 88, 111, 94, 111, 102);
+            ctx6.lineTo(111, 116);
+            ctx6.lineTo(106.333, 111.333);
+            ctx6.lineTo(101.666, 116);
+            ctx6.lineTo(97, 111.333);
+            ctx6.lineTo(92.333, 116);
+            ctx6.lineTo(87.666, 111.333);
+            ctx6.lineTo(83, 116);
+            ctx6.fill();
+
+            ctx6.fillStyle = "white";
+            ctx6.beginPath();
+            ctx6.moveTo(91, 96);
+            ctx6.bezierCurveTo(88, 96, 87, 99, 87, 101);
+            ctx6.bezierCurveTo(87, 103, 88, 106, 91, 106);
+            ctx6.bezierCurveTo(94, 106, 95, 103, 95, 101);
+            ctx6.bezierCurveTo(95, 99, 94, 96, 91, 96);
+            ctx6.moveTo(103, 96);
+            ctx6.bezierCurveTo(100, 96, 99, 99, 99, 101);
+            ctx6.bezierCurveTo(99, 103, 100, 106, 103, 106);
+            ctx6.bezierCurveTo(106, 106, 107, 103, 107, 101);
+            ctx6.bezierCurveTo(107, 99, 106, 96, 103, 96);
+            ctx6.fill();
+
+            ctx6.fillStyle = "black";
+            ctx6.beginPath();
+            ctx6.arc(101, 102, 2, 0, Math.PI * 2, true);
+            ctx6.fill();
+
+            ctx6.beginPath();
+            ctx6.arc(89, 102, 2, 0, Math.PI * 2, true);
+            ctx6.fill();
+
+            //Path2D 示例-------------------------------------------------------------------------
+            var ctx7 = canvas7.getContext('2d');
+            var rectangle = new Path2D();
+            rectangle.rect(10, 10, 50, 50);
+            var circle = new Path2D();
+            circle.moveTo(125, 35);
+            circle.arc(100, 35, 25, 0, 2 * Math.PI);
+
+            ctx7.stroke(rectangle);
+            ctx7.fill(circle);
+
+            //颜色--strokeStyle--------fillStyle---------------------------------------------------------------
+            var ctx8 = canvas8.getContext('2d');
+            for (var i = 0; i < 6; i++) {
+                for (var j = 0; j < 6; j++) {
+                    ctx8.strokeStyle = 'rgb(0,' + Math.floor(255 - 42.5 * i) + ',' +
+                        Math.floor(255 - 42.5 * j) + ')';
+                    ctx8.beginPath();
+                    ctx8.arc(12.5 + j * 25, 12.5 + i * 25, 10, 0, Math.PI * 2, true);
+                    // ctx8.fillStyle = 'rgb(' + Math.floor(255-42.5*i) + ',' + 
+                    //    Math.floor(255-42.5*j) + ',0)';
+                    ctx8.stroke();
+                }
+            }
+
+
+            //透明--globalAlpha--------------------------------------------------
+            var ctx9 = canvas9.getContext('2d');
+            // 画背景
+            ctx9.fillStyle = '#FD0';
+            ctx9.fillRect(0, 0, 75, 75);
+            ctx9.fillStyle = '#6C0';
+            ctx9.fillRect(75, 0, 75, 75);
+            ctx9.fillStyle = '#09F';
+            ctx9.fillRect(0, 75, 75, 75);
+            ctx9.fillStyle = '#F30';
+            ctx9.fillRect(75, 75, 75, 75);
+            ctx9.fillStyle = '#FFF';
+
+            // 设置透明度值
+            ctx9.globalAlpha = 0.2;
+
+            // 画半透明圆
+            for (var i = 0; i < 7; i++) {
+                ctx9.beginPath();
+                ctx9.arc(75, 75, 10 + 10 * i, 0, Math.PI * 2, true);
+                ctx9.fill();
+            }
+
+            //--lineCap-------线段端点显示的样子-------------------------------------------
+            var ctx10 = canvas10.getContext('2d');
+            var lineCap = ['butt', 'round', 'square'];
+            ctx10.strokeStyle = '#09f';
+            ctx10.beginPath();
+            ctx10.moveTo(10, 10);
+            ctx10.lineTo(140, 10);
+            ctx10.moveTo(10, 140);
+            ctx10.lineTo(140, 140);
+            ctx10.stroke();
+
+            ctx10.strokeStyle = 'black';
+            for (var i = 0; i < lineCap.length; i++) {
+                ctx10.lineWidth = 15;
+                ctx10.lineCap = lineCap[i];
+                ctx10.beginPath();
+                ctx10.moveTo(25 + i * 50, 10);
+                ctx10.lineTo(25 + i * 50, 140);
+                ctx10.stroke();
+            }
+
+            //--lineJoin-------图形中两线段连接处所显示的样子-------------------------------------------
+            var ctx11 = canvas11.getContext('2d');
+            var lineJoin = ['round', 'bevel', 'miter'];
+            ctx11.lineWidth = 10;
+            for (var i = 0; i < lineJoin.length; i++) {
+                ctx11.lineJoin = lineJoin[i];
+                ctx11.beginPath();
+                ctx11.moveTo(-5, 5 + i * 40);
+                ctx11.lineTo(35, 45 + i * 40);
+                ctx11.lineTo(75, 5 + i * 40);
+                ctx11.lineTo(115, 45 + i * 40);
+                ctx11.lineTo(155, 5 + i * 40);
+                ctx11.stroke();
+            }
+
+            //--线性渐变 createLinearGradient-------------------------------------------
+            var ctx12 = canvas12.getContext('2d');
+            var lingrad = ctx12.createLinearGradient(0, 0, 0, 150);
+            lingrad.addColorStop(0, '#00abeb');
+            lingrad.addColorStop(0.5, '#fff');
+            lingrad.addColorStop(0.5, '#26C000');
+            lingrad.addColorStop(1, '#fff');
+            var lingrad2 = ctx.createLinearGradient(0, 50, 0, 95);
+            lingrad2.addColorStop(0.5, '#000');
+            lingrad2.addColorStop(1, 'rgba(0,0,0,0)');
+            ctx12.fillStyle = lingrad;
+            ctx12.strokeStyle = lingrad2;
+            ctx12.fillRect(10, 10, 130, 130);
+            ctx12.strokeRect(50, 50, 50, 50);
+
+
+
+            //--球性渐变 createRadialGradient-------------------------------------------
+            var ctx13 = canvas13.getContext('2d');
+            // 创建渐变
+            var radgrad0 = ctx13.createRadialGradient(45, 45, 10, 52, 50, 30);
+            radgrad0.addColorStop(0, '#A7D30C');
+            radgrad0.addColorStop(0.9, '#019F62');
+            radgrad0.addColorStop(1, 'rgba(1,159,98,0)');
+
+            var radgrad02 = ctx13.createRadialGradient(105, 105, 20, 112, 120, 50);
+            radgrad02.addColorStop(0, '#FF5F98');
+            radgrad02.addColorStop(0.75, '#FF0188');
+            radgrad02.addColorStop(1, 'rgba(255,1,136,0)');
+
+            var radgrad03 = ctx13.createRadialGradient(95, 15, 15, 102, 20, 40);
+            radgrad03.addColorStop(0, '#00C9FF');
+            radgrad03.addColorStop(0.8, '#00B5E2');
+            radgrad03.addColorStop(1, 'rgba(0,201,255,0)');
+
+            var radgrad04 = ctx13.createRadialGradient(0, 150, 50, 0, 140, 90);
+            radgrad04.addColorStop(0, '#F4F201');
+            radgrad04.addColorStop(0.8, '#E4C700');
+            radgrad04.addColorStop(1, 'rgba(228,199,0,0)');
+
+            // 画图形
+            ctx13.fillStyle = radgrad04;
+            ctx13.fillRect(0, 0, 150, 150);
+            ctx13.fillStyle = radgrad03;
+            ctx13.fillRect(0, 0, 150, 150);
+            ctx13.fillStyle = radgrad02;
+            ctx13.fillRect(0, 0, 150, 150);
+            ctx13.fillStyle = radgrad0;
+            ctx13.fillRect(0, 0, 150, 150);
+
+
+            //图案样式 Patterns-------------------------------------------
+            var ctx14 = canvas14.getContext('2d');
+            var img = new Image();
+            img.src = '../src/img/hopebg.jpeg';
+            img.onload = function() {
+                var ptrn = ctx14.createPattern(img, 'repeat');
+                ctx14.fillStyle = ptrn;
+                ctx14.fillRect(0, 0, 150, 150);
+            }
+
+            //文字阴影的例子-----------measureText--------------------------------
+            var ctx15 = canvas15.getContext('2d');
+            ctx15.shadowOffestX = 2;
+            ctx15.shadowOffestY = 2;
+            ctx15.shadowBlur = 2;
+            ctx15.shadowColor = 'rgba(0,0,0,0.5)';
+            ctx15.font = '20px Times New Roman';
+            ctx15.fillStyle = 'black';
+            ctx15.fillText("Sample String", 5, 30);
+            ctx15.strokeText("Hello world", 10, 50);
+            var text = ctx15.measureText("Hello world"); // TextMetrics object
+            console.log(text.width); // 96.09375;
+
+            //save 和 restore 的应用例子-------------------------------------------
+            var ctx16 = canvas16.getContext('2d');
+            ctx16.fillRect(0, 0, 150, 150); // 使用默认设置绘制一个矩形
+            ctx16.save(); // 保存默认状态
+
+            ctx16.fillStyle = '#09F' // 在原有配置基础上对颜色做改变
+            ctx16.fillRect(15, 15, 120, 120); // 使用新的设置绘制一个矩形
+
+            ctx16.save(); // 保存当前状态
+            ctx16.fillStyle = '#FFF' // 再次改变颜色配置
+            ctx16.globalAlpha = 0.5;
+            ctx16.fillRect(30, 30, 90, 90); // 使用新的配置绘制一个矩形
+
+            ctx16.restore(); // 重新加载之前的颜色状态
+            ctx16.fillRect(45, 45, 60, 60); // 使用上一次的配置绘制一个矩形
+
+            ctx16.restore(); // 加载默认颜色配置
+            ctx16.fillRect(60, 60, 30, 30); // 使用加载的配置绘制一个矩形
+
+
+            //save 和 restore 的应用例子-------------------------------------------
+            var ctx17 = canvas17.getContext('2d');
+            ctx17.fillRect(0, 0, 300, 300);
+            for (var i = 0; i < 3; i++) {
+                for (var j = 0; j < 3; j++) {
+                    ctx17.save();
+                    ctx17.strokeStyle = '#9cff00';
+                    ctx17.translate(50 + j * 100, 50 + i * 100);
+                    drawSpirograph(ctx17, 20 * (j + 2) / (j + 1), -8 * (i + 3) / (i + 1), 10);
+                    ctx17.restore();
+                }
+            }
+
+        }
+    }
+
+    function drawSpirograph(ctx, R, r, O) {
+        var x1 = R - O;
+        var y1 = 0;
+        var i = 1;
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        do {
+            if (i > 20000) break;
+            var x2 = (R + r) * Math.cos(i * Math.PI / 72) - (r + O) * Math.cos(((R + r) / r) * (i * Math.PI / 72))
+            var y2 = (R + r) * Math.sin(i * Math.PI / 72) - (r + O) * Math.sin(((R + r) / r) * (i * Math.PI / 72))
+            ctx.lineTo(x2, y2);
+            x1 = x2;
+            y1 = y2;
+            i++;
+        } while (x2 != R - O && y2 != 0);
+        ctx.stroke();
+    }
+    // 封装的一个用于绘制圆角矩形的函数.
+    function roundedRect(ctx, x, y, width, height, radius) {
+        ctx.beginPath();
+        ctx.moveTo(x, y + radius);
+        ctx.lineTo(x, y + height - radius);
+        ctx.quadraticCurveTo(x, y + height, x + radius, y + height);
+        ctx.lineTo(x + width - radius, y + height);
+        ctx.quadraticCurveTo(x + width, y + height, x + width, y + height - radius);
+        ctx.lineTo(x + width, y + radius);
+        ctx.quadraticCurveTo(x + width, y, x + width - radius, y);
+        ctx.lineTo(x + radius, y);
+        ctx.quadraticCurveTo(x, y, x, y + radius);
+        ctx.stroke();
+    }
+    </script>
+</body>
+
+</html>

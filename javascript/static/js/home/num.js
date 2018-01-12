@@ -1,18 +1,60 @@
 'use strict';
 
+var _hypot = require('babel-runtime/core-js/math/hypot');
+
+var _hypot2 = _interopRequireDefault(_hypot);
+
+var _sign = require('babel-runtime/core-js/math/sign');
+
+var _sign2 = _interopRequireDefault(_sign);
+
+var _trunc = require('babel-runtime/core-js/math/trunc');
+
+var _trunc2 = _interopRequireDefault(_trunc);
+
+var _minSafeInteger = require('babel-runtime/core-js/number/min-safe-integer');
+
+var _minSafeInteger2 = _interopRequireDefault(_minSafeInteger);
+
+var _maxSafeInteger = require('babel-runtime/core-js/number/max-safe-integer');
+
+var _maxSafeInteger2 = _interopRequireDefault(_maxSafeInteger);
+
+var _isInteger = require('babel-runtime/core-js/number/is-integer');
+
+var _isInteger2 = _interopRequireDefault(_isInteger);
+
+var _parseFloat = require('babel-runtime/core-js/number/parse-float');
+
+var _parseFloat2 = _interopRequireDefault(_parseFloat);
+
+var _parseInt = require('babel-runtime/core-js/number/parse-int');
+
+var _parseInt2 = _interopRequireDefault(_parseInt);
+
+var _isNan = require('babel-runtime/core-js/number/is-nan');
+
+var _isNan2 = _interopRequireDefault(_isNan);
+
+var _isFinite = require('babel-runtime/core-js/number/is-finite');
+
+var _isFinite2 = _interopRequireDefault(_isFinite);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 console.log(503 === 503);
 console.log(503 === 503);
 
 console.log(Number('0b111'));
 console.log(Number('0o10'));
-Number.isFinite(15);
-Number.isFinite(0.8);
-Number.isFinite(NaN);
-Number.isFinite(Infinity);
-Number.isFinite(-Infinity);
-Number.isFinite('foo');
-Number.isFinite('15');
-Number.isFinite(true);
+(0, _isFinite2.default)(15);
+(0, _isFinite2.default)(0.8);
+(0, _isFinite2.default)(NaN);
+(0, _isFinite2.default)(Infinity);
+(0, _isFinite2.default)(-Infinity);
+(0, _isFinite2.default)('foo');
+(0, _isFinite2.default)('15');
+(0, _isFinite2.default)(true);
 (function (global) {
   var global_isFinite = global.isFinite;
 
@@ -26,13 +68,13 @@ Number.isFinite(true);
   });
 })(undefined);
 
-Number.isNaN(NaN);
-Number.isNaN(15);
-Number.isNaN('15');
-Number.isNaN(true);
-Number.isNaN(9 / NaN);
-Number.isNaN('true' / 0);
-Number.isNaN('true' / 'true')(function (global) {
+(0, _isNan2.default)(NaN);
+(0, _isNan2.default)(15);
+(0, _isNan2.default)('15');
+(0, _isNan2.default)(true);
+(0, _isNan2.default)(9 / NaN);
+(0, _isNan2.default)('true' / 0);
+(0, _isNan2.default)('true' / 'true')(function (global) {
   var global_isNaN = global.isNaN;
 
   Object.defineProperty(Number, 'isNaN', {
@@ -47,26 +89,26 @@ Number.isNaN('true' / 'true')(function (global) {
 
 isFinite(25);
 isFinite("25");
-Number.isFinite(25);
-Number.isFinite("25");
+(0, _isFinite2.default)(25);
+(0, _isFinite2.default)("25");
 
 isNaN(NaN);
 isNaN("NaN");
-Number.isNaN(NaN);
-Number.isNaN("NaN");
-Number.isNaN(1);
+(0, _isNan2.default)(NaN);
+(0, _isNan2.default)("NaN");
+(0, _isNan2.default)(1);
 parseInt('12.34');
 parseFloat('123.45#');
-Number.parseInt('12.34');
-Number.parseFloat('123.45#');
+(0, _parseInt2.default)('12.34');
+(0, _parseFloat2.default)('123.45#');
 
-Number.parseInt === parseInt;
-Number.parseFloat === parseFloat;
-Number.isInteger(25);
-Number.isInteger(25.0);
-Number.isInteger(25.1);
-Number.isInteger("15");
-Number.isInteger(true)(function (global) {
+_parseInt2.default === parseInt;
+_parseFloat2.default === parseFloat;
+(0, _isInteger2.default)(25);
+(0, _isInteger2.default)(25.0);
+(0, _isInteger2.default)(25.1);
+(0, _isInteger2.default)("15");
+(0, _isInteger2.default)(true)(function (global) {
   var floor = Math.floor,
       isFinite = global.isFinite;
 
@@ -87,36 +129,36 @@ Math.pow(2, 53);
 
 Math.pow(2, 53) === Math.pow(2, 53) + 1;
 
-Number.MAX_SAFE_INTEGER === Math.pow(2, 53) - 1;
-Number.MAX_SAFE_INTEGER === 9007199254740991;
+_maxSafeInteger2.default === Math.pow(2, 53) - 1;
+_maxSafeInteger2.default === 9007199254740991;
 
-Number.MIN_SAFE_INTEGER === -Number.MAX_SAFE_INTEGER;
-Number.MIN_SAFE_INTEGER === -9007199254740991;
-Math.trunc(4.1);
-Math.trunc(4.9);
-Math.trunc(-4.1);
-Math.trunc(-4.9);
-Math.trunc(-0.1234);
+_minSafeInteger2.default === -_maxSafeInteger2.default;
+_minSafeInteger2.default === -9007199254740991;
+(0, _trunc2.default)(4.1);
+(0, _trunc2.default)(4.9);
+(0, _trunc2.default)(-4.1);
+(0, _trunc2.default)(-4.9);
+(0, _trunc2.default)(-0.1234);
 
-Math.trunc('123.456');
-Math.trunc(NaN);
-Math.trunc('foo');
-Math.trunc();
+(0, _trunc2.default)('123.456');
+(0, _trunc2.default)(NaN);
+(0, _trunc2.default)('foo');
+(0, _trunc2.default)();
 
-Math.trunc = Math.trunc || function (x) {
+Math.trunc = _trunc2.default || function (x) {
   return x < 0 ? Math.ceil(x) : Math.floor(x);
 };
 
 
-Math.sign(-5);
-Math.sign(5);
-Math.sign(0);
-Math.sign(-0);
-Math.sign(NaN);
-Math.sign('foo');
-Math.sign();
+(0, _sign2.default)(-5);
+(0, _sign2.default)(5);
+(0, _sign2.default)(0);
+(0, _sign2.default)(-0);
+(0, _sign2.default)(NaN);
+(0, _sign2.default)('foo');
+(0, _sign2.default)();
 
-Math.sign = Math.sign || function (x) {
+Math.sign = _sign2.default || function (x) {
   x = +x;
   if (x === 0 || isNaN(x)) {
     return x;
@@ -124,10 +166,10 @@ Math.sign = Math.sign || function (x) {
   return x > 0 ? 1 : -1;
 };
 
-Math.hypot(3, 4);
-Math.hypot(3, 4, 5);
-Math.hypot();
-Math.hypot(NaN);
-Math.hypot(3, 4, 'foo');
-Math.hypot(3, 4, '5');
-Math.hypot(-3);
+(0, _hypot2.default)(3, 4);
+(0, _hypot2.default)(3, 4, 5);
+(0, _hypot2.default)();
+(0, _hypot2.default)(NaN);
+(0, _hypot2.default)(3, 4, 'foo');
+(0, _hypot2.default)(3, 4, '5');
+(0, _hypot2.default)(-3);

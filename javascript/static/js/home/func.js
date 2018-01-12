@@ -1,8 +1,20 @@
 'use strict';
 
+var _toConsumableArray2 = require('babel-runtime/helpers/toConsumableArray');
+
+var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
+
+var _map = require('babel-runtime/core-js/map');
+
+var _map2 = _interopRequireDefault(_map);
+
+var _getIterator2 = require('babel-runtime/core-js/get-iterator');
+
+var _getIterator3 = _interopRequireDefault(_getIterator2);
+
 var _console, _console2;
 
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function log(x, y) {
   y = y || 'World';
@@ -64,7 +76,7 @@ function add() {
   var _iteratorError = undefined;
 
   try {
-    for (var _iterator = values[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+    for (var _iterator = (0, _getIterator3.default)(values), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
       var val = _step.value;
 
       sum += val;
@@ -142,9 +154,9 @@ console.log(arr1.concat(arr2, arr3));
 console.log([].concat(arr1, arr2, arr3));
 
 
-var map = new Map([[1, 'one'], [2, 'two'], [3, 'three']]);
+var map = new _map2.default([[1, 'one'], [2, 'two'], [3, 'three']]);
 
-var arr12 = [].concat(_toConsumableArray(map.keys()));
+var arr12 = [].concat((0, _toConsumableArray3.default)(map.keys()));
 console.log(arr12);
 
 

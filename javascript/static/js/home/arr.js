@@ -1,5 +1,19 @@
 'use strict';
 
+var _getIterator2 = require('babel-runtime/core-js/get-iterator');
+
+var _getIterator3 = _interopRequireDefault(_getIterator2);
+
+var _of = require('babel-runtime/core-js/array/of');
+
+var _of2 = _interopRequireDefault(_of);
+
+var _from = require('babel-runtime/core-js/array/from');
+
+var _from2 = _interopRequireDefault(_from);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var arrayLike = {
     '0': 'a',
     '1': 'b',
@@ -10,24 +24,24 @@ var arrayLike = {
 var arr1 = [].slice.call(arrayLike);
 console.log(arr1);
 
-var arr2 = Array.from(arrayLike);
+var arr2 = (0, _from2.default)(arrayLike);
 console.log(arr2);
 
-Array.from(arrayLike, function (x) {
+(0, _from2.default)(arrayLike, function (x) {
     return x * x;
 });
 
-Array.from(arrayLike).map(function (x) {
+(0, _from2.default)(arrayLike).map(function (x) {
     return x * x;
 });
 
-Array.from([1, 2, 3], function (x) {
+(0, _from2.default)([1, 2, 3], function (x) {
     return x * x;
 });
 
-Array.of(3, 11, 8);
-Array.of(3);
-Array.of(3).length;
+(0, _of2.default)(3, 11, 8);
+(0, _of2.default)(3);
+(0, _of2.default)(3).length;
 
 Array();
 Array(3);
@@ -45,7 +59,7 @@ var _didIteratorError = false;
 var _iteratorError = undefined;
 
 try {
-    for (var _iterator = ['a', 'b'].keys()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+    for (var _iterator = (0, _getIterator3.default)(['a', 'b'].keys()), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
         var index = _step.value;
 
         console.log(index);
@@ -79,4 +93,4 @@ console.log(entries.next().value);
     return true;
 });
 
-Array.from(['a',, 'b']);
+(0, _from2.default)(['a',, 'b']);

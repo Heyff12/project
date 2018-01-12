@@ -1,6 +1,10 @@
 'use strict';
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+var _typeof2 = require('babel-runtime/helpers/typeof');
+
+var _typeof3 = _interopRequireDefault(_typeof2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var a = [];
 for (var i = 0; i < 10; i++) {
@@ -57,7 +61,7 @@ if (true) {
     };
 }
 
-typeof window !== 'undefined' ? window : (typeof process === 'undefined' ? 'undefined' : _typeof(process)) === 'object' && typeof require === 'function' && (typeof global === 'undefined' ? 'undefined' : _typeof(global)) === 'object' ? global : undefined;
+typeof window !== 'undefined' ? window : (typeof process === 'undefined' ? 'undefined' : (0, _typeof3.default)(process)) === 'object' && typeof require === 'function' && (typeof global === 'undefined' ? 'undefined' : (0, _typeof3.default)(global)) === 'object' ? global : undefined;
 
 var getGlobal = function getGlobal() {
     if (typeof self !== 'undefined') {

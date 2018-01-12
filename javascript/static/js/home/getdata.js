@@ -1,5 +1,11 @@
 "use strict";
 
+var _getIterator2 = require("babel-runtime/core-js/get-iterator");
+
+var _getIterator3 = _interopRequireDefault(_getIterator2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var xmlhttp;
 if (window.XMLHttpRequest) {
     xmlhttp = new XMLHttpRequest();
@@ -44,7 +50,7 @@ function juejin(p, s) {
             var _iteratorError = undefined;
 
             try {
-                for (var _iterator = list[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                for (var _iterator = (0, _getIterator3.default)(list), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
                     var item = _step.value;
 
                     var now = {

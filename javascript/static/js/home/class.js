@@ -1,10 +1,34 @@
 'use strict';
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+var _regenerator = require('babel-runtime/regenerator');
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _regenerator2 = _interopRequireDefault(_regenerator);
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var _getIterator2 = require('babel-runtime/core-js/get-iterator');
+
+var _getIterator3 = _interopRequireDefault(_getIterator2);
+
+var _iterator3 = require('babel-runtime/core-js/symbol/iterator');
+
+var _iterator4 = _interopRequireDefault(_iterator3);
+
+var _assign = require('babel-runtime/core-js/object/assign');
+
+var _assign2 = _interopRequireDefault(_assign);
+
+var _typeof2 = require('babel-runtime/helpers/typeof');
+
+var _typeof3 = _interopRequireDefault(_typeof2);
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Point(x, y) {
   this.x = x;
@@ -21,23 +45,22 @@ console.log(p.toString());
 
 var Point2 = function () {
   function Point2(x, y) {
-    _classCallCheck(this, Point2);
+    (0, _classCallCheck3.default)(this, Point2);
 
     this.x = x;
     this.y = y;
   }
 
-  _createClass(Point2, [{
+  (0, _createClass3.default)(Point2, [{
     key: 'toString',
     value: function toString() {
       return '(' + this.x + ', ' + this.y + ')';
     }
   }]);
-
   return Point2;
 }();
 
-console.log(typeof Point2 === 'undefined' ? 'undefined' : _typeof(Point2));
+console.log(typeof Point2 === 'undefined' ? 'undefined' : (0, _typeof3.default)(Point2));
 console.log(Point2 === Point2.prototype.constructor);
 var point2 = new Point(2, 3);
 
@@ -47,23 +70,22 @@ console.log(point2.hasOwnProperty('y'));
 console.log(point2.hasOwnProperty('toString'));
 console.log(point2.__proto__.hasOwnProperty('toString'));
 
-Object.assign(Point2.prototype, {
+(0, _assign2.default)(Point2.prototype, {
   toString2: function toString2() {},
   toValue: function toValue() {}
 });
 
 var Bar = function () {
   function Bar() {
-    _classCallCheck(this, Bar);
+    (0, _classCallCheck3.default)(this, Bar);
   }
 
-  _createClass(Bar, [{
+  (0, _createClass3.default)(Bar, [{
     key: 'doStuff',
     value: function doStuff() {
       console.log('stuff');
     }
   }]);
-
   return Bar;
 }();
 
@@ -84,10 +106,10 @@ var p3 = new Point(4, 2);
 console.log(p3.printName());
 var MyClass = function () {
   function MyClass() {
-    _classCallCheck(this, MyClass);
+    (0, _classCallCheck3.default)(this, MyClass);
   }
 
-  _createClass(MyClass, [{
+  (0, _createClass3.default)(MyClass, [{
     key: 'prop',
     get: function get() {
       return 'getter';
@@ -96,7 +118,6 @@ var MyClass = function () {
       console.log('setter: ' + value);
     }
   }]);
-
   return MyClass;
 }();
 
@@ -109,7 +130,7 @@ console.log(inst.prop);
 
 var Foo2 = function () {
   function Foo2() {
-    _classCallCheck(this, Foo2);
+    (0, _classCallCheck3.default)(this, Foo2);
 
     for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
@@ -118,12 +139,12 @@ var Foo2 = function () {
     this.args = args;
   }
 
-  _createClass(Foo2, [{
-    key: Symbol.iterator,
-    value: regeneratorRuntime.mark(function value() {
+  (0, _createClass3.default)(Foo2, [{
+    key: _iterator4.default,
+    value: _regenerator2.default.mark(function value() {
       var _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, arg;
 
-      return regeneratorRuntime.wrap(function value$(_context) {
+      return _regenerator2.default.wrap(function value$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
@@ -131,7 +152,7 @@ var Foo2 = function () {
               _didIteratorError = false;
               _iteratorError = undefined;
               _context.prev = 3;
-              _iterator = this.args[Symbol.iterator]();
+              _iterator = (0, _getIterator3.default)(this.args);
 
             case 5:
               if (_iteratorNormalCompletion = (_step = _iterator.next()).done) {
@@ -190,7 +211,6 @@ var Foo2 = function () {
       }, value, this, [[3, 14, 18, 26], [19,, 21, 25]]);
     })
   }]);
-
   return Foo2;
 }();
 
@@ -200,7 +220,7 @@ var _iteratorError2 = undefined;
 
 try {
 
-  for (var _iterator2 = new Foo2('hello', 'world')[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+  for (var _iterator2 = (0, _getIterator3.default)(new Foo2('hello', 'world')), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
     var x = _step2.value;
 
     console.log(x);
@@ -222,16 +242,15 @@ try {
 
 var Foo3 = function () {
   function Foo3() {
-    _classCallCheck(this, Foo3);
+    (0, _classCallCheck3.default)(this, Foo3);
   }
 
-  _createClass(Foo3, null, [{
+  (0, _createClass3.default)(Foo3, null, [{
     key: 'classMethod',
     value: function classMethod() {
       return 'hello';
     }
   }]);
-
   return Foo3;
 }();
 

@@ -1,13 +1,43 @@
 'use strict';
 
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+var _slicedToArray2 = require('babel-runtime/helpers/slicedToArray');
 
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+var _slicedToArray3 = _interopRequireDefault(_slicedToArray2);
 
-var _marked = [helloWorldGenerator, fest, foo, fibonacci, objectEntries, objectEntries1, numbers, gtest, gen2, numbers2, inner, outer1, outer2, foo3, bar3, genFuncWithReturn, logReturned, iterTree, inorder, F, iterEntries].map(regeneratorRuntime.mark);
+var _from = require('babel-runtime/core-js/array/from');
+
+var _from2 = _interopRequireDefault(_from);
+
+var _keys = require('babel-runtime/core-js/object/keys');
+
+var _keys2 = _interopRequireDefault(_keys);
+
+var _getIterator2 = require('babel-runtime/core-js/get-iterator');
+
+var _getIterator3 = _interopRequireDefault(_getIterator2);
+
+var _ownKeys = require('babel-runtime/core-js/reflect/own-keys');
+
+var _ownKeys2 = _interopRequireDefault(_ownKeys);
+
+var _toConsumableArray2 = require('babel-runtime/helpers/toConsumableArray');
+
+var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
+
+var _iterator12 = require('babel-runtime/core-js/symbol/iterator');
+
+var _iterator13 = _interopRequireDefault(_iterator12);
+
+var _regenerator = require('babel-runtime/regenerator');
+
+var _regenerator2 = _interopRequireDefault(_regenerator);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _marked = [helloWorldGenerator, fest, foo, fibonacci, objectEntries, objectEntries1, numbers, gtest, gen2, numbers2, inner, outer1, outer2, foo3, bar3, genFuncWithReturn, logReturned, iterTree, inorder, F, iterEntries].map(_regenerator2.default.mark);
 
 function helloWorldGenerator() {
-  return regeneratorRuntime.wrap(function helloWorldGenerator$(_context) {
+  return _regenerator2.default.wrap(function helloWorldGenerator$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
@@ -44,9 +74,9 @@ console.log(hw.next());
 
 var arr = [1, [[2, 3], 4], [5, 6]];
 
-var flat = regeneratorRuntime.mark(function flat(a) {
+var flat = _regenerator2.default.mark(function flat(a) {
   var length, i, item;
-  return regeneratorRuntime.wrap(function flat$(_context2) {
+  return _regenerator2.default.wrap(function flat$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
@@ -94,7 +124,7 @@ var _didIteratorError = false;
 var _iteratorError = undefined;
 
 try {
-  for (var _iterator = flat(arr)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+  for (var _iterator = (0, _getIterator3.default)(flat(arr)), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
     var f = _step.value;
 
     console.log(f);
@@ -115,8 +145,8 @@ try {
 }
 
 var myIterable = {};
-myIterable[Symbol.iterator] = regeneratorRuntime.mark(function _callee() {
-  return regeneratorRuntime.wrap(function _callee$(_context3) {
+myIterable[_iterator13.default] = _regenerator2.default.mark(function _callee() {
+  return _regenerator2.default.wrap(function _callee$(_context3) {
     while (1) {
       switch (_context3.prev = _context3.next) {
         case 0:
@@ -139,11 +169,11 @@ myIterable[Symbol.iterator] = regeneratorRuntime.mark(function _callee() {
   }, _callee, this);
 });
 
-console.log([].concat(_toConsumableArray(myIterable)));
+console.log([].concat((0, _toConsumableArray3.default)(myIterable)));
 
 function fest() {
   var i, reset;
-  return regeneratorRuntime.wrap(function fest$(_context4) {
+  return _regenerator2.default.wrap(function fest$(_context4) {
     while (1) {
       switch (_context4.prev = _context4.next) {
         case 0:
@@ -189,7 +219,7 @@ console.log(g.next());
 console.log(g.next());
 
 function foo() {
-  return regeneratorRuntime.wrap(function foo$(_context5) {
+  return _regenerator2.default.wrap(function foo$(_context5) {
     while (1) {
       switch (_context5.prev = _context5.next) {
         case 0:
@@ -228,7 +258,7 @@ var _didIteratorError2 = false;
 var _iteratorError2 = undefined;
 
 try {
-  for (var _iterator2 = foo()[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+  for (var _iterator2 = (0, _getIterator3.default)(foo()), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
     var v = _step2.value;
 
     console.log(v);
@@ -251,7 +281,7 @@ try {
 function fibonacci() {
   var prev, curr, _ref;
 
-  return regeneratorRuntime.wrap(function fibonacci$(_context6) {
+  return _regenerator2.default.wrap(function fibonacci$(_context6) {
     while (1) {
       switch (_context6.prev = _context6.next) {
         case 0:
@@ -281,7 +311,7 @@ var _didIteratorError3 = false;
 var _iteratorError3 = undefined;
 
 try {
-  for (var _iterator3 = fibonacci()[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+  for (var _iterator3 = (0, _getIterator3.default)(fibonacci()), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
     var n = _step3.value;
 
     if (n > 30) break;
@@ -305,16 +335,16 @@ try {
 function objectEntries(obj) {
   var propKeys, _iteratorNormalCompletion4, _didIteratorError4, _iteratorError4, _iterator4, _step4, propKey;
 
-  return regeneratorRuntime.wrap(function objectEntries$(_context7) {
+  return _regenerator2.default.wrap(function objectEntries$(_context7) {
     while (1) {
       switch (_context7.prev = _context7.next) {
         case 0:
-          propKeys = Reflect.ownKeys(obj);
+          propKeys = (0, _ownKeys2.default)(obj);
           _iteratorNormalCompletion4 = true;
           _didIteratorError4 = false;
           _iteratorError4 = undefined;
           _context7.prev = 4;
-          _iterator4 = propKeys[Symbol.iterator]();
+          _iterator4 = (0, _getIterator3.default)(propKeys);
 
         case 6:
           if (_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done) {
@@ -380,8 +410,8 @@ var _didIteratorError5 = false;
 var _iteratorError5 = undefined;
 
 try {
-  for (var _iterator5 = objectEntries(jane)[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
-    var _step5$value = _slicedToArray(_step5.value, 2),
+  for (var _iterator5 = (0, _getIterator3.default)(objectEntries(jane)), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+    var _step5$value = (0, _slicedToArray3.default)(_step5.value, 2),
         key = _step5$value[0],
         value = _step5$value[1];
 
@@ -405,16 +435,16 @@ try {
 function objectEntries1() {
   var propKeys, _iteratorNormalCompletion6, _didIteratorError6, _iteratorError6, _iterator6, _step6, propKey;
 
-  return regeneratorRuntime.wrap(function objectEntries1$(_context8) {
+  return _regenerator2.default.wrap(function objectEntries1$(_context8) {
     while (1) {
       switch (_context8.prev = _context8.next) {
         case 0:
-          propKeys = Object.keys(this);
+          propKeys = (0, _keys2.default)(this);
           _iteratorNormalCompletion6 = true;
           _didIteratorError6 = false;
           _iteratorError6 = undefined;
           _context8.prev = 4;
-          _iterator6 = propKeys[Symbol.iterator]();
+          _iterator6 = (0, _getIterator3.default)(propKeys);
 
         case 6:
           if (_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done) {
@@ -475,15 +505,15 @@ function objectEntries1() {
 
 var jane1 = { first: 'Jane', last: 'Doe' };
 
-jane1[Symbol.iterator] = objectEntries1;
+jane1[_iterator13.default] = objectEntries1;
 
 var _iteratorNormalCompletion7 = true;
 var _didIteratorError7 = false;
 var _iteratorError7 = undefined;
 
 try {
-  for (var _iterator7 = jane1[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
-    var _step7$value = _slicedToArray(_step7.value, 2),
+  for (var _iterator7 = (0, _getIterator3.default)(jane1), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
+    var _step7$value = (0, _slicedToArray3.default)(_step7.value, 2),
         key = _step7$value[0],
         value = _step7$value[1];
 
@@ -505,7 +535,7 @@ try {
 }
 
 function numbers() {
-  return regeneratorRuntime.wrap(function numbers$(_context9) {
+  return _regenerator2.default.wrap(function numbers$(_context9) {
     while (1) {
       switch (_context9.prev = _context9.next) {
         case 0:
@@ -527,10 +557,10 @@ function numbers() {
   }, _marked[6], this);
 }
 
-console.log([].concat(_toConsumableArray(numbers())));
-console.log(Array.from(numbers()));
+console.log([].concat((0, _toConsumableArray3.default)(numbers())));
+console.log((0, _from2.default)(numbers()));
 var _numbers = numbers(),
-    _numbers2 = _slicedToArray(_numbers, 2),
+    _numbers2 = (0, _slicedToArray3.default)(_numbers, 2),
     x = _numbers2[0],
     y = _numbers2[1];
 
@@ -540,10 +570,10 @@ var _didIteratorError8 = false;
 var _iteratorError8 = undefined;
 
 try {
-  for (var _iterator8 = numbers()[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
-    var _n2 = _step8.value;
+  for (var _iterator8 = (0, _getIterator3.default)(numbers()), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
+    var _n = _step8.value;
 
-    console.log(_n2);
+    console.log(_n);
   }
 } catch (err) {
   _didIteratorError8 = true;
@@ -560,8 +590,8 @@ try {
   }
 }
 
-var g = regeneratorRuntime.mark(function g() {
-  return regeneratorRuntime.wrap(function g$(_context10) {
+var g = _regenerator2.default.mark(function g() {
+  return _regenerator2.default.wrap(function g$(_context10) {
     while (1) {
       switch (_context10.prev = _context10.next) {
         case 0:
@@ -597,8 +627,8 @@ try {
   console.log('外部捕获', e);
 }
 
-var gen = regeneratorRuntime.mark(function gen() {
-  return regeneratorRuntime.wrap(function gen$(_context11) {
+var gen = _regenerator2.default.mark(function gen() {
+  return _regenerator2.default.wrap(function gen$(_context11) {
     while (1) {
       switch (_context11.prev = _context11.next) {
         case 0:
@@ -636,7 +666,7 @@ g.throw();
 g.next();
 
 function gtest() {
-  return regeneratorRuntime.wrap(function gtest$(_context12) {
+  return _regenerator2.default.wrap(function gtest$(_context12) {
     while (1) {
       switch (_context12.prev = _context12.next) {
         case 0:
@@ -687,7 +717,7 @@ log(gtest());
 
 
 function gen2() {
-  return regeneratorRuntime.wrap(function gen2$(_context13) {
+  return _regenerator2.default.wrap(function gen2$(_context13) {
     while (1) {
       switch (_context13.prev = _context13.next) {
         case 0:
@@ -716,7 +746,7 @@ console.log(g2.next());
 console.log(g2.return('foo'));
 console.log(g2.next());
 function numbers2() {
-  return regeneratorRuntime.wrap(function numbers2$(_context14) {
+  return _regenerator2.default.wrap(function numbers2$(_context14) {
     while (1) {
       switch (_context14.prev = _context14.next) {
         case 0:
@@ -763,7 +793,7 @@ console.log(g.next());
 console.log(g.next());
 
 function inner() {
-  return regeneratorRuntime.wrap(function inner$(_context15) {
+  return _regenerator2.default.wrap(function inner$(_context15) {
     while (1) {
       switch (_context15.prev = _context15.next) {
         case 0:
@@ -779,7 +809,7 @@ function inner() {
 }
 
 function outer1() {
-  return regeneratorRuntime.wrap(function outer1$(_context16) {
+  return _regenerator2.default.wrap(function outer1$(_context16) {
     while (1) {
       switch (_context16.prev = _context16.next) {
         case 0:
@@ -808,7 +838,7 @@ console.log(gen.next().value);
 console.log(gen.next().value);
 
 function outer2() {
-  return regeneratorRuntime.wrap(function outer2$(_context17) {
+  return _regenerator2.default.wrap(function outer2$(_context17) {
     while (1) {
       switch (_context17.prev = _context17.next) {
         case 0:
@@ -836,7 +866,7 @@ console.log(gen.next().value);
 console.log(gen.next().value);
 
 function foo3() {
-  return regeneratorRuntime.wrap(function foo3$(_context18) {
+  return _regenerator2.default.wrap(function foo3$(_context18) {
     while (1) {
       switch (_context18.prev = _context18.next) {
         case 0:
@@ -860,7 +890,7 @@ function foo3() {
 
 function bar3() {
   var v;
-  return regeneratorRuntime.wrap(function bar3$(_context19) {
+  return _regenerator2.default.wrap(function bar3$(_context19) {
     while (1) {
       switch (_context19.prev = _context19.next) {
         case 0:
@@ -899,7 +929,7 @@ console.log(it.next());
 
 
 function genFuncWithReturn() {
-  return regeneratorRuntime.wrap(function genFuncWithReturn$(_context20) {
+  return _regenerator2.default.wrap(function genFuncWithReturn$(_context20) {
     while (1) {
       switch (_context20.prev = _context20.next) {
         case 0:
@@ -922,7 +952,7 @@ function genFuncWithReturn() {
 }
 function logReturned(genObj) {
   var result;
-  return regeneratorRuntime.wrap(function logReturned$(_context21) {
+  return _regenerator2.default.wrap(function logReturned$(_context21) {
     while (1) {
       switch (_context21.prev = _context21.next) {
         case 0:
@@ -941,13 +971,13 @@ function logReturned(genObj) {
   }, _marked[16], this);
 }
 
-console.log([].concat(_toConsumableArray(logReturned(genFuncWithReturn()))));
+console.log([].concat((0, _toConsumableArray3.default)(logReturned(genFuncWithReturn()))));
 
 
 function iterTree(tree) {
   var _i;
 
-  return regeneratorRuntime.wrap(function iterTree$(_context22) {
+  return _regenerator2.default.wrap(function iterTree$(_context22) {
     while (1) {
       switch (_context22.prev = _context22.next) {
         case 0:
@@ -994,7 +1024,7 @@ var _didIteratorError9 = false;
 var _iteratorError9 = undefined;
 
 try {
-  for (var _iterator9 = iterTree(tree)[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
+  for (var _iterator9 = (0, _getIterator3.default)(iterTree(tree)), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
     var _x = _step9.value;
 
     console.log(_x);
@@ -1021,7 +1051,7 @@ function Tree2(left, label, right) {
 }
 
 function inorder(t) {
-  return regeneratorRuntime.wrap(function inorder$(_context23) {
+  return _regenerator2.default.wrap(function inorder$(_context23) {
     while (1) {
       switch (_context23.prev = _context23.next) {
         case 0:
@@ -1059,7 +1089,7 @@ var _didIteratorError10 = false;
 var _iteratorError10 = undefined;
 
 try {
-  for (var _iterator10 = inorder(tree3)[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
+  for (var _iterator10 = (0, _getIterator3.default)(inorder(tree3)), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
     var node = _step10.value;
 
     result.push(node);
@@ -1083,7 +1113,7 @@ console.log(result);
 
 
 function F() {
-  return regeneratorRuntime.wrap(function F$(_context24) {
+  return _regenerator2.default.wrap(function F$(_context24) {
     while (1) {
       switch (_context24.prev = _context24.next) {
         case 0:
@@ -1124,8 +1154,8 @@ clock();
 clock();
 clock();
 
-var clock2 = regeneratorRuntime.mark(function clock2() {
-  return regeneratorRuntime.wrap(function clock2$(_context25) {
+var clock2 = _regenerator2.default.mark(function clock2() {
+  return _regenerator2.default.wrap(function clock2$(_context25) {
     while (1) {
       switch (_context25.prev = _context25.next) {
         case 0:
@@ -1164,11 +1194,11 @@ clock2().next();
 function iterEntries(obj) {
   var keys, _i2, key;
 
-  return regeneratorRuntime.wrap(function iterEntries$(_context26) {
+  return _regenerator2.default.wrap(function iterEntries$(_context26) {
     while (1) {
       switch (_context26.prev = _context26.next) {
         case 0:
-          keys = Object.keys(obj);
+          keys = (0, _keys2.default)(obj);
           _i2 = 0;
 
         case 2:
@@ -1201,8 +1231,8 @@ var _didIteratorError11 = false;
 var _iteratorError11 = undefined;
 
 try {
-  for (var _iterator11 = iterEntries(myObj)[Symbol.iterator](), _step11; !(_iteratorNormalCompletion11 = (_step11 = _iterator11.next()).done); _iteratorNormalCompletion11 = true) {
-    var _step11$value = _slicedToArray(_step11.value, 2),
+  for (var _iterator11 = (0, _getIterator3.default)(iterEntries(myObj)), _step11; !(_iteratorNormalCompletion11 = (_step11 = _iterator11.next()).done); _iteratorNormalCompletion11 = true) {
+    var _step11$value = (0, _slicedToArray3.default)(_step11.value, 2),
         key = _step11$value[0],
         value = _step11$value[1];
 
