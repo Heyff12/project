@@ -6,6 +6,13 @@
     <style type="text/css">
     #tutorial {}
 
+    #SomeElementYouWantToAnimate {
+        width: 10px;
+        height: 10px;
+        border: 1px solid red;
+        margin: 10px 0;
+    }
+
     img {
         width: 100%;
         height: auto;
@@ -18,8 +25,9 @@
 </head>
 
 <body onload="draw();">
+    <div id="SomeElementYouWantToAnimate"></div>
     <canvas id="tutorial" width="150" height="150"></canvas>
-    <canvas id="tutorial1" width="150" height="150"></canvas>
+    <canvas id="tutorial1" width="300" height="300"></canvas>
     <canvas id="tutorial2" width="150" height="150"></canvas>
     <canvas id="tutorial3" width="150" height="150"></canvas>
     <canvas id="tutorial4" width="150" height="150"></canvas>
@@ -38,7 +46,49 @@
     <canvas id="tutorial17" width="300" height="300"></canvas>
     <canvas id="tutorial18" width="150" height="150"></canvas>
     <canvas id="tutorial19" width="150" height="150"></canvas>
+    <div id="test" style="width:1px;height:17px;background:#0f0;">0%</div>
+    <input type="button" value="Run" id="run" />
     <script type="text/javascript">
+    window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+    var start = null;
+    var ele = document.getElementById("test");
+    var progress = 0;
+
+    function step(timestamp) {
+        progress += 1;
+        ele.style.width = progress + "%";
+        ele.innerHTML = progress + "%";
+        if (progress < 100) {
+            requestAnimationFrame(step);
+        }
+    }
+    //requestAnimationFrame(step);
+    document.getElementById("run").addEventListener("click", function() {
+        ele.style.width = "1px";
+        progress = 0;
+        requestAnimationFrame(step);
+    }, false);
+
+
+
+    // var start = null;
+    // var element = document.getElementById('SomeElementYouWantToAnimate');
+    // element.style.position = 'absolute';
+
+    // function step(timestamp) {
+    //     if (!start) start = timestamp;
+    //     console.log(timestamp);
+    //     console.log(start);
+    //     var progress = timestamp - start;
+    //     element.style.left = Math.min(progress / 10, 200) + 'px';
+    //     if (progress < 2000) {
+    //         window.requestAnimationFrame(step);
+    //     }
+    // }
+
+    // window.requestAnimationFrame(step);
+
+
     // var canvas = document.getElementById('tutorial');
     // // var ctx = canvas.getContext('2d');
     // if (canvas.getContext) {
@@ -80,6 +130,7 @@
             ctx.translate(75, 75);
             // Create a circular clipping path
             ctx.beginPath();
+            // ctx.rect(0, 0, 110, 110);
             ctx.arc(0, 0, 60, 0, Math.PI * 2, true);
             ctx.clip();
             // draw background
@@ -131,212 +182,122 @@
 
             ctx1.drawImage(sun, 0, 0, 300, 300);
 
-            //window.requestAnimationFrame(draw);
+            window.requestAnimationFrame(draw);
 
-            //绘制三角形-------------------------------------------------------------------------
-            var ctx2 = canvas2.getContext('2d');
-            ctx2.beginPath();
-            ctx2.moveTo(75, 50); //设置起点
-            ctx2.lineTo(100, 75);
-            ctx2.lineTo(100, 25);
-            ctx2.fill(); //闭合之后才能渲染路径
-
-            //绘制不连续路径--绘制脸-------------------------------------------------------------------------
+            //小球-------------------------------------------------------------------------
             var ctx3 = canvas3.getContext('2d');
-            ctx3.beginPath();
-            ctx3.arc(75, 75, 50, 0, Math.PI * 2, true); //绘制圆
-            ctx3.moveTo(110, 75);
-            ctx3.arc(75, 75, 35, 0, Math.PI, false); //口 顺时针
-            ctx3.moveTo(65, 65);
-            ctx3.arc(60, 65, 5, 0, Math.PI * 2, true); //左眼
-            ctx3.moveTo(95, 65);
-            ctx3.arc(90, 65, 5, 0, Math.PI * 2, true); //右眼
-            ctx3.stroke();
+            var raf;
+            var running = false;
+            var ball = {
+                x: 100,
+                y: 100,
+                vx: 5,
+                vy: 1,
+                radius: 25,
+                color: 'blue',
+                draw: function() {
+                    ctx3.beginPath();
+                    ctx3.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
+                    ctx3.closePath();
+                    ctx3.fillStyle = this.color;
+                    ctx3.fill();
+                }
+            };
+
+            function clear() {
+                ctx3.fillStyle = 'rgba(255,255,255,0.3)';
+                ctx3.fillRect(0, 0, canvas.width, canvas.height);
+            }
+
+            function drawIn() {
+                clear();
+                ball.draw();
+                ball.x += ball.vx;
+                ball.y += ball.vy;
+
+                if (ball.y + ball.vy > canvas.height || ball.y + ball.vy < 0) {
+                    ball.vy = -ball.vy;
+                }
+                if (ball.x + ball.vx > canvas.width || ball.x + ball.vx < 0) {
+                    ball.vx = -ball.vx;
+                }
+
+                raf = window.requestAnimationFrame(drawIn);
+            }
+
+            canvas.addEventListener('mousemove', function(e) {
+                if (!running) {
+                    clear();
+                    ball.x = e.clientX;
+                    ball.y = e.clientY;
+                    ball.draw();
+                }
+            });
+
+            canvas.addEventListener('click', function(e) {
+                if (!running) {
+                    raf = window.requestAnimationFrame(drawIn);
+                    running = true;
+                }
+            });
+
+            canvas.addEventListener('mouseout', function(e) {
+                window.cancelAnimationFrame(raf);
+                running = false;
+            });
+
+            ball.draw();
+
+
 
             //二次贝塞尔曲线--会话框-------------------------------------------------------------------------
             var ctx4 = canvas4.getContext('2d');
-            ctx4.beginPath();
-            ctx4.moveTo(75, 25);
-            ctx4.quadraticCurveTo(25, 25, 25, 52.5);
-            ctx4.quadraticCurveTo(25, 100, 50, 100);
-            ctx4.quadraticCurveTo(50, 120, 30, 125);
-            ctx4.quadraticCurveTo(60, 120, 65, 100);
-            ctx4.quadraticCurveTo(125, 100, 125, 62.5);
-            ctx4.quadraticCurveTo(125, 25, 75, 25);
-            ctx4.stroke();
+
 
             //三次贝塞尔曲线--心-------------------------------------------------------------------------
             var ctx5 = canvas5.getContext('2d');
-            ctx5.beginPath();
-            ctx5.moveTo(75, 40);
-            ctx5.bezierCurveTo(75, 37, 70, 25, 50, 25);
-            ctx5.bezierCurveTo(20, 25, 20, 62.5, 20, 62.5);
-            ctx5.bezierCurveTo(20, 80, 40, 102, 75, 120);
-            ctx5.bezierCurveTo(110, 102, 130, 80, 130, 62.5);
-            ctx5.bezierCurveTo(130, 62.5, 130, 25, 100, 25);
-            ctx5.bezierCurveTo(85, 25, 75, 37, 75, 40);
-            ctx5.fill();
+
 
             //组合使用--游戏图-------------------------------------------------------------------------
             var ctx6 = canvas6.getContext('2d');
             //Path2D 示例-------------------------------------------------------------------------
             var ctx7 = canvas7.getContext('2d');
-            var rectangle = new Path2D();
-            rectangle.rect(10, 10, 50, 50);
-            var circle = new Path2D();
-            circle.moveTo(125, 35);
-            circle.arc(100, 35, 25, 0, 2 * Math.PI);
 
-            ctx7.stroke(rectangle);
-            ctx7.fill(circle);
 
             //颜色--strokeStyle--------fillStyle---------------------------------------------------------------
             var ctx8 = canvas8.getContext('2d');
-            for (var i = 0; i < 6; i++) {
-                for (var j = 0; j < 6; j++) {
-                    ctx8.strokeStyle = 'rgb(0,' + Math.floor(255 - 42.5 * i) + ',' +
-                        Math.floor(255 - 42.5 * j) + ')';
-                    ctx8.beginPath();
-                    ctx8.arc(12.5 + j * 25, 12.5 + i * 25, 10, 0, Math.PI * 2, true);
-                    // ctx8.fillStyle = 'rgb(' + Math.floor(255-42.5*i) + ',' + 
-                    //    Math.floor(255-42.5*j) + ',0)';
-                    ctx8.stroke();
-                }
-            }
 
 
             //透明--globalAlpha--------------------------------------------------
             var ctx9 = canvas9.getContext('2d');
             // 画背景
-            ctx9.fillStyle = '#FD0';
-            ctx9.fillRect(0, 0, 75, 75);
-            ctx9.fillStyle = '#6C0';
-            ctx9.fillRect(75, 0, 75, 75);
-            ctx9.fillStyle = '#09F';
-            ctx9.fillRect(0, 75, 75, 75);
-            ctx9.fillStyle = '#F30';
-            ctx9.fillRect(75, 75, 75, 75);
-            ctx9.fillStyle = '#FFF';
 
-            // 设置透明度值
-            ctx9.globalAlpha = 0.2;
 
-            // 画半透明圆
-            for (var i = 0; i < 7; i++) {
-                ctx9.beginPath();
-                ctx9.arc(75, 75, 10 + 10 * i, 0, Math.PI * 2, true);
-                ctx9.fill();
-            }
+
 
             //--lineCap-------线段端点显示的样子-------------------------------------------
             var ctx10 = canvas10.getContext('2d');
-            var lineCap = ['butt', 'round', 'square'];
-            ctx10.strokeStyle = '#09f';
-            ctx10.beginPath();
-            ctx10.moveTo(10, 10);
-            ctx10.lineTo(140, 10);
-            ctx10.moveTo(10, 140);
-            ctx10.lineTo(140, 140);
-            ctx10.stroke();
-
-            ctx10.strokeStyle = 'black';
-            for (var i = 0; i < lineCap.length; i++) {
-                ctx10.lineWidth = 15;
-                ctx10.lineCap = lineCap[i];
-                ctx10.beginPath();
-                ctx10.moveTo(25 + i * 50, 10);
-                ctx10.lineTo(25 + i * 50, 140);
-                ctx10.stroke();
-            }
 
             //--lineJoin-------图形中两线段连接处所显示的样子-------------------------------------------
             var ctx11 = canvas11.getContext('2d');
-            var lineJoin = ['round', 'bevel', 'miter'];
-            ctx11.lineWidth = 10;
-            for (var i = 0; i < lineJoin.length; i++) {
-                ctx11.lineJoin = lineJoin[i];
-                ctx11.beginPath();
-                ctx11.moveTo(-5, 5 + i * 40);
-                ctx11.lineTo(35, 45 + i * 40);
-                ctx11.lineTo(75, 5 + i * 40);
-                ctx11.lineTo(115, 45 + i * 40);
-                ctx11.lineTo(155, 5 + i * 40);
-                ctx11.stroke();
-            }
+
 
             //--线性渐变 createLinearGradient-------------------------------------------
             var ctx12 = canvas12.getContext('2d');
-            var lingrad = ctx12.createLinearGradient(0, 0, 0, 150);
-            lingrad.addColorStop(0, '#00abeb');
-            lingrad.addColorStop(0.5, '#fff');
-            lingrad.addColorStop(0.5, '#26C000');
-            lingrad.addColorStop(1, '#fff');
-            var lingrad2 = ctx.createLinearGradient(0, 50, 0, 95);
-            lingrad2.addColorStop(0.5, '#000');
-            lingrad2.addColorStop(1, 'rgba(0,0,0,0)');
-            ctx12.fillStyle = lingrad;
-            ctx12.strokeStyle = lingrad2;
-            ctx12.fillRect(10, 10, 130, 130);
-            ctx12.strokeRect(50, 50, 50, 50);
-
 
 
             //--球性渐变 createRadialGradient-------------------------------------------
             var ctx13 = canvas13.getContext('2d');
-            // 创建渐变
-            var radgrad0 = ctx13.createRadialGradient(45, 45, 10, 52, 50, 30);
-            radgrad0.addColorStop(0, '#A7D30C');
-            radgrad0.addColorStop(0.9, '#019F62');
-            radgrad0.addColorStop(1, 'rgba(1,159,98,0)');
 
-            var radgrad02 = ctx13.createRadialGradient(105, 105, 20, 112, 120, 50);
-            radgrad02.addColorStop(0, '#FF5F98');
-            radgrad02.addColorStop(0.75, '#FF0188');
-            radgrad02.addColorStop(1, 'rgba(255,1,136,0)');
-
-            var radgrad03 = ctx13.createRadialGradient(95, 15, 15, 102, 20, 40);
-            radgrad03.addColorStop(0, '#00C9FF');
-            radgrad03.addColorStop(0.8, '#00B5E2');
-            radgrad03.addColorStop(1, 'rgba(0,201,255,0)');
-
-            var radgrad04 = ctx13.createRadialGradient(0, 150, 50, 0, 140, 90);
-            radgrad04.addColorStop(0, '#F4F201');
-            radgrad04.addColorStop(0.8, '#E4C700');
-            radgrad04.addColorStop(1, 'rgba(228,199,0,0)');
-
-            // 画图形
-            ctx13.fillStyle = radgrad04;
-            ctx13.fillRect(0, 0, 150, 150);
-            ctx13.fillStyle = radgrad03;
-            ctx13.fillRect(0, 0, 150, 150);
-            ctx13.fillStyle = radgrad02;
-            ctx13.fillRect(0, 0, 150, 150);
-            ctx13.fillStyle = radgrad0;
-            ctx13.fillRect(0, 0, 150, 150);
 
 
             //图案样式 Patterns-------------------------------------------
             var ctx14 = canvas14.getContext('2d');
-            var img = new Image();
-            img.src = '../src/img/hopebg.jpeg';
-            img.onload = function() {
-                var ptrn = ctx14.createPattern(img, 'repeat');
-                ctx14.fillStyle = ptrn;
-                ctx14.fillRect(0, 0, 150, 150);
-            }
+
 
             //文字阴影的例子-----------measureText--------------------------------
             var ctx15 = canvas15.getContext('2d');
-            ctx15.shadowOffestX = 2;
-            ctx15.shadowOffestY = 2;
-            ctx15.shadowBlur = 2;
-            ctx15.shadowColor = 'rgba(0,0,0,0.5)';
-            ctx15.font = '20px Times New Roman';
-            ctx15.fillStyle = 'black';
-            ctx15.fillText("Sample String", 5, 30);
-            ctx15.strokeText("Hello world", 10, 50);
-            var text = ctx15.measureText("Hello world"); // TextMetrics object
-            console.log(text.width); // 96.09375;
+
 
             //save 和 restore 的应用例子-------------------------------------------
             var ctx16 = canvas16.getContext('2d');
@@ -346,7 +307,7 @@
 
         }
     }
-    //init();
+    init();
 
     function drawStar(ctx, r) {
         ctx.save();
@@ -371,6 +332,107 @@
         earth.src = 'https://mdn.mozillademos.org/files/1429/Canvas_earth.png';
         window.requestAnimationFrame(draw);
     }
+
+
+    function clock() {
+        var now = new Date();
+        var ctx = document.getElementById('tutorial2').getContext('2d');
+        ctx.save();
+        ctx.clearRect(0, 0, 150, 150);
+        ctx.translate(75, 75);
+        ctx.scale(0.4, 0.4);
+        ctx.rotate(-Math.PI / 2);
+        ctx.strokeStyle = 'black';
+        ctx.fillStyle = 'white';
+        ctx.lineWidth = 8;
+        ctx.lineCap = 'round';
+
+        // Hour marks
+        ctx.save();
+        for (var i = 0; i < 12; i++) {
+            ctx.beginPath();
+            ctx.rotate(Math.PI / 6);
+            ctx.moveTo(100, 0);
+            ctx.lineTo(120, 0);
+            ctx.stroke();
+        }
+        ctx.restore();
+
+        // Minute marks
+        ctx.save();
+        ctx.lineWidth = 5;
+        for (i = 0; i < 60; i++) {
+            if (i % 5 != 0) {
+                ctx.beginPath();
+                ctx.moveTo(117, 0);
+                ctx.lineTo(120, 0);
+                ctx.stroke();
+            }
+            ctx.rotate(Math.PI / 30);
+        }
+        ctx.restore();
+
+        var sec = now.getSeconds();
+        var min = now.getMinutes();
+        var hr = now.getHours();
+        hr = hr >= 12 ? hr - 12 : hr;
+
+        ctx.fillStyle = "black";
+
+        // write Hours
+        ctx.save();
+        ctx.rotate(hr * (Math.PI / 6) + (Math.PI / 360) * min + (Math.PI / 21600) * sec)
+        ctx.lineWidth = 14;
+        ctx.beginPath();
+        ctx.moveTo(-20, 0);
+        ctx.lineTo(80, 0);
+        ctx.stroke();
+        ctx.restore();
+
+        // write Minutes
+        ctx.save();
+        ctx.rotate((Math.PI / 30) * min + (Math.PI / 1800) * sec)
+        ctx.lineWidth = 10;
+        ctx.beginPath();
+        ctx.moveTo(-28, 0);
+        ctx.lineTo(112, 0);
+        ctx.stroke();
+        ctx.restore();
+
+        // Write seconds
+        ctx.save();
+        ctx.rotate(sec * Math.PI / 30);
+        ctx.strokeStyle = "#D40000";
+        ctx.fillStyle = "#D40000";
+        ctx.lineWidth = 6;
+        ctx.beginPath();
+        ctx.moveTo(-30, 0);
+        ctx.lineTo(83, 0);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(0, 0, 10, 0, Math.PI * 2, true);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(95, 0, 10, 0, Math.PI * 2, true);
+        ctx.stroke();
+        ctx.fillStyle = "rgba(0,0,0,0)";
+        ctx.arc(0, 0, 3, 0, Math.PI * 2, true);
+        ctx.fill();
+        ctx.restore();
+
+        ctx.beginPath();
+        ctx.lineWidth = 14;
+        ctx.strokeStyle = '#325FA2';
+        ctx.arc(0, 0, 142, 0, Math.PI * 2, true);
+        ctx.stroke();
+
+        ctx.restore();
+
+        window.requestAnimationFrame(clock);
+
+
+    }
+    window.requestAnimationFrame(clock);
     </script>
 </body>
 

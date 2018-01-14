@@ -379,6 +379,43 @@
                 }
             }
 
+            //translate-在上一次的基础上偏移------------------------------------------
+            var ctx18 = canvas18.getContext('2d');
+            ctx18.fillRect(0, 0, 300, 300);
+            ctx18.save();
+            ctx18.fillStyle = '#9cff00';
+            ctx18.translate(30, 30);
+            ctx18.fillRect(0, 0, 20, 20);
+            ctx18.translate(30, 30);
+            ctx18.fillRect(0, 0, 20, 20);
+            ctx18.translate(30, 30);
+            ctx18.rotate(Math.PI * 2 / 12);
+            ctx18.fillRect(0, 0, 20, 20);
+            ctx18.restore();
+            ctx18.fillStyle = 'orange';
+            ctx18.rotate(Math.PI * 2 / 12);
+            ctx18.rotate(Math.PI * 2 / 24);
+            ctx18.fillRect(0, 0, 20, 20);
+
+            //rotate-在上一次的基础上偏移------------------------------------------
+            var ctx19 = canvas19.getContext('2d');
+            ctx19.translate(75, 75);
+
+            for (var i = 1; i < 6; i++) { // Loop through rings (from inside to out)
+                ctx19.save();
+                ctx19.fillStyle = 'rgb(' + (51 * i) + ',' + (255 - 51 * i) + ',255)';
+
+                for (var j = 0; j < i * 6; j++) { // draw individual dots
+                    ctx19.rotate(Math.PI * 2 / (i * 6));
+                    ctx19.beginPath();
+                    ctx19.arc(0, i * 12.5, 5, 0, Math.PI * 2, true);
+                    ctx19.fill();
+                }
+
+                ctx19.restore();
+            }
+
+
         }
     }
 
