@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>炫酷背景</title>
+	<style type="text/css">
+		body{
+			width: 100%;
+			height: 100%;
+			padding: 0;
+			margin:0;
+			/*position: fixed;*/
+			/*background: url('../src/img/tree.png') bottom center no-repeat;*/
+			background:linear-gradient(to bottom,#000000 0%,#5788fe 100%);
+		}
+		.img{
+			width: 100%;
+			height: 282px;
+			margin:300px 0 0;
+			padding: 0;
+		}
+		img{
+			width: 100%;height: auto;
+		}
+		.filter {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #fe5757;
+            animation: colorChange 30s ease-in-out infinite;
+            animation-fill-mode: both;
+            mix-blend-mode: overlay;
+        }
+
+        @keyframes colorChange {
+            0%, 100% {
+                opacity: 0;
+            }
+            50% {
+                opacity: .9;
+            }
+        }
+
+	</style>
+</head>
+<body>
+<div class="filter"></div>
+<div class="img"><img src="../src/img/tree.png"></div>
+
+
+</body>
+</html>
