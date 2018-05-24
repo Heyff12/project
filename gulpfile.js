@@ -52,7 +52,7 @@ var gulp = require('gulp'), //基础库
     rename = require('gulp-rename'), //重命名--本例未使用
     concat = require('gulp-concat'), //合并文件--本例未使用
     clean = require('gulp-clean'); //清空文件夹--同del，本例取消clean--本例未使用
-var now_project = 'qudao'; //settle(结算)es6(es6)test_require(测试requirejs合并js文件)taoyijie(网页)javascript(javascript权威指南)qudao(测试打包proxy)
+var now_project = 'wapmanage'; //settle(结算)wapmanage(手机端后台管理)es6(es6)test_require(测试requirejs合并js文件)taoyijie(网页)javascript(javascript权威指南)qudao(测试打包proxy)
 
 var file_road = {
     cssSrc: './' + now_project + '/src/less/**/*.less',

@@ -1,0 +1,210 @@
+@import "./common/common";
+.topInfo {
+  width: 100%;
+  height: 240px;
+  background: url("@{images}/bg.jpg") bottom left no-repeat;
+  background-size: cover;
+  color: white;
+  padding: 60px @padding 0;
+  box-sizing: border-box;
+  position: relative;
+  dl {
+    width: 100%;
+    padding-left: 155px;
+    height: 70px;
+    box-sizing: border-box;
+    position: relative;
+    font-weight: normal;
+    dt {
+      position: absolute;
+      width: 68px;
+      height: 68px;
+      left: 80px;
+      background: url("@{images}/welcome.png") top left no-repeat;
+      background-size: cover;
+      font-size: 20px;
+      line-height: 68px;
+      color: #0f4068;
+      text-align: center;
+    }
+    dd {
+      font-size: 18px;
+      &.name {
+        font-size: 28px;
+      }
+    }
+  }
+  ul {
+    width: 100%;
+    height: 28px;
+    margin-top: 43px;
+    li {
+      width: 48%;
+      float: left;
+      font-size: @font_size;
+      text-align: center;
+      &:nth-child(2) {
+        width: 4%;
+        position: relative;
+        &:before {
+          content: "";
+          width: 1px; /*no*/
+          height: 35px;
+          position: absolute;
+          background: white;
+          opacity: 0.6;
+          top: 16px;
+        }
+      }
+      span {
+        font-size: 28px;
+      }
+    }
+    .clearfix;
+  }
+}
+
+ul.menulist {
+  width: 100%;
+  line-height: 50px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  li {
+    width: 100%;
+    height: 48px;
+    line-height: 48px;
+    background: white;
+    margin: 8px 0;
+    border-top: 1px solid @border_color;
+    /*no*/
+    border-bottom: 1px solid @border_color;
+    /*no*/
+    dl {
+      width: 100%;
+      dt {
+        width: 40%;
+        float: left;
+        i.icon {
+          width: 24px;
+          height: 24px;
+          border-radius: 3px;
+          background: #3fc935;
+          display: inline-block;
+          position: relative;
+          top: 6px;
+          margin: 0 8px 0 15px;
+          &.blue {
+            background: #47a6f8;
+          }
+          &.purple {
+            background: #7a90ff;
+          }
+          img {
+            height: auto;
+            width: 17px;
+            top: 3px;
+            left: 3px;
+            position: absolute;
+          }
+        }
+      }
+      dd {
+        width: 60%;
+        float: left;
+        img {
+          height: 14px;
+          width: auto;
+          position: relative;
+          top: 17px;
+          padding: 0 15px 0 8px;
+        }
+        &.input{
+          width: 45%;
+          input{
+            border:none;
+            background: none;
+          }
+        }
+        &.btn{
+          width: 15%;
+          &.hide{
+            display: none;
+          }
+        }
+      }
+      .clearfix;
+    }
+  }
+}
+
+.tablelist {
+  width: 100%;
+  box-sizing: border-box;
+  background: white;
+  margin: 0 auto;
+  .tableTitle {
+    height: 48px;
+    line-height: 48px;
+    i.icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 3px;
+      background: #ff845b;
+      display: inline-block;
+      position: relative;
+      top: 6px;
+      margin: 0 8px 0 15px;
+      img {
+        height: auto;
+        width: 17px;
+        top: 3px;
+        left: 3px;
+        position: absolute;
+      }
+    }
+  }
+  .tableThead {
+    width: 100%;
+    height: 48px;
+    line-height: 48px;
+    background: white;
+    margin: 0;
+    border-top: 1px solid @border_color;
+    /*no*/
+    border-bottom: 1px solid @border_color;
+    /*no*/
+    li {
+      float: left;
+      width: 25%;
+      text-align: center;
+      position: relative;
+      &.borderR {
+        &:after {
+          content: "";
+          width: 1px; /*no*/
+          height: 14px;
+          right:0;
+          position: absolute;
+          background: @border_color;
+          top: 17px;
+        }
+      }
+    }
+    .clearfix;
+  }
+  .tableTr {
+    width: 100%;
+    height: 48px;
+    line-height: 48px;
+    background: white;
+    margin: 0;
+    border-bottom: 1px solid @border_color;
+    /*no*/
+    li {
+      float: left;
+      width: 25%;
+      text-align: center;
+    }
+    .clearfix;
+  }
+}

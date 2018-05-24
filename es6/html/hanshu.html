@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>构造函数</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+</head>
+
+<body>
+    <div id="wap">
+        <header>
+            <h2>构造函数</h2>
+        </header>
+        <section>
+
+        </section>
+    </div>
+    <script>
+        // function Person(name, gender, hobby) {
+        //     this.name = name;
+        //     this.gender = gender;
+        //     this.hobby = hobby;
+        //     this.age = 6;
+        // }
+        // var p1 = new Person('zs', '男', 'basketball');
+        // var p2 = new Person('ls', '女', 'dancing');
+        // var p3 = new Person('ww', '女', 'singing');
+        // var p4 = new Person('zl', '男', 'football');
+
+        // console.log(p1);
+        // console.log(p2);
+        // console.log(p3);
+        // console.log(p4);
+
+        // p1.name = 'new p1';
+        // console.log(p1);
+        // console.log(p2);
+
+
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        Person.prototype.say = function () {
+            console.log('Hello');
+        };
+
+        var p1 = new Person('Tom', 18);
+        var p2 = new Person('Jack', 34);
+
+        console.log(p1.say === p2.say); // true
+        // console.log(Person)
+        // console.log(p1)
+        console.log(Person.prototype.constructor === Person)
+        console.log(p1.__proto__ === Person.prototype);
+        console.log(Person.prototype)
+        console.log(p1.__proto__)
+        console.log(p2.__proto__)
+        console.log(Person.prototype === p1.__proto__)   // true
+        console.log(Person.prototype === p2.__proto__)   // true
+        console.log(p1.__proto__ === p2.__proto___)     // false
+
+
+
+        function Fruit() {
+            this.name = 'hahah'
+        }
+
+        var apple = new Fruit();
+
+        apple.__proto__ === Fruit.prototype;
+        console.log(Fruit.prototype)
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>在线转账</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <script type="text/javascript" src="../static/js/plug/flexible.debug.js"></script>
+    <link rel="stylesheet" href="../static/css/home.css">
+</head>
+
+<body class="bg_body">
+    <div id="wap">
+        <header>
+            <h2>在线转账</h2>
+            <a class="title_a a_left back"></a>
+        </header>
+        <section class="crash">
+            <p class="money_left">
+                <span>5896.22</span>
+                <br/>可转账金额(元)
+            </p>
+            <div class="form_line bottom_10">
+                <dl class="dt_long">
+                    <dt>接收人手机号</dt>
+                    <dd>
+                        <input class="js_tel" type="text" name="" placeholder="请输入接收人手机号">
+                    </dd>
+                </dl>
+                <dl class="dt_long">
+                    <dt>转账金额</dt>
+                    <dd>
+                        <input class="js_money" type="text" name="" placeholder="请输入要转账的金额">
+                    </dd>
+                </dl>
+            </div>
+            <div class="form_line bottom_10">
+                <dl class="nodt_right">
+                    <dd>
+                        <span class="kong js_yanzhengmsg">账户校验信息</span>
+                        <p class="getcode" id="get_identyCode" data-click='true'>
+                            <span class="get_entycode js_get_entycode">点击账户校验</span>
+                            <span class="show_entycode js_show_entycode"><i class="i_normal">61</i>秒后重发</span>
+                        </p>
+                    </dd>
+                </dl>
+            </div>
+            <div class="fixed_button normal js_submit"><span class="button orange_bg">确认转账</span></div>
+        </section>
+    </div>
+    <!-- </*弹框--确认框*/>  -->
+    <div class="alert_con" id="alert_alert">
+        <div class="alert_con_b">
+            <div class="alert_con_br"></div>
+            <div class="clearfix"></div>
+        </div>
+        <ul class="both_button_fen">
+            <li><span class="cancle js_alert_con_close">取消</span></li>
+            <li><span class="sure js_alert_con_close js_transfer">确认</span></li>
+        </ul>   
+    </div>
+    <!-- </*弹框--提示框*/>  -->
+    <div class="alert_con" id="alert_tip">
+        <div class="alert_con_t orange">提示<span class="pass_close js_alert_con_close">×</span></div>
+        <div class="alert_con_b">
+            <div class="alert_con_br"></div>
+            <div class="clearfix"></div>
+            <span class="alert_con_close js_alert_con_close">关闭</span>
+        </div>
+    </div>
+    <div class="zheceng"></div>
+    <script src="../static/js/require.2.1.11.min.js " type="text/javascript " data-main="../static/js/home/transfer.js" defer async="true "></script>
+</body>
+
+</html>

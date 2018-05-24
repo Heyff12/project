@@ -1,0 +1,350 @@
+@import "./common";
+/* ==================通用============================================================ */
+
+body {
+    &.bg_body {
+        background: @bg_grey;
+    }
+    &.bg_body_red {
+        background: @new_head_red;
+    }
+    &.no_padding {
+        padding: 0;
+    }
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: @word_black;
+}
+
+input:-moz-placeholder,
+input:-ms-input-placeholder {
+    color: @word_black;
+}
+
+//标题
+p.title_band {
+    width: 80%;
+    text-align: center;
+    font-size: 16px;
+    position: relative;
+    height: 24px;
+    line-height: 24px;
+    margin: 10px auto 16px;
+    background: none;
+    span {
+        display: inline-block;
+        &.line {
+            width: 60%;
+            height: 1px;
+            background: @grey;
+            left: 20%;
+            top: 12px;
+            position: absolute;
+            z-index: 1;
+        }
+        &.word {
+            background: white;
+            height: 24px;
+            padding: 0 8px;
+            position: relative;
+            z-index: 2;
+            &.bg_grey {
+                background: @bg_color;
+            }
+            img {
+                display: inline-block;
+                width: 22px;
+                height: auto;
+                padding: 0 5px;
+                position: relative;
+                &.pro {
+                    top: 1px;
+                }
+                &.detail {
+                    top: 3px;
+                }
+            }
+        }
+    }
+}
+
+//按钮
+span.button {
+    width: 100%;
+    padding: 0 10px;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: white;
+    background: @red;
+    border-radius: 3px;
+    display: inline-block;
+    box-sizing: border-box;
+    font-size: 16px;
+    letter-spacing: 3px;
+    &.small {
+        height: 40px;
+        line-height: 40px;
+    }
+    &.blue_bg {
+        background: @blue;
+    }
+    &.red_bg {
+        background: @red;
+    }
+    &.orange_bg {
+        background: @orange_bg;
+        background: linear-gradient(#f69c1b,#f9bf57);
+    }
+    &.blue_bg {
+        background: linear-gradient(#0273af,#03bbe7);
+    }
+}
+.fixed_button{
+    width: 100%;
+    padding: 0 15px;
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 15px;
+    &.normal{
+        position: static;
+    }
+}
+//加减数量
+span.count {
+    width: 100px;
+    display: inline-block;
+    padding: 0 3px 0 5px;
+    position: relative;
+    top: 4px;
+    i {
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        box-sizing: border-box;
+        line-height: 32px;
+        text-align: center;
+        font-style: normal;
+        font-size: 20px;
+        border: 1px solid @border_color;
+        /*no*/
+        &:nth-child(2) {
+            border-left: 0;
+            border-right: 0;
+        }
+    }
+    &.small {
+        width: 80px;
+        i {
+            height: 26px;
+            width: 26px;
+            line-height: 26px;
+        }
+    }
+}
+
+//点击查看多
+p.add_more{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    background: white;
+    &.bg_grey{
+        background: @bg_grey;
+        position: static;
+    }
+}
+//点击是否选中样式
+span.radio_css{  
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    overflow: hidden;
+    img{
+        width: 100%;
+        height: auto;
+        display: block;
+        &.hide{
+            display: none;
+        }
+    }
+}
+//form通用样式
+.form_line{
+    width: 100%;
+    background: white;
+    &.bottom_10{
+        margin-bottom: 10px;
+    }
+    dl{
+        height: 50px;
+        width: 100%;
+        padding: 0 15px;
+        box-sizing: border-box;
+        line-height: 50px;
+        border-bottom: 1px solid @border_color;/*no*/
+        dt{
+            width: 20%;
+            float: left;
+        }
+        dd{
+            width: 78%;
+            float: right;
+            input {
+                width: 100%;
+                height: 50px;
+                line-height: 50px;
+                border: none;
+                box-sizing: border-box;
+                background: none;
+                padding: 0 5px;
+                font-size: 15px;
+            }
+            textarea{
+                width: 100%;
+                height: 50px;
+                line-height: 25px;
+                border: none;
+                box-sizing: border-box;
+                background: none;
+                padding: 0 5px;
+                font-size: 14px;
+            }
+        }
+        &.nodt_right{
+            dd{
+                width: 100%;
+                position: relative;
+                span.kong{
+                    width: 60%;
+                    float: right;
+                    height: 36px;
+                    text-align: center;
+                    border-radius: 5px;
+                    background: @bg_grey;
+                    line-height: 36px;
+                    display: inline-block;
+                    position: relative;
+                    top:7px;
+                }
+                p.getcode{
+                    width: 30%;
+                    position: absolute;
+                    left: 0;
+                    top:7px;
+                }
+            }
+        }
+        &.nodt{
+            dd{
+                width: 100%;
+                position: relative;
+                input{
+                    width: 60%;
+                    float: left;
+                    &.inputAll{
+                        width: 100%;
+                    }
+                }
+                p.getcode{
+                    width: 30%;
+                    position: absolute;
+                    right: 0;
+                    top:7px;
+                }
+            }
+        }
+        &.red_border{
+            border-bottom: 1px solid @red;/*no*/
+        }
+        &.dt_long{
+            dt{
+                width: 30%;
+            }
+            dd{
+                width: 68%;
+                input{
+                    text-align: right;
+                }
+            }
+        }
+        &.select{
+            dd{
+                input{
+                    background: url('@{images}/icon_right.png') right center no-repeat;
+                    background-size: 10px auto;
+                    padding-right: 15px;
+                }
+            }
+        }
+        &.dt_alone{
+            padding: 10px 15px;
+            height: 80px;
+            line-height: 30px;
+            dt{
+                clear: both;
+                width: 100%;
+                height: 30px;
+                line-height: 30px;
+            }
+            dd{
+                clear: both;
+                width: 100%;
+                height: 30px;
+                input {
+                    width: 100%;
+                    height: 30px;
+                    line-height: 30px;
+                    border: none;
+                    box-sizing: border-box;
+                    background: none;
+                    padding: 0 5px;
+                    font-size: 14px;
+                }
+            }
+        }
+        &:after {
+            content: '';
+            clear: both;
+            height: 0;
+            position: relative;
+            line-height: 0;
+            display: block;
+            font-size: 0;
+        }
+    }
+}
+p.form_note{
+    width: 100%;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    background: @bg_grey;
+    line-height: 20px;
+    font-size: 13px;
+    color: @grey;
+}
+//获取验证码
+p.getcode {
+    width: 100%;
+    display: inline-block;
+    border-radius: 5px;
+    background: @orange_bg;
+    color: white;
+    text-align: center;
+    height: 36px;
+    line-height: 36px;
+    float: right;
+    span.get_entycode {
+        width: 100%;
+    }
+    span.show_entycode {
+        display: none;
+        width: 100%;
+    }
+}
