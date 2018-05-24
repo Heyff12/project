@@ -21,6 +21,11 @@ require(["../require-config"], function() {
       $(".js_goList").on("click", function() {
         window.location.href='http://www.yaya12.com'
       });
+      //点击修改密码
+      $(".js_verify").on("click", function() {
+        var name = $(".js_name").html();
+        window.location.href = "/wapmanage/html/mendpass.html?name="+name;
+      });
       function getTable(){
           //发送加载请求——
           //请求成功后执行

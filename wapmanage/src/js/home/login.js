@@ -19,12 +19,16 @@ require(["../require-config"], function() {
         window.location.href = "/wapmanage/html/center.html";
       });
       //修改密码页面初次请求
-      $(".js_mendPass").get(0) && ~function() {
+      $(".js_mendPass").get(0) && (function() {
         var ifLogin = getParams('name');
+        console.log(ifLogin);
         if (ifLogin){
-          $(".js_name").val(ifLogin).attr('readonly','readonly');
+          let name = decodeURI(ifLogin);
+          $(".js_name")
+            .val(name)
+            .attr("readonly", "readonly");
         }
-      };
+      })();
 
       //修改密码提交
       $(".js_mend").on("click", function() {

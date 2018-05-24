@@ -16,12 +16,14 @@ require(["../require-config"], function () {
         window.location.href = "/wapmanage/html/center.html";
       });
 
-      $(".js_mendPass").get(0) && ~function () {
+      $(".js_mendPass").get(0) && function () {
         var ifLogin = getParams('name');
+        console.log(ifLogin);
         if (ifLogin) {
-          $(".js_name").val(ifLogin).attr('readonly', 'readonly');
+          var name = decodeURI(ifLogin);
+          $(".js_name").val(name).attr("readonly", "readonly");
         }
-      };
+      }();
 
       $(".js_mend").on("click", function () {
         var Newpassword = $(".js_NewPass").val();

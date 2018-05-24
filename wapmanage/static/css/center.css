@@ -930,6 +930,18 @@ div.toast_data_short {
   overflow: hidden;
 }
 
+.topInfo .verify {
+  position: absolute;
+  width: 1.866667rem;
+  height: 0.8rem;
+  background: #05aff3;
+  border-radius: 0.32rem 0 0 0.32rem;
+  top: 3.333333rem;
+  right: 0;
+  line-height: 0.8rem;
+  text-align: center;
+}
+
 ul.menulist {
   width: 100%;
   line-height: 1.333333rem;
