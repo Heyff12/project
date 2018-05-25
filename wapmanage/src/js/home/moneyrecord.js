@@ -15,15 +15,20 @@ require(["../require-config"], function() {
 
       //提交
       $(".js_sure").on("click", function() {
-          var crash = $(".js_crash").val();
-          var id = $(".js_id").val();
-          console.log(id);
-          //提交请求
-          //关闭弹框
+          testNum(".js_crash");
+          var error_len = $(".red_border").length;
+          if (error_len > 0) {
+              return false;
+          }
+        var crash = $(".js_crash").val();
+        var id = $(".js_id").val();
+        console.log(id);
+        //提交请求
+        //关闭弹框
         $(".alert_con").hide();
         $(".zheceng").hide();
         //清空id
-          $(".js_id").val('');
+        $(".js_id").val("");
       });
       //关闭弹框
       $(".js_alert_con_close").on("click", function() {
@@ -35,7 +40,24 @@ require(["../require-config"], function() {
   });
 });
 function goCrash(obj) {
-  $(".js_id")=obj.parents('ul').attr('data-id');
+  let id = $(obj)
+    .parents("ul")
+    .attr("data-id");
+  $(".js_id").val(id);
   $("#alert_alert").show();
   $(".zheceng").show();
+}
+//验证数字
+function testNum(id) {
+    var val = $(id).val();
+    var val_exp = /^[\d]{1,8}$/;
+    if (!val_exp.test(val)) {
+        $(id)
+            .parents("dl")
+            .addClass("red_border");
+    } else {
+        $(id)
+            .parents("dl")
+            .removeClass("red_border");
+    }
 }
