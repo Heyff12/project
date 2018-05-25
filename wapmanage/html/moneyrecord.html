@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>余额明细</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <script type="text/javascript" src="../static/js/plug/flexible.debug.js"></script>
+    <link rel="stylesheet" href="../static/css/moneyrecord.css">
+</head>
+
+<body class="bg_body">
+    <div id="wap">
+        <section class="entryrecord js_entryrecord">
+            <section class="tablelist">
+                <ul class="tableThead">
+                    <li class="borderR">用户</li>
+                    <li class="borderR">累计收益</li>
+                    <li class="borderR">当前余额</li>
+                    <li>提现</li>
+                </ul>
+                <div class="js_tablelist">
+                </div>
+            </section>
+        </section>
+    </div>
+    <!-- </*弹框--提现*/>  -->
+    <div class="alert_con" id="alert_alert">
+        <div class="alert_con_t orange">提现
+            <span class="pass_close js_alert_con_close">×</span>
+        </div>
+        <div class="alert_con_b">
+            <div class="alert_con_br">
+                <input class="js_id" type="hidden" name="" placeholder="当前用户">
+                <div class="form_line">
+                    <dl class="nodt">
+                        <dt></dt>
+                        <dd>
+                            <input class="inputAll js_crash" type="text" name="" placeholder="请输入提现金额">
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <ul class="both_button_fen">
+            <li>
+                <span class="cancle js_alert_con_close">取消</span>
+            </li>
+            <li>
+                <span class="sure js_sure">确认</span>
+            </li>
+        </ul>
+    </div>
+    <!-- </*弹框--提示框*/>  -->
+    <div class="alert_con" id="alert_tip">
+        <div class="alert_con_t orange">提示
+            <span class="pass_close js_alert_con_close">×</span>
+        </div>
+        <div class="alert_con_b">
+            <div class="alert_con_br"></div>
+            <div class="clearfix"></div>
+            <span class="alert_con_close js_alert_con_close">关闭</span>
+        </div>
+    </div>
+    <div class="zheceng"></div>
+    <script src="../static/js/require.2.1.11.min.js " type="text/javascript " data-main="../static/js/home/moneyrecord.js" defer></script>
+</body>
+
+</html>

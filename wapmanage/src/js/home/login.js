@@ -18,7 +18,7 @@ require(["../require-config"], function() {
         //跳转页面
         window.location.href = "/wapmanage/html/center.html";
       });
-      //修改密码页面初次请求
+      //修改密码页面初次判断是否有name参数
       $(".js_mendPass").get(0) && (function() {
         var ifLogin = getParams('name');
         console.log(ifLogin);

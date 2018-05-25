@@ -1,0 +1,121 @@
+@import "./common/common";
+@import "./common/iosSelect";
+
+
+.tablelist {
+  width: 100%;
+  box-sizing: border-box;
+  background: white;
+  margin: 0 auto 0;
+  .tableTitle {
+    height: 48px;
+    line-height: 48px;
+    i.icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 3px;
+      background: #ff845b;
+      display: inline-block;
+      position: relative;
+      top: 6px;
+      margin: 0 8px 0 15px;
+      img {
+        height: auto;
+        width: 17px;
+        top: 3px;
+        left: 3px;
+        position: absolute;
+      }
+    }
+  }
+  .tableThead {
+    width: 100%;
+    height: 48px;
+    line-height: 48px;
+    background: white;
+    margin: 0;
+    border-top: 1px solid @border_color;
+    /*no*/
+    border-bottom: 1px solid @border_color;
+    /*no*/
+    li {
+      float: left;
+      width: 25%;
+      text-align: center;
+      position: relative;
+      &.borderR {
+        &:after {
+          content: "";
+          width: 1px; /*no*/
+          height: 14px;
+          right:0;
+          position: absolute;
+          background: @border_color;
+          top: 17px;
+        }
+      }
+    }
+    .clearfix;
+  }
+  .tableTr {
+    width: 100%;
+    height: 48px;
+    line-height: 48px;
+    background: white;
+    margin: 0;
+    border-bottom: 1px solid @border_color;
+    /*no*/
+    li {
+      float: left;
+      width: 25%;
+      text-align: center;
+    }
+    .clearfix;
+  }
+}
+
+section.search{
+    width:100%;
+    height: 65px;
+    padding:13px 0 13px 20px;
+    box-sizing: border-box;
+    // position: fixed;
+    // background: #f2f2f2;
+    // z-index: 10;
+    // top:0;
+    ul{
+        width: 100%;
+        height: 39px;
+        line-height: 39px;
+        li{
+            width: 35%;
+            float: left;
+            text-align: center;
+            &:nth-child(2){
+                width: 10%;
+            }
+            &.searchi{
+                width: 20%;
+                height: 39px;
+                background: url("@{images}/search.png") center center no-repeat;
+                background-size: 20px auto;
+            }
+            input{
+                background: white;
+                border:1px solid @border_color;/*no*/
+                border-radius: 3px;
+                text-align: center;
+                height: 37px;
+                line-height: 33px;
+                width: 100%;
+            }
+        }
+        .clearfix;
+    }
+}
+
+p.add_more{
+  height: 30px;
+  line-height: 30px;
+  margin:10px 0;
+}
