@@ -1621,8 +1621,8 @@ section.login {
 }
 
 section.login .fixed_button {
-  padding: 0;
-  margin-top: 1.066667rem;
+  padding-top: 1.6rem;
+  background: white;
 }
 
 section.login p.otherA {
@@ -1645,6 +1645,7 @@ section.login p.logo {
   bottom: 1.066667rem;
   left: 50%;
   margin-left: -0.666667rem;
+  z-index: -2;
 }
 
 .greybg {
