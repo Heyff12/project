@@ -19,6 +19,24 @@ require(["../require-config"], function() {
                 { 'id': '10015', 'value': '广发银行' },
                 { 'id': '10016', 'value': '北京银行' }
             ];
+            // var bank_ajax = [
+            //     { 'value': '工商银行' },
+            //     { 'value': '农业银行' },
+            //     { 'value': '建设银行' },
+            //     { 'value': '中国银行' },
+            //     { 'value': '交通银行' },
+            //     { 'value': '浦发银行' },
+            //     { 'value': '上海银行' },
+            //     { 'value': '汇丰银行' },
+            //     { 'value': '光大银行' },
+            //     { 'value': '招商银行' },
+            //     { 'value': '中信银行' },
+            //     { 'value': '民生银行' },
+            //     { 'value': '平安银行' },
+            //     { 'value': '华夏银行' },
+            //     { 'value': '广发银行' },
+            //     { 'value': '北京银行' }
+            // ];
             //点击银行
             $('.js_bank').on('click', function() {
                 var showDom = document.querySelector('.js_bank');
