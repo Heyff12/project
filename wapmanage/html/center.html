@@ -11,6 +11,9 @@
     <meta content="email=no" name="format-detection">
     <script type="text/javascript" src="../static/js/plug/flexible.debug.js"></script>
     <link rel="stylesheet" href="../static/css/center.css">
+    <script>
+        window.PointerEvent = void 0
+    </script>
 </head>
 
 <body class="bg_body">
@@ -51,35 +54,47 @@
                                 <img src="../static/img/icon2.png">
                             </i>
                             银行卡号</dt>
-                        <dd class="input">
-                            <input class="js_bank" type="text" value="15874588965444444" readonly="readonly">
+                        <dd class="input word">
+                            <span class="js_bankval">中国银行</span><br/><span class="js_cardval">15874588965444444</span>
                         </dd>
-                        <dd class="btn grey t_c js_mend">修改</dd>
-                        <dd class="btn grey t_c js_sure hide">
-                            确定</dd>
+                        <dd class="btn grey t_c js_mendbank">修改</dd>
                     </dl>
                 </li>
                 <li>
                     <dl>
                         <a href="/wapmanage/html/payment.html" class="dla">
-                        <dt>
-                            <i class="icon purple">
+                            <dt>
+                            <i class="icon yellow">
                                 <img src="../static/img/icon3.png">
                             </i>
                             收支明细</dt>
-                        <dd class="grey t_r">查看更多
-                            <img src="../static/img/arrow.png">
-                        </dd>
+                            <dd class="grey t_r">查看更多
+                                <img src="../static/img/arrow.png">
+                            </dd>
+                        </a>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <a href="/wapmanage/html/teamwork.html" class="dla">
+                            <dt>
+                            <i class="icon purple">
+                                <img src="../static/img/team.png">
+                            </i>
+                            我的团队</dt>
+                            <dd class="grey t_r">查看更多
+                                <img src="../static/img/arrow.png">
+                            </dd>
                         </a>
                     </dl>
                 </li>
             </ul>
             <section class="tablelist">
                 <div class="tableTitle">
-                    <i class="icon purple">
+                    <i class="icon">
                         <img src="../static/img/icon4.png">
-                    </i>
-                    我的报单记录</div>
+                    </i> 我的报单记录
+                </div>
                 <ul class="tableThead">
                     <li class="borderR">时间</li>
                     <li class="borderR">推荐人</li>
@@ -109,6 +124,67 @@
             </section>
         </section>
     </div>
+    <!-- </*弹框--提现*/>  -->
+    <div class="alert_con" id="alert_alert">
+        <div class="alert_con_t orange">提现
+            <span class="pass_close js_alert_con_close">×</span>
+        </div>
+        <div class="alert_con_b">
+            <div class="alert_con_br">
+                <input class="js_id" type="hidden" name="" placeholder="当前用户">
+                <div class="form_line">
+                    <dl class="dt_long">
+                        <dt>银行</dt>
+                        <dd>
+                            <input class="inputAll js_bank" readonly type="text" name="" placeholder="请输入银行">
+                        </dd>
+                    </dl>
+                    <dl class="dt_long">
+                        <dt>银行卡号</dt>
+                        <dd>
+                            <input class="inputAll js_card" type="text" name="" placeholder="请输入银行卡号">
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <ul class="both_button_fen">
+            <li>
+                <span class="cancle js_alert_con_close">取消</span>
+            </li>
+            <li>
+                <span class="sure js_sure">确认</span>
+            </li>
+        </ul>
+    </div>
+    <!-- </*弹框--提示框*/>  -->
+    <div class="alert_con" id="alert_tip">
+        <div class="alert_con_t orange">提示
+            <span class="pass_close js_alert_con_close">×</span>
+        </div>
+        <div class="alert_con_b">
+            <div class="alert_con_br"></div>
+            <div class="clearfix"></div>
+            <span class="alert_con_close js_alert_con_close">关闭</span>
+        </div>
+    </div>
+    <div class="zheceng"></div>
+    <!-- <li>
+        <dl>
+            <dt>
+                <i class="icon blue">
+                    <img src="../static/img/icon2.png">
+                </i>
+                银行卡号</dt>
+            <dd class="input">
+                <input class="js_bank" type="text" value="15874588965444444" readonly="readonly">
+            </dd>
+            <dd class="btn grey t_c js_mend">修改</dd>
+            <dd class="btn grey t_c js_sure hide">
+                确定</dd>
+        </dl>
+    </li> -->
     <script src="../static/js/require.2.1.11.min.js " type="text/javascript " data-main="../static/js/home/center.js" defer></script>
 </body>
 

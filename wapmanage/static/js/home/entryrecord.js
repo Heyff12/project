@@ -5,29 +5,39 @@ require(["../require-config"], function () {
         $(function () {
             alert_word.toast_data_short("body", "");
 
-            getPayment();
+            getTableMore();
 
-            $(".js_more_payment").on("click", function () {
-                var new_list = '<ul class="tableTr"><li>2018-05-12</li><li class="red">+886</li><li>招商奖</li><li>张三丰</li></ul><ul class="tableTr"><li>2018-05-12</li><li class="green">-1200</li><li>提现</li><li>——</li></ul><ul class="tableTr"><li>2018-05-12</li><li class="red">+886</li><li>招商奖</li><li>张三丰</li></ul><ul class="tableTr"><li>2018-05-12</li><li class="green">-1200</li><li>提现</li><li>——</li></ul><ul class="tableTr"><li>2018-05-12</li><li class="red">+886</li><li>招商奖</li><li>张三丰</li></ul><ul class="tableTr"><li>2018-05-12</li><li class="green">-1200</li><li>提现</li><li>——</li></ul>';
-                $(".js_tablelist").append(new_list);
-            });
-
-            function getPayment() {
-                var new_list = '<ul class="tableTr"><li>2018-05-12</li><li class="red">+886</li><li>招商奖</li><li>方文山</li></ul><ul class="tableTr"><li>2018-05-12</li><li class="green">-1200</li><li>提现</li><li>——</li></ul><ul class="tableTr"><li>2018-05-12</li><li class="red">+886</li><li>招商奖</li><li>方文山</li></ul><ul class="tableTr"><li>2018-05-12</li><li class="green">-1200</li><li>提现</li><li>——</li></ul><ul class="tableTr"><li>2018-05-12</li><li class="red">+886</li><li>招商奖</li><li>方文山</li></ul><ul class="tableTr"><li>2018-05-12</li><li class="green">-1200</li><li>提现</li><li>——</li></ul>';
+            function getTableMore() {
+                var new_list = '<ul class="tableTr five"><li>2018-05-12</li><li>胡红杰</li><li>张三</li><li>张三丰</li><li>￥2000</li></ul><ul class="tableTr five"><li>2018-05-12</li><li>唐晓霞</li><li>张三</li><li>邓三超</li><li>￥2000</li></ul>';
                 $(".js_tablelist").append(new_list);
             }
 
             $(".js_search").on("click", function () {
+                var stimeS = $(".js_startime").val();
+                var etimeS = $(".js_endtime").val();
+                var name = $('.js_name').val();
+
+                if (!name && !stimeS && !etimeS) {
+                    alert_word.alert_word_show_short("请输入搜索条件");
+                    return false;
+                }
+
                 var stime = $("#startime").val();
                 var etime = $("#endtime").val();
-                console.log(stime);
-                console.log(etime);
-                if (!stime || !etime) {
+                var sHas = stime && !etime;
+                var eHas = etime && !stime;
+                if (!name) {
+                    if (!stime || !etime) {
+                        alert_word.alert_word_show_short("请选择开始时间和结束时间");
+                        return false;
+                    }
+                } else if (sHas || eHas) {
                     alert_word.alert_word_show_short("请选择开始时间和结束时间");
                     return false;
                 }
                 var stimeD = new Date(stime.replace(/-/g, "/"));
                 var etimeD = new Date(etime.replace(/-/g, "/"));
+
                 if (stimeD - etimeD > 0) {
                     alert_word.alert_word_show_short("开始时间不能大于结束时间");
                     return false;

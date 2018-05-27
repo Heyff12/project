@@ -1,4 +1,6 @@
 @import "./common/common";
+@import "./common/bank";
+@import "./common/iosSelect";
 .topInfo {
   width: 100%;
   height: 240px;
@@ -120,6 +122,9 @@ ul.menulist {
           &.orange {
             background: #ff845b;
           }
+          &.yellow {
+            background: #ffc107;
+          }
           img {
             height: auto;
             width: 17px;
@@ -150,6 +155,10 @@ ul.menulist {
           input{
             border:none;
             background: none;
+          }
+          &.word{
+            padding-top:5px;
+            line-height: 20px;
           }
         }
         &.btn{
@@ -222,6 +231,19 @@ ul.menulist {
         }
       }
     }
+    &.five{
+      li{
+        width:20%;
+      }
+    }
+    &.three{
+      li{
+        width:30%;
+        &:nth-child(2){
+          width:40%;
+        }
+      }
+    }
     .clearfix;
   }
   .tableTr {
@@ -236,6 +258,19 @@ ul.menulist {
       float: left;
       width: 25%;
       text-align: center;
+    }
+    &.five{
+      li{
+        width:20%;
+      }
+    }
+    &.three{
+      li{
+        width:30%;
+        &:nth-child(2){
+          width:40%;
+        }
+      }
     }
     .clearfix;
   }

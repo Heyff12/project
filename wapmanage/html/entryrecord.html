@@ -11,14 +11,36 @@
     <meta content="email=no" name="format-detection">
     <script type="text/javascript" src="../static/js/plug/flexible.debug.js"></script>
     <link rel="stylesheet" href="../static/css/center.css">
+    <script>
+        window.PointerEvent = void 0
+    </script>
 </head>
 
 <body class="bg_body">
     <div id="wap">
         <section class="entryrecord js_entryrecord">
+            <section class="search">
+                <dl>
+                    <dt></dt>
+                    <dd>
+                        <input class="inputAll js_name" maxlength="30" type="text" name="" placeholder="请输入报单人名字">
+                    </dd>
+                </dl>
+                <ul>
+                    <li>
+                        <input class="js_startime" type="text" value="" placeholder="开始时间" readonly="readonly" data-year="" data-month="" data-day="" />
+                    </li>
+                    <li class="grey">—</li>
+                    <li>
+                        <input class="js_endtime" type="text" value="" placeholder="结束时间" readonly="readonly" data-year="" data-month="" data-day="" />
+                    </li>
+                    <li class="searchi js_search"></li>
+                </ul>
+            </section>
             <section class="tablelist">
-                <ul class="tableThead">
+                <ul class="tableThead five">
                     <li class="borderR">时间</li>
+                    <li class="borderR">报单人</li>
                     <li class="borderR">推荐人</li>
                     <li class="borderR">服务人</li>
                     <li>报单金额</li>
@@ -46,7 +68,9 @@
             </section>
         </section>
     </div>
-    <script src="../static/js/require.2.1.11.min.js " type="text/javascript " data-main="../static/js/home/center.js" defer></script>
+    <input type="hidden" name="start_time" id="startime" value="" />
+    <input type="hidden" name="end_time" id="endtime" value="" />
+    <script src="../static/js/require.2.1.11.min.js " type="text/javascript " data-main="../static/js/home/entryrecord.js" defer></script>
 </body>
 
 </html>

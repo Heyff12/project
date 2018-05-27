@@ -11,25 +11,22 @@
     <meta content="email=no" name="format-detection">
     <script type="text/javascript" src="../static/js/plug/flexible.debug.js"></script>
     <link rel="stylesheet" href="../static/css/login.css">
+    <script>
+        window.PointerEvent = void 0
+    </script>
 </head>
 
 <body class="white">
     <div id="wap">
         <section class="entry">
-            <div class="form_line bottom_10">
+            <div class="form_line">
                 <dl class="dt_long">
                     <dt>报单等级</dt>
                     <dd class="radio">
                         <input type="radio" name="grade" value="10">10万高级
                     </dd>
                     <dd class="radio">
-                        <input type="radio" name="grade" value="5" checked>5万普通                      
-                    </dd>
-                </dl>
-                <dl class="dt_long">
-                    <dt>报单人名字</dt>
-                    <dd>
-                        <input class="inputAll js_name" type="text" name="" placeholder="请输入报单人名字">
+                        <input type="radio" name="grade" value="5" checked>5万普通
                     </dd>
                 </dl>
                 <dl class="dt_long">
@@ -39,27 +36,47 @@
                     </dd>
                 </dl>
                 <dl class="dt_long">
+                    <dt>校验报单人信息</dt>
+                    <dd>
+                        <p class="getcode" id="get_identyCode" data-click='true'>
+                            <span class="get_entycode js_get_entycode">点击校验</span>
+                            <span class="show_entycode js_show_entycode"><i class="i_normal">61</i>秒后再次校验</span>
+                        </p>
+                    </dd>
+                </dl>
+            </div>
+            <div class="greybg"></div>
+            <div class="form_line bottom_10">
+                <dl class="dt_long">
+                    <dt>报单人名字</dt>
+                    <dd>
+                        <input class="inputAll js_nextinput js_name" readonly="readonly" type="text" name="" placeholder="请输入报单人名字">
+                    </dd>
+                </dl>
+                <dl class="dt_long">
                     <dt>报单推荐人手机</dt>
                     <dd>
-                        <input class="inputAll js_telR" type="text" name="" placeholder="请输入报单推荐人手机">
+                        <input class="inputAll js_nextinput js_telR" readonly="readonly" type="text" name="" placeholder="请输入报单推荐人手机">
                     </dd>
                 </dl>
                 <dl class="dt_long">
                     <dt>报单服务人手机</dt>
                     <dd>
-                        <input class="inputAll js_telS" type="text" name="" placeholder="请再次报单服务人手机">
+                        <input class="inputAll js_nextinput js_telS" readonly="readonly" type="text" name="" placeholder="请再次报单服务人手机">
                     </dd>
                 </dl>
                 <dl class="dt_long">
                     <dt>报单人银行</dt>
                     <dd>
-                        <input class="inputAll js_bank" type="text" name="" placeholder="请输入报单人银行">
+                        <input class="inputAll js_bank" data-bank="" type="text" name="" placeholder="请选择" readonly="readonly">
+                        <!-- <input class="inputAll js_nextinput js_bank" readonly="readonly" type="text" name="" placeholder="请输入报单人银行"> -->
+
                     </dd>
                 </dl>
                 <dl class="dt_long">
                     <dt>报单人卡号</dt>
                     <dd>
-                        <input class="inputAll js_card" type="text" name="" placeholder="请输入报单人卡号">
+                        <input class="inputAll js_card" readonly="readonly" type="text" name="" placeholder="请输入报单人卡号">
                     </dd>
                 </dl>
             </div>
