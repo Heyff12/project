@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vue原理</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+</head>
+
+<body class="white">
+    <div id="wap">
+
+    </div>
+    <script>
+        let obarr = [];
+        // //来copy一份数组的原型方法,防止污染原生数组方法
+        // const arrayProto = Array.prototype;
+        // const arrayMethods = Object.create(arrayProto);
+        // console.log(arrayProto);
+        // console.log(arrayMethods);
+        // //我们先把arrayMethods对象上的push转换为观察者对象
+        // Object.defineProperty(arrayMethods, 'push', {
+        //     value: function mutator() {
+        //         console.log('obarr.push会走这里');
+        //         //缓存原生方法，之后调用
+        //         const original = arrayProto['push']
+        //         let args = Array.from(arguments)
+        //         original.apply(this, args)
+        //         console.log(obarr)
+        //     }
+        // });
+        // console.log(arrayMethods);
+        // //此时arrayMethods定义了一个push的新属性，那么我们如何把它和 let obarr = [] 绑定起来呢，来看看下面的实现？
+        // obarr.__proto__ = arrayMethods;
+
+        //上面实现了push方法，其他的方法同理，我们只需要把所有需要实现的方法循环遍历执行即可，升级后代码如下：
+        const arrayProto = Array.prototype;
+        const arrayMethods = Object.create(arrayProto);
+        [
+            'push',
+            'pop',
+            'shift',
+            'unshift',
+            'splice',
+            'sort',
+            'reverse'
+        ].forEach(item => {
+            Object.defineProperty(arrayMethods, item, {
+                value: function mutator() {
+                    console.log(item + '会走这里');
+                    //缓存原生方法，之后调用
+                    const original = arrayProto[item]
+                    let args = Array.from(arguments)
+                    original.apply(this, args);
+                    console.log(obarr);
+                },
+            })
+        })
+        function protoAugment(target, src) {
+            target.__proto__ = src
+        }
+        // 调用
+        protoAugment(obarr, arrayMethods)
+        obarr.push(0);
+        obarr.push(1)
+        obarr.push(2)
+        obarr.push(3)
+        obarr.push(4)
+    </script>
+</body>
+
+</html>
