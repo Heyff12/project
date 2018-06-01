@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>异步</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <style>
+        #box {
+            /* width:100%; */
+            background: yellow;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+
+        #con {
+            background: blue;
+        }
+
+        .block {
+            width: 300px;
+            background: yellowgreen;
+            height: 120px;
+            float: left;
+            text-align: center;
+        }
+
+        .spanFloat {
+            width: 300px;
+            background: purple;
+            height: 80px;
+            float: left;
+        }
+
+        .left {
+            float: left;
+            width: 100px;
+            height: 200px;
+            background: red;
+        }
+
+        .right {
+            float: right;
+            width: 200px;
+            height: 200px;
+            background: blue;
+        }
+
+        .main {
+            margin-left: 120px;
+            margin-right: 220px;
+            height: 200px;
+            background: green;
+        }
+
+        .containerSb {
+            margin-left: 120px;
+            margin-right: 220px;
+        }
+
+        .mainSb {
+            float: left;
+            width: 100%;
+            height: 300px;
+            background: green;
+        }
+
+        .leftSb {
+            position: relative;
+            left: -120px;
+            float: left;
+            height: 300px;
+            width: 100px;
+            margin-left: -100%;
+            background: red;
+        }
+
+        .rightSb {
+            position: relative;
+            right: -220px;
+            float: right;
+            height: 300px;
+            width: 200px;
+            margin-left: -200px;
+            background: blue;
+        }
+
+
+        .contentSfy {
+            float: left;
+            width: 100%;
+        }
+        .mainSfy {
+            height: 200px;
+            margin-left: 110px;
+            margin-right: 220px;
+            background: green;
+        }
+        .mainSfy::after {
+            content: '';
+            display: block;
+            font-size:0;
+            height: 0;
+            zoom: 1;
+            clear: both;
+        }
+        .leftSfy{
+            float:left;
+            height: 200px;
+            width: 100px;
+            margin-left: -100%;
+            background: red;
+        }
+        .rightSfy {
+            float: right;
+            height: 200px;
+            width: 200px;
+            margin-left: -200px;
+            background: blue;
+        }
+
+
+    </style>
+
+</head>
+
+<body class="white">
+    <div class="container">
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="main">流体布局</div>
+    </div>
+    <div id="box">
+        <div id="con">
+            hahahahah
+        </div>
+    </div>
+    <div class="containerSb">
+        <div class="mainSb">圣杯布局</div>
+        <div class="leftSb"></div>
+        <div class="rightSb"></div>
+    </div>
+    <div class="block">block
+    </div>
+    <span class="spanFloat">spanFloat</span>
+
+
+    <div class="contentSfy">
+        <div class="mainSfy">双飞翼布局</div>
+    </div>
+    <div class="leftSfy"></div>
+    <div class="rightSfy"></div>
+
+    <ul>
+        <li>1111</li>
+        <li>2222</li>
+        <li>3333</li>
+        <li>4444</li>
+    </ul>
+    <img src="" alt="alt" title="title">
+    <script>
+        // var a=6;
+        // setTimeout(() => {
+        //     alert(a);
+        //     a=666;            
+        // }, 1000);
+        // a=66;
+        //--alert 66
+
+        var ulD = document.getElementsByTagName('ul');
+        console.log(ulD);
+        var liD = document.getElementsByTagName('li');
+        console.log(liD);
+
+        for (var a = 0; a < liD.length; a++) {
+            console.log(liD[a].innerHTML)
+        }
+
+
+        // var foo = 'hello';
+        // (function () {
+        //     var bar = 'world';
+        //     alert(foo + bar)
+        // })();
+        // alert(foo + bar);
+        // //--alert helloworld
+        // //--bar 未定义
+    </script>
+</body>
+
+</html>
